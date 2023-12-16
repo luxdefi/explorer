@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.RPC.AddressView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.RPC.AddressView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.EthRPC.View, as: EthRPCView
-  alias BlockScoutWeb.API.RPC.RPCView
+  alias ExplorerWeb.API.EthRPC.View, as: EthRPCView
+  alias ExplorerWeb.API.RPC.RPCView
 
   def render("listaccounts.json", %{accounts: accounts}) do
     accounts = Enum.map(accounts, &prepare_account/1)

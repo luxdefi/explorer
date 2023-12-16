@@ -1,4 +1,4 @@
-<% apps_menu = Application.get_env(:block_scout_web, :apps_menu) %>
+<% apps_menu = Application.get_env(:explorer_web, :apps_menu) %>
 <% other_nets = dropdown_other_nets() %>
 <% test_nets = test_nets(dropdown_nets()) %>
 <% main_nets = dropdown_head_main_nets() %>
@@ -11,8 +11,8 @@
       <%= if logo_text() do %>
         <span class="logo-text <%= unless logo(), do: "no-logo" %>"> <%= logo_text() %> </span>
       <% end %>
-      <%= if Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:enable_testnet_label] do %>
-        <%= render BlockScoutWeb.FormView, "_tag.html", text: Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:testnet_label_text], additional_classes: ["testnet-label", "ml-2"] %>
+      <%= if Application.get_env(:explorer_web, ExplorerWeb.Chain)[:enable_testnet_label] do %>
+        <%= render ExplorerWeb.FormView, "_tag.html", text: Application.get_env(:explorer_web, ExplorerWeb.Chain)[:testnet_label_text], additional_classes: ["testnet-label", "ml-2"] %>
       <% end %>
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<%= gettext("Toggle navigation") %>">
@@ -20,11 +20,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav">
-        <%= if Application.get_env(:block_scout_web, BlockScoutWeb.WebRouter)[:enabled] do %>
+        <%= if Application.get_env(:explorer_web, ExplorerWeb.WebRouter)[:enabled] do %>
           <li class="nav-item dropdown">
             <a class="nav-link topnav-nav-link dropdown-toggle" href="#" id="navbarBlocksDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_blockchain_icon.html" %>
+                <%= render ExplorerWeb.IconsView, "_blockchain_icon.html" %>
               </span>
               <%= gettext("Blockchain") %>
             </a>
@@ -79,7 +79,7 @@
           <li class="nav-item dropdown">
             <a href="#" role="button" id="navbarTokensDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_tokens_icon.html" %>
+                <%= render ExplorerWeb.IconsView, "_tokens_icon.html" %>
               </span>
               <%= gettext("Tokens") %>
             </a>
@@ -97,11 +97,11 @@
             </div>
           </li>
         <% end %>
-        <%= if Application.get_env(:block_scout_web, BlockScoutWeb.ApiRouter)[:reading_enabled] || Application.get_env(:block_scout_web, :api_url) do %>
+        <%= if Application.get_env(:explorer_web, ExplorerWeb.ApiRouter)[:reading_enabled] || Application.get_env(:explorer_web, :api_url) do %>
           <li class="nav-item dropdown">
             <a href="#" role="button" id="navbarAPIsDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_api_icon.html" %>
+                <%= render ExplorerWeb.IconsView, "_api_icon.html" %>
               </span>
               <%= gettext("APIs") %>
             </a>
@@ -128,7 +128,7 @@
           <li class="nav-item dropdown">
             <a href="#" role="button" id="navbarAppsDropdown" class="nav-link topnav-nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="nav-link-icon">
-                <%= render BlockScoutWeb.IconsView, "_apps_icon.html" %>
+                <%= render ExplorerWeb.IconsView, "_apps_icon.html" %>
               </span>
               <%= if apps_menu == true do %>
                 <%= gettext("Apps") %>
@@ -144,7 +144,7 @@
                     <% else %>
                       <a href="<%= url %>" class="dropdown-item" target="_blank"><%= title %>
                         <span class="external-link-icon">
-                          <%= render BlockScoutWeb.IconsView, "_external_link.html" %>
+                          <%= render ExplorerWeb.IconsView, "_external_link.html" %>
                         </span>
                       </a>
                     <% end %>
@@ -156,7 +156,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link topnav-nav-link active-icon <%= if dropdown_nets() != [], do: "dropdown-toggle" %>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="nav-link-icon">
-              <%= render BlockScoutWeb.IconsView, "_active_icon.html" %>
+              <%= render ExplorerWeb.IconsView, "_active_icon.html" %>
             </span>
             <%= subnetwork_title() %>
           </a>
@@ -182,17 +182,17 @@
           </div>
         </li>
         <!-- Dark mode changer -->
-        <%= unless Application.get_env(:block_scout_web, :permanent_light_mode_enabled) || Application.get_env(:block_scout_web, :permanent_dark_mode_enabled) do %>
+        <%= unless Application.get_env(:explorer_web, :permanent_light_mode_enabled) || Application.get_env(:explorer_web, :permanent_dark_mode_enabled) do %>
           <button class="dark-mode-changer" id="dark-mode-changer">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16">
               <path fill="#9B62FF" fill-rule="evenodd" d="M14.88 11.578a.544.544 0 0 0-.599-.166 5.7 5.7 0 0 1-1.924.321c-3.259 0-5.91-2.632-5.91-5.866 0-1.947.968-3.759 2.59-4.849a.534.534 0 0 0-.225-.97A5.289 5.289 0 0 0 8.059 0C3.615 0 0 3.588 0 8s3.615 8 8.059 8c2.82 0 5.386-1.423 6.862-3.806a.533.533 0 0 0-.041-.616z"/>
             </svg>
           </button>
         <% end %>
-        <%= render BlockScoutWeb.LayoutView, "_account_menu_item.html", conn: @conn, current_user: @current_user %>
+        <%= render ExplorerWeb.LayoutView, "_account_menu_item.html", conn: @conn, current_user: @current_user %>
       </ul>
-      <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
+      <%= render ExplorerWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete", additional_classes: ["mobile-search-hide"] %>
     </div>
   </div>
-  <%= render BlockScoutWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
+  <%= render ExplorerWeb.LayoutView, "_search.html", conn: @conn, id: "main-search-autocomplete-mobile", additional_classes: ["mobile-search-show"] %>
 </nav>

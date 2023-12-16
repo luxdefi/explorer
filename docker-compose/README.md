@@ -1,6 +1,6 @@
 # Docker-compose configuration
 
-Runs Blockscout locally in Docker containers with [docker-compose](https://github.com/docker/compose).
+Runs Explorer locally in Docker containers with [docker-compose](https://github.com/docker/compose).
 
 ## Prerequisites
 
@@ -21,15 +21,15 @@ This command uses `docker-compose.yml` by-default, which builds the backend of t
 
 - Postgres 14.x database, which will be available at port 7432 on the host machine.
 - Redis database of the latest version.
-- Blockscout backend with api at /api path.
+- Explorer backend with api at /api path.
 - Nginx proxy to bind backend, frontend and microservices.
-- Blockscout explorer at http://localhost.
+- Explorer explorer at http://localhost.
 
 and 4 containers for microservices (written in Rust):
 
-- [Stats](https://github.com/blockscout/blockscout-rs/tree/main/stats) service with a separate Postgres 14 DB.
-- [Sol2UML visualizer](https://github.com/blockscout/blockscout-rs/tree/main/visualizer) service.
-- [Sig-provider](https://github.com/blockscout/blockscout-rs/tree/main/sig-provider) service.
+- [Stats](https://github.com/lux/lux-rs/tree/main/stats) service with a separate Postgres 14 DB.
+- [Sol2UML visualizer](https://github.com/lux/lux-rs/tree/main/visualizer) service.
+- [Sig-provider](https://github.com/lux/lux-rs/tree/main/sig-provider) service.
 
 **Note for Linux users**: Linux users need to run the local node on http://0.0.0.0/ rather than http://127.0.0.1/
 
@@ -57,17 +57,17 @@ All of the configs assume the Ethereum JSON RPC is running at http://localhost:8
 
 In order to stop launched containers, run `docker-compose -d -f config_file.yml down`, replacing `config_file.yml` with the file name of the config which was previously launched.
 
-You can adjust BlockScout environment variables:
+You can adjust Explorer environment variables:
 
-- for backend in `./envs/common-blockscout.env`
+- for backend in `./envs/common-lux.env`
 - for frontend in `./envs/common-frontend.env`
 - for stats service in `./envs/common-stats.env`
 - for visualizer in `./envs/common-visualizer.env`
 
 Descriptions of the ENVs are available
 
-- for [backend](https://docs.blockscout.com/for-developers/information-and-settings/env-variables)
-- for [frontend](https://github.com/blockscout/frontend/blob/main/docs/ENVS.md).
+- for [backend](https://docs.lux.com/for-developers/information-and-settings/env-variables)
+- for [frontend](https://github.com/lux/frontend/blob/main/docs/ENVS.md).
 
 ## Running Docker containers via Makefile
 

@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressCoinBalanceViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressCoinBalanceViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.AddressCoinBalanceView
+  alias ExplorerWeb.AddressCoinBalanceView
   alias Explorer.Chain.Wei
 
   describe "format/1" do

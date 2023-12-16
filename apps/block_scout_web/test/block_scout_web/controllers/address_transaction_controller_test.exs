@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.AddressTransactionControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressTransactionControllerTest do
+  use ExplorerWeb.ConnCase, async: true
   use ExUnit.Case, async: false
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [address_transaction_path: 3, address_transaction_path: 4]
+  import ExplorerWeb.WebRouter.Helpers, only: [address_transaction_path: 3, address_transaction_path: 4]
   import Mox
 
   alias Explorer.Chain.{Address, Transaction}
@@ -72,7 +72,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
     test "includes USD exchange rate value for address in assigns", %{conn: conn} do
       address = insert(:address)
 
-      conn = get(conn, address_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)))
+      conn = get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)))
 
       assert %Token{} = conn.assigns.exchange_rate
     end
@@ -92,7 +92,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
         |> with_block()
 
       conn =
-        get(conn, address_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), %{
+        get(conn, address_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), %{
           "block_number" => Integer.to_string(block_number),
           "index" => Integer.to_string(index),
           "type" => "JSON"
@@ -186,7 +186,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
     end
 
     test "do not export token transfers to csv without recaptcha passed", %{conn: conn} do
-      BlockScoutWeb.TestCaptchaHelper
+      ExplorerWeb.TestCaptchaHelper
       |> expect(:recaptcha_passed?, fn _captcha_response -> false end)
 
       address = insert(:address)
@@ -214,8 +214,8 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
     end
 
     test "exports token transfers to csv without recaptcha if recaptcha is disabled", %{conn: conn} do
-      init_config = Application.get_env(:block_scout_web, :recaptcha)
-      Application.put_env(:block_scout_web, :recaptcha, is_disabled: true)
+      init_config = Application.get_env(:explorer_web, :recaptcha)
+      Application.put_env(:explorer_web, :recaptcha, is_disabled: true)
 
       address = insert(:address)
 
@@ -239,11 +239,11 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
 
       assert conn.resp_body |> String.split("\n") |> Enum.count() == 4
 
-      Application.put_env(:block_scout_web, :recaptcha, init_config)
+      Application.put_env(:explorer_web, :recaptcha, init_config)
     end
 
     test "exports token transfers to csv", %{conn: conn} do
-      BlockScoutWeb.TestCaptchaHelper
+      ExplorerWeb.TestCaptchaHelper
       |> expect(:recaptcha_passed?, fn _captcha_response -> true end)
 
       address = insert(:address)
@@ -273,7 +273,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
 
   describe "GET transactions_csv/2" do
     test "download csv file with transactions", %{conn: conn} do
-      BlockScoutWeb.TestCaptchaHelper
+      ExplorerWeb.TestCaptchaHelper
       |> expect(:recaptcha_passed?, fn _captcha_response -> true end)
 
       address = insert(:address)
@@ -303,7 +303,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
 
   describe "GET internal_transactions_csv/2" do
     test "download csv file with internal transactions", %{conn: conn} do
-      BlockScoutWeb.TestCaptchaHelper
+      ExplorerWeb.TestCaptchaHelper
       |> expect(:recaptcha_passed?, fn _captcha_response -> true end)
 
       address = insert(:address)
@@ -370,7 +370,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
 
   describe "GET logs_csv/2" do
     test "download csv file with logs", %{conn: conn} do
-      BlockScoutWeb.TestCaptchaHelper
+      ExplorerWeb.TestCaptchaHelper
       |> expect(:recaptcha_passed?, fn _captcha_response -> true end)
 
       address = insert(:address)

@@ -2,11 +2,11 @@
   verbose: false,
   private: true,
   skip: true,
-  router: "lib/block_scout_web/router.ex",
+  router: "lib/explorer_web/router.ex",
   exit: "low",
   format: "compact",
   ignore: ["Config.Headers", "Config.CSWH", "XSS.SendResp", "XSS.Raw"],
   ignore_files: [
-    "apps/block_scout_web/lib/block_scout_web/smart_contracts_api_v2_router.ex"
+    "apps/explorer_web/lib/explorer_web/smart_contracts_api_v2_router.ex"
   ]
 ]

@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Plug.CheckAccountAPI do
+defmodule ExplorerWeb.Plug.CheckAccountAPI do
   @moduledoc """
     Checks if the Account functionality enabled for API level.
   """

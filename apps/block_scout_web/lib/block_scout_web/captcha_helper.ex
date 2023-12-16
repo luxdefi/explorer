@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.CaptchaHelper do
+defmodule ExplorerWeb.CaptchaHelper do
   @moduledoc """
   A helper for CAPTCHA
   """
@@ -8,8 +8,8 @@ defmodule BlockScoutWeb.CaptchaHelper do
   def recaptcha_passed?(nil), do: false
 
   def recaptcha_passed?(recaptcha_response) do
-    re_captcha_v2_secret_key = Application.get_env(:block_scout_web, :recaptcha)[:v2_secret_key]
-    re_captcha_v3_secret_key = Application.get_env(:block_scout_web, :recaptcha)[:v3_secret_key]
+    re_captcha_v2_secret_key = Application.get_env(:explorer_web, :recaptcha)[:v2_secret_key]
+    re_captcha_v3_secret_key = Application.get_env(:explorer_web, :recaptcha)[:v3_secret_key]
     re_captcha_secret_key = re_captcha_v2_secret_key || re_captcha_v3_secret_key
     body = "secret=#{re_captcha_secret_key}&response=#{recaptcha_response}"
 

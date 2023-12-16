@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Prometheus.Instrumenter do
+defmodule ExplorerWeb.Prometheus.Instrumenter do
   @moduledoc """
   Phoenix request metrics for `Prometheus`.
   """

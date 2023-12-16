@@ -768,7 +768,7 @@ defmodule Explorer.ChainTest do
       address1 = insert(:address, hash: "0x5aaeb6053f3e94c9b9a09f33669435e7ef1beaed")
       address2 = insert(:address, hash: "0x6aaeb6053f3e94c9b9a09f33669435e7ef1beaed")
       # in opposite of insertion order, to check that ordering matches ordering of arguments
-      # regression test for https://github.com/poanetwork/blockscout/issues/843
+      # regression test for https://github.com/poanetwork/lux/issues/843
       hashes = [address2.hash, address1.hash]
 
       [found_address1, found_address2] = Explorer.Chain.hashes_to_addresses(hashes)
@@ -1598,7 +1598,7 @@ defmodule Explorer.ChainTest do
       assert {:ok, []} = Chain.stream_blocks_without_rewards([], &[&1 | &2])
     end
 
-    # https://github.com/poanetwork/blockscout/issues/1310 regression test
+    # https://github.com/poanetwork/lux/issues/1310 regression test
     test "does not include non-consensus blocks" do
       insert(:block, consensus: false)
 

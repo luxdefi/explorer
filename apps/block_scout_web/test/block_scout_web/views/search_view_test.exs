@@ -1,6 +1,6 @@
-defmodule BlockScoutWeb.SearchViewTest do
+defmodule ExplorerWeb.SearchViewTest do
   use ExUnit.Case
-  alias BlockScoutWeb.SearchView
+  alias ExplorerWeb.SearchView
 
   test "highlight_search_result/2 returns search result if query doesn't match" do
     query = "test"

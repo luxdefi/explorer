@@ -81,7 +81,7 @@ defmodule Indexer.PendingTransactionsSanitizer do
           fetch_block_and_invalidate_wrapper(pending_tx, pending_tx_hash_str, result)
         else
           Logger.debug(
-            "Transaction with hash #{pending_tx_hash_str} doesn't exist in the node anymore. We should remove it from Blockscout DB.",
+            "Transaction with hash #{pending_tx_hash_str} doesn't exist in the node anymore. We should remove it from Explorer DB.",
             fetcher: :pending_transactions_to_refetch
           )
 
@@ -121,14 +121,14 @@ defmodule Indexer.PendingTransactionsSanitizer do
          |> Repo.delete() do
       {:ok, _transaction} ->
         Logger.debug(
-          "Transaction with hash #{pending_tx_hash_str} successfully deleted from Blockscout DB because it doesn't exist in the archive node anymore",
+          "Transaction with hash #{pending_tx_hash_str} successfully deleted from Explorer DB because it doesn't exist in the archive node anymore",
           fetcher: :pending_transactions_to_refetch
         )
 
       {:error, changeset} ->
         Logger.debug(
           [
-            "Deletion of pending transaction with hash #{pending_tx_hash_str} from Blockscout DB failed",
+            "Deletion of pending transaction with hash #{pending_tx_hash_str} from Explorer DB failed",
             inspect(changeset)
           ],
           fetcher: :pending_transactions_to_refetch

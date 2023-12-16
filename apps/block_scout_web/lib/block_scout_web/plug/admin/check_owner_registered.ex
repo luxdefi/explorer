@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Plug.Admin.CheckOwnerRegistered do
+defmodule ExplorerWeb.Plug.Admin.CheckOwnerRegistered do
   @moduledoc """
   Checks that an admin owner has registered.
 
@@ -9,7 +9,7 @@ defmodule BlockScoutWeb.Plug.Admin.CheckOwnerRegistered do
   import Phoenix.Controller, only: [redirect: 2]
   import Plug.Conn
 
-  alias BlockScoutWeb.AdminRouter.Helpers, as: AdminRoutes
+  alias ExplorerWeb.AdminRouter.Helpers, as: AdminRoutes
   alias Explorer.Admin
   alias Plug.Conn
 

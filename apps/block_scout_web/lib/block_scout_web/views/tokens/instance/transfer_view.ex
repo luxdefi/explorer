@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tokens.Instance.TransferView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.Instance.TransferView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Tokens.Instance.OverviewView
+  alias ExplorerWeb.Tokens.Instance.OverviewView
 end

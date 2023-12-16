@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.LogsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.RPC.LogsController do
+  use ExplorerWeb, :controller
 
   alias Explorer.{Chain, Etherscan}
 

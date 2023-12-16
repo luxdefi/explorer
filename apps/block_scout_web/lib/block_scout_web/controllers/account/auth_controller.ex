@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Account.AuthController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.AuthController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Account
   alias Explorer.Repo.ConfigHelper
   alias Plug.CSRFProtection
@@ -38,11 +38,11 @@ defmodule BlockScoutWeb.Account.AuthController do
       {:ok, %{email_verified: false} = user} ->
         conn
         |> put_session(:current_user, user)
-        |> put_resp_cookie(Application.get_env(:block_scout_web, :invalid_session_key), user,
-          max_age: Application.get_env(:block_scout_web, :session_cookie_ttl),
+        |> put_resp_cookie(Application.get_env(:explorer_web, :invalid_session_key), user,
+          max_age: Application.get_env(:explorer_web, :session_cookie_ttl),
           sign: true,
           same_site: "Lax",
-          domain: Application.get_env(:block_scout_web, :cookie_domain)
+          domain: Application.get_env(:explorer_web, :cookie_domain)
         )
         |> redirect(to: root())
 
@@ -51,7 +51,7 @@ defmodule BlockScoutWeb.Account.AuthController do
 
         conn
         |> put_session(:current_user, user)
-        |> delete_resp_cookie(Application.get_env(:block_scout_web, :invalid_session_key))
+        |> delete_resp_cookie(Application.get_env(:explorer_web, :invalid_session_key))
         |> redirect(to: redirect_path(params["path"]))
 
       {:error, reason} ->

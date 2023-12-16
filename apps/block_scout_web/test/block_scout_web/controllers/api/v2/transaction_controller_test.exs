@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.API.V2.TransactionControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.TransactionControllerTest do
+  use ExplorerWeb.ConnCase
 
   import Explorer.Chain, only: [hash_to_lower_case_string: 1]
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Account.WatchlistAddress
   alias Explorer.Chain.{Address, InternalTransaction, Log, Token, TokenTransfer, Transaction}
   alias Explorer.Repo

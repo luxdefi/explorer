@@ -1,7 +1,7 @@
 <h2 class="card-title"><%= gettext "Raw Trace" %>
   <%= if Enum.count(@internal_transactions) > 0 do %>
     <% raw_trace_text = for {line, _} <- raw_traces_with_lines(@internal_transactions), do: line %>
-    <%= render BlockScoutWeb.CommonComponentsView, "_btn_copy.html",
+    <%= render ExplorerWeb.CommonComponentsView, "_btn_copy.html",
       id: "tx-raw-trace-input",
       additional_classes: ["tx-raw-input", "transaction-input"],
       clipboard_text: raw_trace_text,

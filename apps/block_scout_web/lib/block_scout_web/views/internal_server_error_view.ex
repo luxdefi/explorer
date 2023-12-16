@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.InternalServerErrorView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.InternalServerErrorView do
+  use ExplorerWeb, :view
 
   @dialyzer :no_match
 end

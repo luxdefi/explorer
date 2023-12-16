@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.Tokens.InventoryView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.InventoryView do
+  use ExplorerWeb, :view
 
-  import BlockScoutWeb.Tokens.Instance.OverviewView, only: [media_src: 1, media_type: 1]
+  import ExplorerWeb.Tokens.Instance.OverviewView, only: [media_src: 1, media_type: 1]
 
-  alias BlockScoutWeb.Tokens.OverviewView
+  alias ExplorerWeb.Tokens.OverviewView
   alias Explorer.Chain
 end

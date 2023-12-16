@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.Chain.TransactionHistoryChartControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Chain.TransactionHistoryChartControllerTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.Chain.TransactionHistoryChartController
+  alias ExplorerWeb.Chain.TransactionHistoryChartController
   alias Explorer.Chain.Transaction.History.TransactionStats
   alias Explorer.Repo
 
   describe "GET show/2" do
     test "returns error when not an ajax request" do
-      path = transaction_history_chart_path(BlockScoutWeb.Endpoint, :show)
+      path = transaction_history_chart_path(ExplorerWeb.Endpoint, :show)
 
       conn = get(build_conn(), path)
 
@@ -15,7 +15,7 @@ defmodule BlockScoutWeb.Chain.TransactionHistoryChartControllerTest do
     end
 
     test "returns ok when request is ajax" do
-      path = transaction_history_chart_path(BlockScoutWeb.Endpoint, :show)
+      path = transaction_history_chart_path(ExplorerWeb.Endpoint, :show)
 
       conn =
         build_conn()

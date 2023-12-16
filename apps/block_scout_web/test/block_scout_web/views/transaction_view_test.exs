@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.TransactionViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.TransactionViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
   alias Explorer.Chain.Wei
   alias Explorer.Repo
-  alias BlockScoutWeb.{BlockView, TransactionView}
+  alias ExplorerWeb.{BlockView, TransactionView}
 
   describe "block_number/1" do
     test "returns pending text for pending transaction" do

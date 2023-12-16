@@ -34,7 +34,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: blockscout/blockscout
+          images: luxdefi/explorer
 
       - name: Build & Push Docker image
         uses: docker/build-push-action@v5
@@ -42,9 +42,9 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          cache-from: type=registry,ref=blockscout/blockscout:buildcache
-          cache-to: type=registry,ref=blockscout/blockscout:buildcache,mode=max
-          tags: blockscout/blockscout:latest, blockscout/blockscout:${{ env.RELEASE_VERSION }}-alpha.${{ inputs.number }}
+          cache-from: type=registry,ref=luxdefi/explorer:buildcache
+          cache-to: type=registry,ref=luxdefi/explorer:buildcache,mode=max
+          tags: luxdefi/explorer:latest, luxdefi/explorer:${{ env.RELEASE_VERSION }}-alpha.${{ inputs.number }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -61,5 +61,5 @@ jobs:
             AMPLITUDE_URL=
             AMPLITUDE_API_KEY=
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}

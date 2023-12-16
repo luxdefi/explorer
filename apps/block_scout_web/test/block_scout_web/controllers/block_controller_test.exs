@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.BlockControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.BlockControllerTest do
+  use ExplorerWeb.ConnCase
   alias Explorer.Chain.Block
 
   setup do

@@ -1,15 +1,15 @@
-defmodule BlockScoutWeb.Mixfile do
+defmodule ExplorerWeb.Mixfile do
   use Mix.Project
 
   def project do
     [
       aliases: aliases(),
-      app: :block_scout_web,
+      app: :explorer_web,
       build_path: "../../_build",
       config_path: "../../config/config.exs",
       deps: deps(),
       deps_path: "../../deps",
-      description: "Web interface for BlockScout.",
+      description: "Web interface for Explorer.",
       dialyzer: [
         plt_add_deps: :transitive,
         ignore_warnings: "../../.dialyzer-ignore"
@@ -33,13 +33,13 @@ defmodule BlockScoutWeb.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {BlockScoutWeb.Application, []},
+      mod: {ExplorerWeb.Application, []},
       extra_applications: extra_applications()
     ]
   end
 
   # Specifies which paths to compile per environment.
-  defp elixirc_paths(:test), do: ["test/support", "test/block_scout_web/features/pages"] ++ elixirc_paths()
+  defp elixirc_paths(:test), do: ["test/support", "test/explorer_web/features/pages"] ++ elixirc_paths()
   defp elixirc_paths(_), do: elixirc_paths()
   defp elixirc_paths, do: ["lib"]
 
@@ -60,7 +60,7 @@ defmodule BlockScoutWeb.Mixfile do
       # Integrates Absinthe subscriptions with Phoenix
       {:absinthe_phoenix, "~> 2.0.0"},
       # Plug support for Absinthe
-      {:absinthe_plug, git: "https://github.com/blockscout/absinthe_plug.git", tag: "1.5.3", override: true},
+      {:absinthe_plug, git: "https://github.com/lux/absinthe_plug.git", tag: "1.5.3", override: true},
       # Absinthe support for the Relay framework
       {:absinthe_relay, "~> 1.5"},
       {:bypass, "~> 2.1", only: :test},
@@ -128,7 +128,7 @@ defmodule BlockScoutWeb.Mixfile do
       {:timex, "~> 3.7.1"},
       {:wallaby, "~> 0.30", only: :test, runtime: false},
       # `:cowboy` `~> 2.0` and Phoenix 1.4 compatibility
-      {:websocket_client, git: "https://github.com/blockscout/websocket_client.git", branch: "master", override: true},
+      {:websocket_client, git: "https://github.com/lux/websocket_client.git", branch: "master", override: true},
       {:ex_json_schema, "~> 0.10.1"},
       {:ueberauth, "~> 0.7"},
       {:ueberauth_auth0, "~> 2.0"},
@@ -160,9 +160,9 @@ defmodule BlockScoutWeb.Mixfile do
 
   defp package do
     [
-      maintainers: ["Blockscout"],
+      maintainers: ["Explorer"],
       licenses: ["GPL 3.0"],
-      links: %{"GitHub" => "https://github.com/blockscout/blockscout"}
+      links: %{"GitHub" => "https://github.com/lux/lux"}
     ]
   end
 end

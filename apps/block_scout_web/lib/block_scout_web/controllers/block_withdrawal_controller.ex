@@ -1,12 +1,12 @@
-defmodule BlockScoutWeb.BlockWithdrawalController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.BlockWithdrawalController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
 
-  import BlockScoutWeb.BlockTransactionController, only: [param_block_hash_or_number_to_block: 2, block_above_tip: 1]
+  import ExplorerWeb.BlockTransactionController, only: [param_block_hash_or_number_to_block: 2, block_above_tip: 1]
 
-  alias BlockScoutWeb.{BlockTransactionView, BlockWithdrawalView, Controller}
+  alias ExplorerWeb.{BlockTransactionView, BlockWithdrawalView, Controller}
   alias Explorer.Chain
   alias Phoenix.View
 

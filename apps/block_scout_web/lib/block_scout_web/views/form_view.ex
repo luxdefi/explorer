@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.FormView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.FormView do
+  use ExplorerWeb, :view
 
   alias Phoenix.HTML.Form
 

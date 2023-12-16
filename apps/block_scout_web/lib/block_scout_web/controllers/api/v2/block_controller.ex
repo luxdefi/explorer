@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.BlockController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.BlockController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       next_page_params: 3,
       paging_options: 1,
@@ -10,9 +10,9 @@ defmodule BlockScoutWeb.API.V2.BlockController do
       parse_block_hash_or_number_param: 1
     ]
 
-  import BlockScoutWeb.PagingHelper, only: [delete_parameters_from_next_page_params: 1, select_block_type: 1]
+  import ExplorerWeb.PagingHelper, only: [delete_parameters_from_next_page_params: 1, select_block_type: 1]
 
-  alias BlockScoutWeb.API.V2.{TransactionView, WithdrawalView}
+  alias ExplorerWeb.API.V2.{TransactionView, WithdrawalView}
   alias Explorer.Chain
 
   @transaction_necessity_by_association [
@@ -41,7 +41,7 @@ defmodule BlockScoutWeb.API.V2.BlockController do
     api?: true
   ]
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   def block(conn, %{"block_hash_or_number" => block_hash_or_number}) do
     with {:ok, type, value} <- parse_block_hash_or_number_param(block_hash_or_number),

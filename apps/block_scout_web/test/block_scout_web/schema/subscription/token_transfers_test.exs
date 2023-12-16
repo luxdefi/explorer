@@ -1,20 +1,20 @@
-defmodule BlockScoutWeb.Schema.Subscription.TokenTransfersTest do
-  use BlockScoutWeb.SubscriptionCase
+defmodule ExplorerWeb.Schema.Subscription.TokenTransfersTest do
+  use ExplorerWeb.SubscriptionCase
   import Mox
 
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
 
   describe "token_transfers field" do
     setup :set_mox_global
 
     setup do
-      configuration = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)
-      Application.put_env(:block_scout_web, BlockScoutWeb.Endpoint, pubsub_server: BlockScoutWeb.PubSub)
+      configuration = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)
+      Application.put_env(:explorer_web, ExplorerWeb.Endpoint, pubsub_server: ExplorerWeb.PubSub)
 
       :ok
 
       on_exit(fn ->
-        Application.put_env(:block_scout_web, BlockScoutWeb.Endpoint, configuration)
+        Application.put_env(:explorer_web, ExplorerWeb.Endpoint, configuration)
       end)
     end
 

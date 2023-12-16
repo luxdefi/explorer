@@ -19,7 +19,7 @@ config :ethereum_jsonrpc, EthereumJSONRPC.RequestCoordinator,
 config :ethereum_jsonrpc, EthereumJSONRPC.Tracer,
   service: :ethereum_jsonrpc,
   adapter: SpandexDatadog.Adapter,
-  trace_key: :blockscout
+  trace_key: :lux
 
 config :logger, :ethereum_jsonrpc,
   # keep synced with `config/config.exs`

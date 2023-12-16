@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressTokenBalanceViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressTokenBalanceViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.AddressTokenBalanceView
+  alias ExplorerWeb.AddressTokenBalanceView
   alias Explorer.Chain
 
   describe "tokens_count_title/1" do

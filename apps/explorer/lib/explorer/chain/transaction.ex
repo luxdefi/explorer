@@ -300,7 +300,7 @@ defmodule Explorer.Chain.Transaction do
 
     # A transient field for deriving old block hash during transaction upserts.
     # Used to force refetch of a block in case a transaction is re-collated
-    # in a different block. See: https://github.com/blockscout/blockscout/issues/1911
+    # in a different block. See: https://github.com/lux/lux/issues/1911
     field(:old_block_hash, Hash.Full)
 
     timestamps()
@@ -1240,7 +1240,7 @@ defmodule Explorer.Chain.Transaction do
   def address_to_transactions_with_rewards(address_hash, options \\ []) when is_list(options) do
     paging_options = Keyword.get(options, :paging_options, Chain.default_paging_options())
 
-    case Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:has_emission_funds] &&
+    case Application.get_env(:explorer_web, ExplorerWeb.Chain)[:has_emission_funds] &&
            Keyword.get(options, :direction) != :from &&
            Reward.address_has_rewards?(address_hash) &&
            Reward.get_validator_payout_key_by_mining_from_db(address_hash, options) do

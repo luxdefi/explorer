@@ -1,14 +1,14 @@
-defmodule BlockScoutWeb.Tokens.OverviewView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.OverviewView do
+  use ExplorerWeb, :view
 
   alias Explorer.{Chain, CustomContractsHelper}
   alias Explorer.Chain.{Address, SmartContract, Token}
   alias Explorer.Chain.SmartContract.Proxy
   alias Explorer.SmartContract.{Helper, Writer}
 
-  alias BlockScoutWeb.{AccessHelper, CurrencyHelper, LayoutView}
+  alias ExplorerWeb.{AccessHelper, CurrencyHelper, LayoutView}
 
-  import BlockScoutWeb.AddressView, only: [from_address_hash: 1, contract_interaction_disabled?: 0]
+  import ExplorerWeb.AddressView, only: [from_address_hash: 1, contract_interaction_disabled?: 0]
 
   @tabs ["token-transfers", "token-holders", "read-contract", "inventory"]
 

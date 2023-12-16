@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.NFTHelper do
+defmodule ExplorerWeb.NFTHelper do
   @moduledoc """
     Module with functions for NFT view
   """

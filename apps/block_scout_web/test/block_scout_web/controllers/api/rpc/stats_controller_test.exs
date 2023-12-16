@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.StatsControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.RPC.StatsControllerTest do
+  use ExplorerWeb.ConnCase
 
   import Mox
 

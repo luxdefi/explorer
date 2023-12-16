@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Schema.Query.AddressesTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Schema.Query.AddressesTest do
+  use ExplorerWeb.ConnCase
 
   describe "addresses field" do
     test "with valid argument 'hashes', returns all expected fields", %{conn: conn} do

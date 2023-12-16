@@ -21,14 +21,14 @@
       <% else %>
         <p class="alert alert-warning" role="alert" style="margin-bottom: 0"><%= gettext("Please confirm your email address to use the My Account feature.") %></p>
       <% end %>
-      <a href="<%= BlockScoutWeb.LayoutView.sign_out_link %>" class= "sign-out-button dropdown-item"><%= gettext "Sign out" %></a>
+      <a href="<%= ExplorerWeb.LayoutView.sign_out_link %>" class= "sign-out-button dropdown-item"><%= gettext "Sign out" %></a>
     </div>
     </li>
   <% else %>
     <li>
-    <a class="sign-in-button nav-link topnav-nav-link" href="<%= BlockScoutWeb.LayoutView.sign_in_link %>" id="navbarBlocksDropdown" role="button" aria-haspopup="true">
+    <a class="sign-in-button nav-link topnav-nav-link" href="<%= ExplorerWeb.LayoutView.sign_in_link %>" id="navbarBlocksDropdown" role="button" aria-haspopup="true">
       <span class="nav-link-icon">
-      <%= render BlockScoutWeb.IconsView, "_accounts_icon.html" %>
+      <%= render ExplorerWeb.IconsView, "_accounts_icon.html" %>
       </span>
       <%= gettext "Sign in" %>
     </a>

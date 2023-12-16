@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.API.RPC.AddressControllerTest do
-  use BlockScoutWeb.ConnCase, async: false
+defmodule ExplorerWeb.API.RPC.AddressControllerTest do
+  use ExplorerWeb.ConnCase, async: false
 
   import Mox
 
-  alias BlockScoutWeb.API.RPC.AddressController
+  alias ExplorerWeb.API.RPC.AddressController
   alias Explorer.Chain
   alias Explorer.Chain.{Events.Subscriber, Transaction, Wei}
   alias Explorer.Counters.{AddressesCounter, AverageBlockTime}

@@ -1,6 +1,6 @@
 defmodule Explorer.Chain.CurrencyHelper do
   @moduledoc """
-  Helper functions for interacting with `t:BlockScoutWeb.ExchangeRates.USD.t/0` values.
+  Helper functions for interacting with `t:ExplorerWeb.ExchangeRates.USD.t/0` values.
   """
 
   @spec divide_decimals(Decimal.t(), Decimal.t()) :: Decimal.t()

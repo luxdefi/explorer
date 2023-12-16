@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.RecentTransactionsControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.RecentTransactionsControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [recent_transactions_path: 2]
+  import ExplorerWeb.WebRouter.Helpers, only: [recent_transactions_path: 2]
 
   alias Explorer.Chain.Hash
 

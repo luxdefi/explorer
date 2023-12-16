@@ -1,6 +1,6 @@
 defmodule Explorer.Chain.Fetcher.CheckBytecodeMatchingOnDemand do
   @moduledoc """
-    On demand checker if bytecode written in BlockScout's DB equals to bytecode stored on node (only for verified contracts)
+    On demand checker if bytecode written in Explorer's DB equals to bytecode stored on node (only for verified contracts)
   """
 
   use GenServer

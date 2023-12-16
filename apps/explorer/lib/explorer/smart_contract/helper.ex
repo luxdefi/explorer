@@ -159,7 +159,7 @@ defmodule Explorer.SmartContract.Helper do
     metadata = %{
       "contractAddress" => to_string(address_hash),
       "runtimeCode" => to_string(deployed_bytecode),
-      "chainId" => Application.get_env(:block_scout_web, :chain_id)
+      "chainId" => Application.get_env(:explorer_web, :chain_id)
     }
 
     case SmartContract.creation_tx_with_bytecode(address_hash) do

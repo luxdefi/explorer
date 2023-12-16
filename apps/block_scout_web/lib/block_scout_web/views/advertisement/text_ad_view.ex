@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.Advertisement.TextAdView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Advertisement.TextAdView do
+  use ExplorerWeb, :view
 end

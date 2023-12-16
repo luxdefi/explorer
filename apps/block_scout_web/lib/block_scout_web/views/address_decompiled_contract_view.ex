@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressDecompiledContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressDecompiledContractView do
+  use ExplorerWeb, :view
 
   @colors %{
     "\e[95m" => "",

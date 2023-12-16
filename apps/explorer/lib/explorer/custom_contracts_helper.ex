@@ -17,6 +17,6 @@ defmodule Explorer.CustomContractsHelper do
   end
 
   def get_raw_custom_addresses_list(env_var) do
-    Application.get_env(:block_scout_web, env_var)
+    Application.get_env(:explorer_web, env_var)
   end
 end

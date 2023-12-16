@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Admin.SetupControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Admin.SetupControllerTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.Admin.SetupController
+  alias ExplorerWeb.Admin.SetupController
   alias Explorer.Admin
 
   setup %{conn: conn} do
@@ -96,7 +96,7 @@ defmodule BlockScoutWeb.Admin.SetupControllerTest do
         state: state,
         registration: %{
           username: "admin_user",
-          email: "admin_user@blockscout",
+          email: "admin_user@lux",
           password: "testpassword",
           password_confirmation: "testpassword"
         }

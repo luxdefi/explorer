@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.APIDocsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.APIDocsController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Etherscan
+  alias ExplorerWeb.Etherscan
   alias Explorer.EthRPC
 
   def index(conn, _params) do

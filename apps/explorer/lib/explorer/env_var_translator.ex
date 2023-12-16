@@ -7,7 +7,7 @@ defmodule Explorer.EnvVarTranslator do
 
   @spec map_array_env_var_to_list(atom()) :: list()
   def map_array_env_var_to_list(config_name) do
-    env_var = Application.get_env(:block_scout_web, config_name)
+    env_var = Application.get_env(:explorer_web, config_name)
 
     if env_var do
       try do

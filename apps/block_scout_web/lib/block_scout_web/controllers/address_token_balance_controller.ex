@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressTokenBalanceController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressTokenBalanceController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AccessHelper
+  alias ExplorerWeb.AccessHelper
   alias Explorer.Chain
   alias Explorer.Chain.Address
   alias Indexer.Fetcher.TokenBalanceOnDemand

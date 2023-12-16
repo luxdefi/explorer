@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.TransactionChannelTest do
-  use BlockScoutWeb.ChannelCase
+defmodule ExplorerWeb.TransactionChannelTest do
+  use ExplorerWeb.ChannelCase
 
   alias Explorer.Chain.Hash
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
 
   test "subscribed user is notified of new_transaction topic" do
     topic = "transactions:new_transaction"

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V2.BlockControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.BlockControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain.{Address, Block, Transaction, Withdrawal}
 

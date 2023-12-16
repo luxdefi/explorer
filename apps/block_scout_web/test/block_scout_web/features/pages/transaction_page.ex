@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.TransactionPage do
+defmodule ExplorerWeb.TransactionPage do
   @moduledoc false
 
   use Wallaby.DSL

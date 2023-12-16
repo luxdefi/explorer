@@ -68,7 +68,7 @@
         <%= cond do %>
           <% Enum.member?(dark_forest_addresses_list, current_address) -> %>
             <i class="check_dark_forest_icon">
-              <%= render BlockScoutWeb.IconsView, "_check_dark_forest_icon.html" %>
+              <%= render ExplorerWeb.IconsView, "_check_dark_forest_icon.html" %>
             </i>
           <% true -> %>
             <i class="fa-regular fa-check-circle"></i>

@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.Advertisement.BannersAdView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Advertisement.BannersAdView do
+  use ExplorerWeb, :view
 end

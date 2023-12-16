@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.RenderHelperTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.RenderHelperTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.{BlockView, RenderHelper}
+  alias ExplorerWeb.{BlockView, RenderHelper}
 
   describe "render_partial/1" do
     test "renders text" do

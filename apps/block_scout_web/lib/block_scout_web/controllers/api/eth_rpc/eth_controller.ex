@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.EthRPC.EthController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.EthRPC.EthController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.API.EthRPC.View, as: EthRPCView
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.API.EthRPC.View, as: EthRPCView
   alias Explorer.EthRPC
 
   def eth_request(%{body_params: %{"_json" => requests}} = conn, _) when is_list(requests) do

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.ErrorView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.ErrorView do
+  use ExplorerWeb, :view
 
   # when type in ["json", "html"]
   def render("404." <> _type, _assigns) do
@@ -23,8 +23,8 @@ defmodule BlockScoutWeb.ErrorView do
   end
 
   def render("500.html", %{conn: conn}) do
-    render(BlockScoutWeb.InternalServerErrorView, "index.html",
-      layout: {BlockScoutWeb.LayoutView, "app.html"},
+    render(ExplorerWeb.InternalServerErrorView, "index.html",
+      layout: {ExplorerWeb.LayoutView, "app.html"},
       conn: conn
     )
   end

@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.TransactionTokenTransferControllerTest do
+  use ExplorerWeb.ConnCase
 
   import Mox
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [transaction_token_transfer_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [transaction_token_transfer_path: 3]
 
   alias Explorer.ExchangeRates.Token
 
@@ -14,7 +14,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
       transaction = insert(:transaction)
       token_transfer = insert(:token_transfer, transaction: transaction)
 
-      conn = get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash))
+      conn = get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash))
 
       assigned_token_transfer = List.first(conn.assigns.transaction.token_transfers)
 
@@ -24,13 +24,13 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
 
     test "with missing transaction", %{conn: conn} do
       hash = transaction_hash()
-      conn = get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, hash))
+      conn = get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, hash))
 
       assert html_response(conn, 404)
     end
 
     test "with invalid transaction hash", %{conn: conn} do
-      conn = get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, "nope"))
+      conn = get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, "nope"))
 
       assert html_response(conn, 422)
     end
@@ -43,7 +43,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
         |> insert()
         |> with_block(block)
 
-      conn = get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash))
+      conn = get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash))
 
       assert html_response(conn, 200)
       assert conn.assigns.transaction.hash == transaction.hash
@@ -56,7 +56,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
 
       insert(:token_transfer, transaction: transaction, block: transaction.block, block_number: transaction.block_number)
 
-      path = transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash)
+      path = transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash)
 
       conn = get(conn, path, %{type: "JSON"})
 
@@ -70,7 +70,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
     test "includes USD exchange rate value for address in assigns", %{conn: conn} do
       transaction = insert(:transaction)
 
-      conn = get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash))
+      conn = get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash))
 
       assert %Token{} = conn.assigns.exchange_rate
     end
@@ -88,7 +88,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
       end)
 
       conn =
-        get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash), %{
+        get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash), %{
           "block_number" => "1000",
           "index" => "1",
           "type" => "JSON"
@@ -117,7 +117,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
       end)
 
       conn =
-        get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash), %{type: "JSON"})
+        get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash), %{type: "JSON"})
 
       {:ok, %{"next_page_path" => path}} = conn.resp_body |> Poison.decode()
 
@@ -142,7 +142,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
       end)
 
       conn =
-        get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash), %{type: "JSON"})
+        get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash), %{type: "JSON"})
 
       {:ok, %{"next_page_path" => path}} = conn.resp_body |> Poison.decode()
 
@@ -208,7 +208,7 @@ defmodule BlockScoutWeb.TransactionTokenTransferControllerTest do
 
       transaction = insert(:transaction_to_verified_contract)
 
-      conn = get(conn, transaction_token_transfer_path(BlockScoutWeb.Endpoint, :index, transaction.hash))
+      conn = get(conn, transaction_token_transfer_path(ExplorerWeb.Endpoint, :index, transaction.hash))
 
       assert html_response(conn, 200)
       assert conn.assigns.transaction.hash == transaction.hash

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Schema.Query.NodeTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Schema.Query.NodeTest do
+  use ExplorerWeb.ConnCase
 
   describe "node field" do
     test "with valid argument 'id' for a transaction", %{conn: conn} do

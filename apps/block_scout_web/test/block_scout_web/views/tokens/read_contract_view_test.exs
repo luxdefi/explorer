@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.Tokens.ReadContractViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.ReadContractViewTest do
+  use ExplorerWeb.ConnCase, async: true
 end

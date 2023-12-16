@@ -51,7 +51,7 @@
               <td colspan="3"><code><%= text %></code></td>
             </tr>
           </table>
-          <%= render BlockScoutWeb.LogView, "_data_decoded_view.html", mapping: mapping %>
+          <%= render ExplorerWeb.LogView, "_data_decoded_view.html", mapping: mapping %>
           <% {:error, :contract_not_verified, results} -> %>
             <%= for {:ok, method_id, text, mapping} <- results do %>
                <dt class="col-md-2"><%= gettext "Decoded" %></dt>
@@ -66,7 +66,7 @@
                    <td colspan="3"><code><%= text %></code></td>
                  </tr>
                </table>
-               <%= render BlockScoutWeb.LogView, "_data_decoded_view.html", mapping: mapping %>
+               <%= render ExplorerWeb.LogView, "_data_decoded_view.html", mapping: mapping %>
             <% end %>
           <% {:error, :contract_verified, results} -> %>
             <%= for {:ok, method_id, text, mapping} <- results do %>
@@ -82,7 +82,7 @@
                    <td colspan="3"><code><%= text %></code></td>
                  </tr>
                </table>
-               <%= render BlockScoutWeb.LogView, "_data_decoded_view.html", mapping: mapping %>
+               <%= render ExplorerWeb.LogView, "_data_decoded_view.html", mapping: mapping %>
             <% end %>
         <% _ -> %>
           <%= nil %>

@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.AddressContractViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressContractViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.AddressContractView
+  alias ExplorerWeb.AddressContractView
 
-  doctest BlockScoutWeb.AddressContractView
+  doctest ExplorerWeb.AddressContractView
 
   describe "format_optimization_text/1" do
     test "returns \"true\" for the boolean true" do

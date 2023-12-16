@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Tokens.TokenController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.TokenController do
+  use ExplorerWeb, :controller
 
   require Logger
 
-  alias BlockScoutWeb.AccessHelper
+  alias ExplorerWeb.AccessHelper
   alias Explorer.Chain
 
   def show(conn, %{"id" => address_hash_string}) do

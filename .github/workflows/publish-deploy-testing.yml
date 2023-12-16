@@ -18,7 +18,7 @@ jobs:
   deploy_testing:
     name: Deploy testing
     if: ${{ github.event.label.name == 'bs-indexer-testing' }}
-    uses: blockscout/blockscout-ci-cd/.github/workflows/deploy.yaml@master
+    uses: luxdefi/explorer-ci-cd/.github/workflows/deploy.yaml@master
     with:
       env_vars: VALUES_DIR=deploy/testing/eth-goerli,APP_NAME=bs-stack
       appNamespace: bs-indexers-ethereum-goerli

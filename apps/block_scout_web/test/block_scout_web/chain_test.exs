@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.ChainTest do
+defmodule ExplorerWeb.ChainTest do
   use Explorer.DataCase
 
   alias Explorer.Chain.{Address, Block, Transaction}
-  alias BlockScoutWeb.Chain
+  alias ExplorerWeb.Chain
 
   describe "current_filter/1" do
     test "sets direction based on to filter" do

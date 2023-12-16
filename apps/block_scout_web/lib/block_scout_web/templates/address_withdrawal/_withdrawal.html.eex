@@ -9,7 +9,7 @@
   </td>
   <!-- Block -->
   <td class="stakes-td">
-    <%= render BlockScoutWeb.BlockView,
+    <%= render ExplorerWeb.BlockView,
         "_number_link.html",
         block: @withdrawal.block
     %>

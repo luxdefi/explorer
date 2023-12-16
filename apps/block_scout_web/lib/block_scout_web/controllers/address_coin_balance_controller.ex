@@ -1,15 +1,15 @@
-defmodule BlockScoutWeb.AddressCoinBalanceController do
+defmodule ExplorerWeb.AddressCoinBalanceController do
   @moduledoc """
   Manages the displaying of information about the coin balance history of an address
   """
 
-  use BlockScoutWeb, :controller
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, AddressCoinBalanceView, Controller}
+  alias ExplorerWeb.{AccessHelper, AddressCoinBalanceView, Controller}
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.{Address, Wei}
   alias Indexer.Fetcher.CoinBalanceOnDemand

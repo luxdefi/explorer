@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressContractControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressContractControllerTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [address_contract_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [address_contract_path: 3]
 
   alias Explorer.Chain.{Address, Hash}
   alias Explorer.ExchangeRates.Token
@@ -12,7 +12,7 @@ defmodule BlockScoutWeb.AddressContractControllerTest do
       nonexistent_address_hash = Hash.to_string(Factory.address_hash())
 
       conn =
-        get(conn, address_contract_path(BlockScoutWeb.Endpoint, :index, Address.checksum(nonexistent_address_hash)))
+        get(conn, address_contract_path(ExplorerWeb.Endpoint, :index, Address.checksum(nonexistent_address_hash)))
 
       assert html_response(conn, 404)
     end
@@ -20,7 +20,7 @@ defmodule BlockScoutWeb.AddressContractControllerTest do
     test "returns not found given an invalid address hash ", %{conn: conn} do
       invalid_hash = "invalid_hash"
 
-      conn = get(conn, address_contract_path(BlockScoutWeb.Endpoint, :index, invalid_hash))
+      conn = get(conn, address_contract_path(ExplorerWeb.Endpoint, :index, invalid_hash))
 
       assert html_response(conn, 404)
     end
@@ -28,7 +28,7 @@ defmodule BlockScoutWeb.AddressContractControllerTest do
     test "returns not found when the address isn't a contract", %{conn: conn} do
       address = insert(:address)
 
-      conn = get(conn, address_contract_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address)))
+      conn = get(conn, address_contract_path(ExplorerWeb.Endpoint, :index, Address.checksum(address)))
 
       assert html_response(conn, 404)
     end
@@ -47,7 +47,7 @@ defmodule BlockScoutWeb.AddressContractControllerTest do
         block_index: 0
       )
 
-      conn = get(conn, address_contract_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address)))
+      conn = get(conn, address_contract_path(ExplorerWeb.Endpoint, :index, Address.checksum(address)))
 
       assert html_response(conn, 200)
       assert address.hash == conn.assigns.address.hash

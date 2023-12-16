@@ -6,15 +6,15 @@
 				id="<%= @id %>"
 				class="main-search-autocomplete"
 				data-test="search_input"
-				data-chain-id="<%= Application.get_env(:block_scout_web, :chain_id) %>"
-				data-display-token-icons="<%= Application.get_env(:block_scout_web, :display_token_icons) %>"
+				data-chain-id="<%= Application.get_env(:explorer_web, :chain_id) %>"
+				data-display-token-icons="<%= Application.get_env(:explorer_web, :display_token_icons) %>"
 				type="text"
 				tabindex="1"
 			>
 		</div>
 		<div class="input-group-append left">
 			<button class="input-group-text" id="search-icon">
-			<%= render BlockScoutWeb.IconsView, "_search_icon.html" %>
+			<%= render ExplorerWeb.IconsView, "_search_icon.html" %>
 			</button>
 		</div>
 		<div class="input-group-append right desktop-only">

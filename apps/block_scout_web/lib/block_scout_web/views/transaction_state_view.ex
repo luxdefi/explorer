@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.TransactionStateView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.TransactionStateView do
+  use ExplorerWeb, :view
 
   alias Explorer.Chain
   alias Explorer.Chain.Wei
@@ -35,6 +35,6 @@ defmodule BlockScoutWeb.TransactionStateView do
   end
 
   def display_erc_721(token_transfer) do
-    render(BlockScoutWeb.TransactionView, "_total_transfers.html", transfer: token_transfer)
+    render(ExplorerWeb.TransactionView, "_total_transfers.html", transfer: token_transfer)
   end
 end

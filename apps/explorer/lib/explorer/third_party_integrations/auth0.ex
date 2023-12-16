@@ -47,7 +47,7 @@ defmodule Explorer.ThirdPartyIntegrations.Auth0 do
   """
   @spec cookie_key(binary) :: String.t()
   def cookie_key(hash) do
-    chain_id = Application.get_env(:block_scout_web, :chain_id)
+    chain_id = Application.get_env(:explorer_web, :chain_id)
 
     if chain_id do
       chain_id <> "_" <> hash

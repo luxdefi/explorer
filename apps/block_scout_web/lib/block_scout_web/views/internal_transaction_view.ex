@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.InternalTransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.InternalTransactionView do
+  use ExplorerWeb, :view
 
   alias Explorer.Chain.InternalTransaction
 
-  import BlockScoutWeb.Gettext
+  import ExplorerWeb.Gettext
 
   @doc """
   Returns the formatted string for the type of the internal transaction.
@@ -12,10 +12,10 @@ defmodule BlockScoutWeb.InternalTransactionView do
 
   Examples:
 
-  iex> BlockScoutWeb.InternalTransactionView.type(%Explorer.Chain.InternalTransaction{type: :reward})
+  iex> ExplorerWeb.InternalTransactionView.type(%Explorer.Chain.InternalTransaction{type: :reward})
   "Reward"
 
-  iex> BlockScoutWeb.InternalTransactionView.type(%Explorer.Chain.InternalTransaction{type: :call, call_type: :delegatecall})
+  iex> ExplorerWeb.InternalTransactionView.type(%Explorer.Chain.InternalTransaction{type: :call, call_type: :delegatecall})
   "Delegate Call"
   """
   def type(%InternalTransaction{type: :call, call_type: :call}), do: gettext("Call")

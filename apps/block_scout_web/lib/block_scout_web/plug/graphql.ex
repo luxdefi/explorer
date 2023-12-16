@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Plug.GraphQL do
+defmodule ExplorerWeb.Plug.GraphQL do
   @moduledoc """
   Default query for GraphiQL interface.
   """

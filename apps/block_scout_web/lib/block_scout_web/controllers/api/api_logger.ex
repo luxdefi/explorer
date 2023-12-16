@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.API.APILogger do
+defmodule ExplorerWeb.API.APILogger do
   @moduledoc """
   Logger for API endpoints usage
   """

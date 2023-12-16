@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.API.V2.TokenController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.TokenController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.API.V2.{AddressView, TransactionView}
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.API.V2.{AddressView, TransactionView}
   alias Explorer.{Chain, Repo}
   alias Explorer.Chain.{Address, Token, Token.Instance}
   alias Indexer.Fetcher.TokenTotalSupplyOnDemand
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       split_list_by_page: 1,
       paging_options: 1,
@@ -17,10 +17,10 @@ defmodule BlockScoutWeb.API.V2.TokenController do
       unique_tokens_next_page: 3
     ]
 
-  import BlockScoutWeb.PagingHelper,
+  import ExplorerWeb.PagingHelper,
     only: [delete_parameters_from_next_page_params: 1, token_transfers_types_options: 1, tokens_sorting: 1]
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   @api_true [api?: true]
 

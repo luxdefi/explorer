@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tracer do
+defmodule ExplorerWeb.Tracer do
   @moduledoc false
 
-  use Spandex.Tracer, otp_app: :block_scout_web
+  use Spandex.Tracer, otp_app: :explorer_web
 end

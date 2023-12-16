@@ -23,7 +23,7 @@
         <span class="d-flex flex-md-row flex-column mt-3 mt-md-0">
           <span class="mr-1"><%= gettext "Owner Address" %>:</span>
           <span class="tile-title">
-            <%= render BlockScoutWeb.AddressView,
+            <%= render ExplorerWeb.AddressView,
               "_link.html",
               address: @instance.owner,
               contract: false,

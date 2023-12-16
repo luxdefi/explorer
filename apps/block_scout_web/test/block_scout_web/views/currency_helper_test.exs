@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.CurrencyHelperTest do
+defmodule ExplorerWeb.CurrencyHelperTest do
   use ExUnit.Case
 
-  alias BlockScoutWeb.CurrencyHelper
+  alias ExplorerWeb.CurrencyHelper
 
-  doctest BlockScoutWeb.CurrencyHelper, import: true
+  doctest ExplorerWeb.CurrencyHelper, import: true
 
   describe "format_according_to_decimals/1" do
     test "formats the amount as value considering the given decimals" do

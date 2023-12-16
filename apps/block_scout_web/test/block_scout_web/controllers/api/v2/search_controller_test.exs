@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V2.SearchControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.SearchControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain.{Address, Block}
   alias Explorer.Repo

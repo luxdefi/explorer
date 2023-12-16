@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.WithdrawalControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.WithdrawalControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [withdrawal_path: 2, withdrawal_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [withdrawal_path: 2, withdrawal_path: 3]
 
   alias Explorer.Chain.Withdrawal
 

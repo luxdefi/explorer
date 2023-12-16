@@ -40,28 +40,28 @@
     end
 %>
 <div class="d-md-flex">
-    <%= render BlockScoutWeb.AddressTokenView, "overview_item.html",
+    <%= render ExplorerWeb.AddressTokenView, "overview_item.html",
         title: gettext("Net Worth"),
         tooltip: gettext("Shows total assets held in the address"),
         value: "N/A",
         data_test: "address-tokens-panel-net-worth",
         classes: ["fs-14"]
     %>
-    <%= render BlockScoutWeb.AddressTokenView, "overview_item.html",
+    <%= render ExplorerWeb.AddressTokenView, "overview_item.html",
         title: "#{native_coin} #{gettext("Balance")}",
         tooltip: "#{gettext("Shows the current")} #{native_coin} #{gettext("balance of the address")}",
         value: raw(native_coin_balance),
         data_test: "address-tokens-panel-native-worth",
         classes: ["fs-14"]
     %>
-    <%= render BlockScoutWeb.AddressTokenView, "overview_item.html",
+    <%= render ExplorerWeb.AddressTokenView, "overview_item.html",
         title: gettext("Tokens"),
         tooltip: gettext("Shows the tokens held in the address (includes ERC-20, ERC-721 and ERC-1155)."),
         value: "N/A",
         data_test: "address-tokens-panel-tokens-worth",
         classes: ["fs-14"]
     %>
-    <%= render BlockScoutWeb.AddressTokenView, "overview_item.html",
+    <%= render ExplorerWeb.AddressTokenView, "overview_item.html",
         title: gettext("CRC Worth"),
         tooltip: gettext("Shows the total CRC balance in the address."),
         value: "0 CRC",

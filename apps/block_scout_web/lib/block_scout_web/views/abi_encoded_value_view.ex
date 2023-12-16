@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.ABIEncodedValueView do
+defmodule ExplorerWeb.ABIEncodedValueView do
   @moduledoc """
   Renders a decoded value that is encoded according to an ABI.
 
   Does not leverage an eex template because it renders formatted
   values via `<pre>` tags, and that is hard to do in an eex template.
   """
-  use BlockScoutWeb, :view
+  use ExplorerWeb, :view
 
   alias ABI.FunctionSelector
   alias Phoenix.HTML
@@ -144,7 +144,7 @@ defmodule BlockScoutWeb.ABIEncodedValueView do
     else
       address = hex(value)
 
-      ~E|<a href="<%= address_path(BlockScoutWeb.Endpoint, :show, address) %>" target="_blank"><%= address %></a>|
+      ~E|<a href="<%= address_path(ExplorerWeb.Endpoint, :show, address) %>" target="_blank"><%= address %></a>|
     end
   end
 

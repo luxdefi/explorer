@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Account.PublicTagsRequestView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Account.PublicTagsRequestView do
+  use ExplorerWeb, :view
   use Phoenix.HTML
 
   alias Explorer.Account.PublicTagsRequest
@@ -33,7 +33,7 @@ defmodule BlockScoutWeb.Account.PublicTagsRequestView do
       container: container_id(id)
     ]
 
-    content_tag(:button, render(BlockScoutWeb.CommonComponentsView, "_svg_plus.html"),
+    content_tag(:button, render(ExplorerWeb.CommonComponentsView, "_svg_plus.html"),
       data: data,
       class: "add-form-field"
     )
@@ -54,7 +54,7 @@ defmodule BlockScoutWeb.Account.PublicTagsRequestView do
     content_tag :li, class: "public-tags-address form-group" do
       [
         apply(Form, type, [form, field, input_opts]),
-        content_tag(:button, render(BlockScoutWeb.CommonComponentsView, "_svg_minus.html"),
+        content_tag(:button, render(ExplorerWeb.CommonComponentsView, "_svg_minus.html"),
           data: [container: container_id(id)],
           class: "remove-form-field ml-1"
         )

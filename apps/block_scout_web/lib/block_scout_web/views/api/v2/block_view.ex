@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.V2.BlockView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.BlockView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.BlockView
-  alias BlockScoutWeb.API.V2.{ApiView, Helper}
+  alias ExplorerWeb.BlockView
+  alias ExplorerWeb.API.V2.{ApiView, Helper}
   alias Explorer.Chain
   alias Explorer.Chain.Block
   alias Explorer.Counters.BlockPriorityFeeCounter

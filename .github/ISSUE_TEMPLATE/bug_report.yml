@@ -44,15 +44,15 @@ body:
     attributes:
       label: Type of the chain
       description: Type of the chain.
-      placeholder: L1/L2/... 
+      placeholder: L1/L2/...
 
   - type: input
     id: link
     attributes:
       label: Link to the page
       description: The link to the page where the issue occurs.
-      placeholder: https://eth.blockscout.com
-  
+      placeholder: https://explore.lux.network
+
   - type: textarea
     id: steps
     attributes:

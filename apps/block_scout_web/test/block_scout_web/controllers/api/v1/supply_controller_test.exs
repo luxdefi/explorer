@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V1.SupplyControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V1.SupplyControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain
 

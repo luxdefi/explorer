@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.MainPageRealtimeEventHandler do
+defmodule ExplorerWeb.MainPageRealtimeEventHandler do
   @moduledoc """
   Subscribing process for main page broadcast events from realtime.
   """
 
   use GenServer
 
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
   alias Explorer.Chain.Events.Subscriber
   alias Explorer.Counters.Helper
 

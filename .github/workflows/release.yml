@@ -36,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: blockscout/blockscout
+          images: luxdefi/explorer
 
       - name: Build & Push Docker image
         uses: docker/build-push-action@v5
@@ -44,9 +44,9 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          cache-from: type=registry,ref=blockscout/blockscout:buildcache
-          cache-to: type=registry,ref=blockscout/blockscout:buildcache,mode=max
-          tags: blockscout/blockscout:latest, blockscout/blockscout:${{ env.RELEASE_VERSION }}
+          cache-from: type=registry,ref=luxdefi/explorer:buildcache
+          cache-to: type=registry,ref=luxdefi/explorer:buildcache,mode=max
+          tags: luxdefi/explorer:latest, luxdefi/explorer:${{ env.RELEASE_VERSION }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -63,7 +63,7 @@ jobs:
             AMPLITUDE_URL=
             AMPLITUDE_API_KEY=
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}
 
       - name: Build and push Docker image for zkEVM
@@ -72,7 +72,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: blockscout/blockscout-zkevm:latest, blockscout/blockscout-zkevm:${{ env.RELEASE_VERSION }}
+          tags: luxdefi/explorer-zkevm:latest, luxdefi/explorer-zkevm:${{ env.RELEASE_VERSION }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -84,7 +84,7 @@ jobs:
             CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED=
             ADMIN_PANEL_ENABLED=false
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}
             CHAIN_TYPE=polygon_zkevm
 
@@ -94,7 +94,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: blockscout/blockscout-suave:latest, blockscout/blockscout-suave:${{ env.RELEASE_VERSION }}
+          tags: luxdefi/explorer-suave:latest, luxdefi/explorer-suave:${{ env.RELEASE_VERSION }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -106,7 +106,7 @@ jobs:
             CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED=
             ADMIN_PANEL_ENABLED=false
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}
             CHAIN_TYPE=suave
 
@@ -117,7 +117,7 @@ jobs:
           payload: |
             {
               "release-version": "${{ env.RELEASE_VERSION }}",
-              "release-link": "https://github.com/blockscout/blockscout/releases/tag/v${{ env.RELEASE_VERSION }}-beta"
+              "release-link": "https://github.com/luxdefi/explorer/releases/tag/v${{ env.RELEASE_VERSION }}-beta"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

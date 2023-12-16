@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.TransactionTokenTransferView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.TransactionTokenTransferView do
+  use ExplorerWeb, :view
 
   alias Explorer.Chain
 end

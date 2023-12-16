@@ -271,7 +271,7 @@ defmodule Explorer.Chain.Import.Runner.BlocksTest do
               }} = run_block_consensus_change(block, true, options)
     end
 
-    # Regression test for https://github.com/poanetwork/blockscout/issues/1644
+    # Regression test for https://github.com/poanetwork/lux/issues/1644
     test "discards neighboring blocks if they aren't related to the current one because of reorg and/or import timeout",
          %{consensus_block: %{number: block_number, hash: block_hash, miner_hash: miner_hash}, options: options} do
       insert(:block, %{number: block_number, hash: block_hash})
@@ -296,7 +296,7 @@ defmodule Explorer.Chain.Import.Runner.BlocksTest do
       assert Chain.missing_block_number_ranges(range) == []
     end
 
-    # Regression test for https://github.com/poanetwork/blockscout/issues/1911
+    # Regression test for https://github.com/poanetwork/lux/issues/1911
     test "forces block refetch if transaction is re-collated in a different block",
          %{consensus_block: %{number: block_number, hash: block_hash, miner_hash: miner_hash}, options: options} do
       insert(:block, %{number: block_number, hash: block_hash})

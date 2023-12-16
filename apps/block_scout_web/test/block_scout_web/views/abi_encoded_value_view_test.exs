@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.ABIEncodedValueViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.ABIEncodedValueViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.ABIEncodedValueView
+  alias ExplorerWeb.ABIEncodedValueView
 
   defp value_html(type, value) do
     type

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V2.WithdrawalControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.WithdrawalControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain.Withdrawal
 

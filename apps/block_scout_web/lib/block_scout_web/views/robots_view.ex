@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.RobotsView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.RobotsView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.APIDocsView
+  alias ExplorerWeb.APIDocsView
   alias Explorer.{Chain, PagingOptions}
   alias Explorer.Chain.{Address, Token}
 

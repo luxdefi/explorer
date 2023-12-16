@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Controller do
+defmodule ExplorerWeb.Controller do
   @moduledoc """
   Common controller error responses
   """
@@ -12,7 +12,7 @@ defmodule BlockScoutWeb.Controller do
   def not_found(conn) do
     conn
     |> put_status(:not_found)
-    |> put_view(BlockScoutWeb.PageNotFoundView)
+    |> put_view(ExplorerWeb.PageNotFoundView)
     |> render(:index, token: nil)
     |> halt()
   end
@@ -20,7 +20,7 @@ defmodule BlockScoutWeb.Controller do
   def unprocessable_entity(conn) do
     conn
     |> put_status(:unprocessable_entity)
-    |> put_view(BlockScoutWeb.Error422View)
+    |> put_view(ExplorerWeb.Error422View)
     |> render(:index)
     |> halt()
   end
@@ -42,7 +42,7 @@ defmodule BlockScoutWeb.Controller do
   end
 
   def full_path(path) do
-    url_params = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url]
+    url_params = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url]
     network_path = url_params[:path]
 
     if network_path do

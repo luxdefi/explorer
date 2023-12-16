@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressInternalTransactionControllerTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  import BlockScoutWeb.WebRouter.Helpers,
+  import ExplorerWeb.WebRouter.Helpers,
     only: [address_internal_transaction_path: 3, address_internal_transaction_path: 4]
 
   alias Explorer.Chain.{Address, Block, InternalTransaction, Transaction}
@@ -11,7 +11,7 @@ defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
     test "with invalid address hash", %{conn: conn} do
       conn =
         conn
-        |> get(address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, "invalid_address"))
+        |> get(address_internal_transaction_path(ExplorerWeb.Endpoint, :index, "invalid_address"))
 
       assert html_response(conn, 404)
     end
@@ -34,7 +34,7 @@ defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
       address = insert(:address)
 
       conn =
-        get(conn, address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)))
+        get(conn, address_internal_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)))
 
       assert %Token{} = conn.assigns.exchange_rate
     end
@@ -311,7 +311,7 @@ defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
         )
 
       conn =
-        get(conn, address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), %{
+        get(conn, address_internal_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), %{
           "block_number" => Integer.to_string(b_block.number),
           "transaction_index" => Integer.to_string(transaction_3.index),
           "index" => Integer.to_string(index),
@@ -401,7 +401,7 @@ defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
       second_page_items = second_page_contract_items ++ second_page_to_items
       third_page_items = third_page_to_items ++ third_page_from_items
 
-      path = address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash))
+      path = address_internal_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash))
 
       first_page_response =
         conn
@@ -506,13 +506,13 @@ defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
       conn =
         get(
           conn,
-          address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash), %{
+          address_internal_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash), %{
             "type" => "JSON"
           })
         )
 
       expected_response =
-        address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, address.hash, %{
+        address_internal_transaction_path(ExplorerWeb.Endpoint, :index, address.hash, %{
           "block_number" => number,
           "index" => 11,
           "transaction_index" => transaction_index,
@@ -546,7 +546,7 @@ defmodule BlockScoutWeb.AddressInternalTransactionControllerTest do
       conn =
         get(
           conn,
-          address_internal_transaction_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash), %{
+          address_internal_transaction_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash), %{
             "type" => "JSON"
           })
         )

@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Account.WatchlistController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.WatchlistController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [authenticate!: 1]
+  import ExplorerWeb.Account.AuthController, only: [authenticate!: 1]
   import Ecto.Query, only: [from: 2]
 
   alias Explorer.Account.{Watchlist, WatchlistAddress}

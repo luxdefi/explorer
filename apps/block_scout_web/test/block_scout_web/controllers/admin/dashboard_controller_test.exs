@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Admin.DashboardControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Admin.DashboardControllerTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.Router
+  alias ExplorerWeb.Router
 
   describe "index/2" do
     setup %{conn: conn} do

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tokens.InstanceControllerTest do
-  use BlockScoutWeb.ConnCase, async: false
+defmodule ExplorerWeb.Tokens.InstanceControllerTest do
+  use ExplorerWeb.ConnCase, async: false
 
   describe "GET show/2" do
     test "redirects  with valid params", %{conn: conn} do
@@ -14,7 +14,7 @@ defmodule BlockScoutWeb.Tokens.InstanceControllerTest do
         token_id: token_id
       )
 
-      conn = get(conn, token_instance_path(BlockScoutWeb.Endpoint, :show, to_string(contract_address_hash), token_id))
+      conn = get(conn, token_instance_path(ExplorerWeb.Endpoint, :show, to_string(contract_address_hash), token_id))
 
       assert conn.status == 302
 

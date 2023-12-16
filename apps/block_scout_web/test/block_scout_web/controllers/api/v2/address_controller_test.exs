@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.V2.AddressControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.AddressControllerTest do
+  use ExplorerWeb.ConnCase
   use EthereumJSONRPC.Case, async: false
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.{Chain, Repo}
   alias Explorer.Chain.Address.Counters
 

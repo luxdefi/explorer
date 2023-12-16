@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.API.RPC.ContractController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.RPC.ContractController do
+  use ExplorerWeb, :controller
 
   require Logger
 
-  alias BlockScoutWeb.API.RPC.{AddressController, Helper}
+  alias ExplorerWeb.API.RPC.{AddressController, Helper}
   alias Explorer.Chain
   alias Explorer.Chain.{Address, Hash, SmartContract}
   alias Explorer.Chain.SmartContract.VerificationStatus
@@ -521,7 +521,7 @@ defmodule BlockScoutWeb.API.RPC.ContractController do
   defp parse_optimization_runs(other), do: other
 
   defp fetch_external_libraries(params) do
-    Enum.reduce(1..Application.get_env(:block_scout_web, :contract)[:verification_max_libraries], %{}, fn number, acc ->
+    Enum.reduce(1..Application.get_env(:explorer_web, :contract)[:verification_max_libraries], %{}, fn number, acc ->
       case Map.fetch(params, "library#{number}Name") do
         {:ok, library_name} ->
           library_address = Map.get(params, "library#{number}Address")

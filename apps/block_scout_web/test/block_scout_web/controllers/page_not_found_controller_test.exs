@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.PageNotFoundControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.PageNotFoundControllerTest do
+  use ExplorerWeb.ConnCase
 
   describe "GET index/2" do
     test "returns 404 status", %{conn: conn} do

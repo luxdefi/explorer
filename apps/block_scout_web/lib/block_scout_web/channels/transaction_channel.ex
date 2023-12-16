@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.TransactionChannel do
+defmodule ExplorerWeb.TransactionChannel do
   @moduledoc """
   Establishes pub/sub channel for live updates of transaction events.
   """
-  use BlockScoutWeb, :channel
+  use ExplorerWeb, :channel
 
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
-  alias BlockScoutWeb.API.V2.TransactionView, as: TransactionViewV2
-  alias BlockScoutWeb.{TransactionRawTraceView, TransactionView}
+  alias ExplorerWeb.API.V2.TransactionView, as: TransactionViewV2
+  alias ExplorerWeb.{TransactionRawTraceView, TransactionView}
   alias Explorer.Chain
   alias Explorer.Chain.Hash
   alias Phoenix.View
@@ -36,7 +36,7 @@ defmodule BlockScoutWeb.TransactionChannel do
   def handle_out(
         "pending_transaction",
         %{transactions: transactions},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       )
       when is_list(transactions) do
     push(socket, "pending_transaction", %{pending_transaction: Enum.count(transactions)})
@@ -47,9 +47,9 @@ defmodule BlockScoutWeb.TransactionChannel do
   def handle_out(
         "pending_transaction",
         %{transaction: transaction},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocket} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocket} = socket
       ) do
-    Gettext.put_locale(BlockScoutWeb.Gettext, socket.assigns.locale)
+    Gettext.put_locale(ExplorerWeb.Gettext, socket.assigns.locale)
 
     rendered_transaction =
       View.render_to_string(
@@ -75,7 +75,7 @@ defmodule BlockScoutWeb.TransactionChannel do
   def handle_out(
         "transaction",
         %{transactions: transactions},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       )
       when is_list(transactions) do
     push(socket, "transaction", %{transaction: Enum.count(transactions)})
@@ -86,9 +86,9 @@ defmodule BlockScoutWeb.TransactionChannel do
   def handle_out(
         "transaction",
         %{transaction: transaction},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocket} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocket} = socket
       ) do
-    Gettext.put_locale(BlockScoutWeb.Gettext, socket.assigns.locale)
+    Gettext.put_locale(ExplorerWeb.Gettext, socket.assigns.locale)
 
     rendered_transaction =
       View.render_to_string(
@@ -114,7 +114,7 @@ defmodule BlockScoutWeb.TransactionChannel do
   def handle_out(
         "raw_trace",
         %{raw_trace_origin: transaction_hash},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       ) do
     internal_transactions = Chain.all_transaction_to_internal_transactions(transaction_hash)
 

@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.API.V2.AddressViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.API.V2.AddressViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
   import Mox
 
-  alias BlockScoutWeb.API.V2.AddressView
+  alias ExplorerWeb.API.V2.AddressView
   alias Explorer.Repo
 
   test "for a proxy contract has_methods_read_proxy is true" do

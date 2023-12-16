@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V1.VerifiedControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V1.VerifiedControllerTest do
+  use ExplorerWeb.ConnCase
 
   # alias Explorer.Factory
 

@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.Gettext do
+defmodule ExplorerWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import BlockScoutWeb.Gettext
+      import ExplorerWeb.Gettext
 
       # Simple translation
       gettext "Here is the string to translate"
@@ -20,5 +20,5 @@ defmodule BlockScoutWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :block_scout_web
+  use Gettext, otp_app: :explorer_web
 end

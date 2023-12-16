@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Account.CommonView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Account.CommonView do
+  use ExplorerWeb, :view
 
   def nav_class(active_item, item) do
     if active_item == item do

@@ -1,29 +1,29 @@
 <% contract_creation_code = contract_creation_code(@address) %>
 <% minimal_proxy_template = EIP1167.get_implementation_address(@address.hash) %>
 <% metadata_for_verification = minimal_proxy_template || SmartContract.get_address_verified_twin_contract(@address.hash).verified_contract %>
-<% smart_contract_verified = BlockScoutWeb.AddressView.smart_contract_verified?(@address) %>
+<% smart_contract_verified = ExplorerWeb.AddressView.smart_contract_verified?(@address) %>
 <% additional_sources_from_twin = SmartContract.get_address_verified_twin_contract(@address.hash).additional_sources %>
 <% fully_verified = SmartContract.verified_with_full_match?(@address.hash)%>
 <% additional_sources = if smart_contract_verified, do: @address.smart_contract_additional_sources, else: additional_sources_from_twin %>
 <% visualize_sol2uml_enabled = Explorer.Visualize.Sol2uml.enabled?() %>
 <section class="container">
-  <% is_proxy = BlockScoutWeb.AddressView.smart_contract_is_proxy?(@address) %>
+  <% is_proxy = ExplorerWeb.AddressView.smart_contract_is_proxy?(@address) %>
 
-  <%= render BlockScoutWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
+  <%= render ExplorerWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
 
   <div class="card">
-    <%= render BlockScoutWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
+    <%= render ExplorerWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
     <div class="card-body">
       <%= unless smart_contract_verified do %>
         <%= if minimal_proxy_template do %>
-          <%= render BlockScoutWeb.CommonComponentsView, "_minimal_proxy_pattern.html", address_hash: metadata_for_verification.address_hash, conn: @conn %>
+          <%= render ExplorerWeb.CommonComponentsView, "_minimal_proxy_pattern.html", address_hash: metadata_for_verification.address_hash, conn: @conn %>
         <% else %>
           <%= if metadata_for_verification do %>
             <% path = address_verify_contract_path(@conn, :new, @address.hash) %>
             <div class="mb-4">
               <div style="display: inline-block;">
-                <%= render BlockScoutWeb.CommonComponentsView, "_info.html" %>
-                <span> <%= gettext("Contract is not verified. However, we found a verified contract with the same bytecode in Blockscout DB") %> <%= link(
+                <%= render ExplorerWeb.CommonComponentsView, "_info.html" %>
+                <span> <%= gettext("Contract is not verified. However, we found a verified contract with the same bytecode in Explorer DB") %> <%= link(
                   metadata_for_verification.address_hash,
                   to: address_contract_path(@conn, :index, metadata_for_verification.address_hash)) %>.<br/> <%= gettext("All metadata displayed below is from that contract. In order to verify current contract, click") %> <i><%= gettext("Verify & Publish") %></i> <%= gettext("button") %></span>
               </div>
@@ -34,10 +34,10 @@
       <% end %>
       <%= if smart_contract_verified do %>
         <%= if @address.smart_contract.is_changed_bytecode do %>
-          <%= render BlockScoutWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
+          <%= render ExplorerWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
         <% else %>
           <div class="d-none" data-selector="hidden-bytecode-warning">
-            <%= render BlockScoutWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
+            <%= render ExplorerWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
           </div>
         <% end %>
       <% end %>
@@ -54,7 +54,7 @@
         <% end %>
         <%= if @address.smart_contract && @address.smart_contract.verified_via_sourcify && smart_contract_verified do %>
           <a data-test="external_url" href=<%= sourcify_repo_url(@address.hash, @address.smart_contract.partially_verified) %> target="_blank">
-            View contract in Sourcify repository <span class="external-token-icon"><%= render BlockScoutWeb.IconsView, "_external_link.html" %></span>
+            View contract in Sourcify repository <span class="external-token-icon"><%= render ExplorerWeb.IconsView, "_external_link.html" %></span>
           </a>
         </div>
 

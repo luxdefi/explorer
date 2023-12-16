@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.UserSocket do
+defmodule ExplorerWeb.UserSocket do
   use Phoenix.Socket
-  use Absinthe.Phoenix.Socket, schema: BlockScoutWeb.Schema
+  use Absinthe.Phoenix.Socket, schema: ExplorerWeb.Schema
 
-  channel("addresses:*", BlockScoutWeb.AddressChannel)
-  channel("blocks:*", BlockScoutWeb.BlockChannel)
-  channel("exchange_rate:*", BlockScoutWeb.ExchangeRateChannel)
-  channel("rewards:*", BlockScoutWeb.RewardChannel)
-  channel("transactions:*", BlockScoutWeb.TransactionChannel)
-  channel("tokens:*", BlockScoutWeb.TokenChannel)
+  channel("addresses:*", ExplorerWeb.AddressChannel)
+  channel("blocks:*", ExplorerWeb.BlockChannel)
+  channel("exchange_rate:*", ExplorerWeb.ExchangeRateChannel)
+  channel("rewards:*", ExplorerWeb.RewardChannel)
+  channel("transactions:*", ExplorerWeb.TransactionChannel)
+  channel("tokens:*", ExplorerWeb.TokenChannel)
 
   def connect(%{"locale" => locale}, socket) do
     {:ok, assign(socket, :locale, locale)}

@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.FeatureCase do
+defmodule ExplorerWeb.FeatureCase do
   use ExUnit.CaseTemplate
   use Wallaby.DSL
 
@@ -13,8 +13,8 @@ defmodule BlockScoutWeb.FeatureCase do
       import Ecto.Changeset
       import Ecto.Query
       import Explorer.Factory
-      import BlockScoutWeb.FeatureCase
-      import BlockScoutWeb.Router.Helpers
+      import ExplorerWeb.FeatureCase
+      import ExplorerWeb.Router.Helpers
 
       alias Explorer.Repo
     end

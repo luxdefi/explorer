@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.TransactionController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.TransactionController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       fetch_page_number: 1,
       paging_options: 1,
@@ -12,11 +12,11 @@ defmodule BlockScoutWeb.TransactionController do
       split_list_by_page: 1
     ]
 
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
-  import BlockScoutWeb.Models.GetTransactionTags, only: [get_transaction_with_addresses_tags: 2]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Models.GetTransactionTags, only: [get_transaction_with_addresses_tags: 2]
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
-  alias BlockScoutWeb.{
+  alias ExplorerWeb.{
     AccessHelper,
     Controller,
     TransactionInternalTransactionController,

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.BlockView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.BlockView do
+  use ExplorerWeb, :view
 
   import Math.Enum, only: [mean: 1]
 
@@ -17,7 +17,7 @@ defmodule BlockScoutWeb.BlockView do
       |> Enum.map(&Decimal.to_float(Wei.to(&1.gas_price, :gwei)))
       |> mean()
       |> Kernel.||(0)
-      |> BlockScoutWeb.Cldr.Number.to_string!()
+      |> ExplorerWeb.Cldr.Number.to_string!()
 
     unit_text = gettext("Gwei")
 
@@ -36,7 +36,7 @@ defmodule BlockScoutWeb.BlockView do
     # We do this to trick Dialyzer to not complain about non-local returns caused by bug in Cldr.Unit.to_string! spec
     case :erlang.phash2(1, 1) do
       0 ->
-        BlockScoutWeb.Cldr.Unit.to_string!(unit)
+        ExplorerWeb.Cldr.Unit.to_string!(unit)
 
       1 ->
         # does not occur
@@ -45,7 +45,7 @@ defmodule BlockScoutWeb.BlockView do
   end
 
   def formatted_gas(gas, format \\ []) do
-    BlockScoutWeb.Cldr.Number.to_string!(gas, format)
+    ExplorerWeb.Cldr.Number.to_string!(gas, format)
   end
 
   def formatted_timestamp(%Block{timestamp: timestamp}) do

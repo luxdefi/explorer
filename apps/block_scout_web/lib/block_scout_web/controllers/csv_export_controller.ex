@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.CsvExportController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.CsvExportController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AccessHelper
+  alias ExplorerWeb.AccessHelper
   alias Explorer.Chain
 
   def index(conn, %{"address" => address_hash_string, "type" => type} = params) do

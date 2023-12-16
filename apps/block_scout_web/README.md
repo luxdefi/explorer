@@ -1,4 +1,4 @@
-# BlockScout Web
+# Explorer Web
 
 This is a tool for inspecting and analyzing the POA Network blockchain from a web browser.
 
@@ -16,7 +16,7 @@ This is a tool for inspecting and analyzing the POA Network blockchain from a we
 
 ### Development
 
-To get BlockScout Web interface up and running locally:
+To get Explorer Web interface up and running locally:
 
 * Setup `../explorer`
 * Install Node.js dependencies with `$ cd assets && npm install && cd ..`

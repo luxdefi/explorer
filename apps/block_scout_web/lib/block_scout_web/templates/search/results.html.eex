@@ -1,10 +1,10 @@
 <section
     class="container"
     data-page="search-results"
-    data-chain-id="<%= Application.get_env(:block_scout_web, :chain_id) %>"
-	data-display-token-icons="<%= Application.get_env(:block_scout_web, :display_token_icons) %>"
+    data-chain-id="<%= Application.get_env(:explorer_web, :chain_id) %>"
+	data-display-token-icons="<%= Application.get_env(:explorer_web, :display_token_icons) %>"
 >
-  <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
+  <%= render ExplorerWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
   <div class="card">
     <div class="card-body" data-async-load data-async-listing="<%= @current_path %>">
       <div class="search-input-container mb-3">
@@ -12,7 +12,7 @@
 	  </div>
 
     <div class="list-top-pagination-container-wrapper">
-    	<%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+    	<%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
 	</div>
     <h1 class="card-title list-title-description"><%= gettext "Search Results" %>: <strong class="js-search-results-query-display"><%= @query %></strong></h1>
 
@@ -39,12 +39,12 @@
                         </tr>
                     </thead>
                     <tbody id='search_results_table_body' data-items data-selector="search-results-list">
-                        <%= render BlockScoutWeb.CommonComponentsView, "_table-loader.html", columns_num: 5 %>
+                        <%= render ExplorerWeb.CommonComponentsView, "_table-loader.html", columns_num: 5 %>
                     </tbody>
                 </table>
             </div>
         </div>
-        <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+        <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
     </div>
   </div>
   <script defer data-cfasync="false" src="<%= static_path(@conn, "/js/search-results.js") %>"></script>

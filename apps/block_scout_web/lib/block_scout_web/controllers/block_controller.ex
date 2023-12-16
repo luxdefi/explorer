@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.BlockController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.BlockController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
 
-  alias BlockScoutWeb.{BlockView, Controller}
+  alias ExplorerWeb.{BlockView, Controller}
   alias Explorer.Chain
   alias Phoenix.View
 

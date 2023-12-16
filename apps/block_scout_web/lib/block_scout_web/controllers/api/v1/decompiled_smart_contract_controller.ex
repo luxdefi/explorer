@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V1.DecompiledSmartContractController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V1.DecompiledSmartContractController do
+  use ExplorerWeb, :controller
 
   alias Explorer.Chain
   alias Explorer.Chain.Hash.Address
@@ -60,7 +60,7 @@ defmodule BlockScoutWeb.API.V1.DecompiledSmartContractController do
   end
 
   defp actual_token do
-    Application.get_env(:block_scout_web, :decompiled_smart_contract_token)
+    Application.get_env(:explorer_web, :decompiled_smart_contract_token)
   end
 
   defp encode(data) do

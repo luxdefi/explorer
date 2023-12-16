@@ -18,17 +18,17 @@ defmodule Explorer.Account.Notifier.EmailTest do
     only: [compose: 2]
 
   setup do
-    host = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url][:host]
-    path = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url][:path]
-    scheme = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url][:scheme]
+    host = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url][:host]
+    path = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url][:path]
+    scheme = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url][:scheme]
 
-    Application.put_env(:block_scout_web, BlockScoutWeb.Endpoint,
-      url: [scheme: "https", host: "eth.blockscout.com", path: "/", port: 443]
+    Application.put_env(:explorer_web, ExplorerWeb.Endpoint,
+      url: [scheme: "https", host: "eth.lux.com", path: "/", port: 443]
     )
 
     Application.put_env(:explorer, Explorer.Account,
       sendgrid: [
-        sender: "noreply@blockscout.com",
+        sender: "noreply@lux.com",
         template: "d-666"
       ]
     )
@@ -36,7 +36,7 @@ defmodule Explorer.Account.Notifier.EmailTest do
     :ok
 
     on_exit(fn ->
-      Application.put_env(:block_scout_web, BlockScoutWeb.Endpoint, url: [scheme: scheme, host: host, path: path])
+      Application.put_env(:explorer_web, ExplorerWeb.Endpoint, url: [scheme: scheme, host: host, path: path])
     end)
   end
 
@@ -51,7 +51,7 @@ defmodule Explorer.Account.Notifier.EmailTest do
       identity = %Identity{
         uid: "foo|bar",
         name: "John Snow",
-        email: "john@blockscout.com"
+        email: "john@lux.com"
       }
 
       watchlist = %Watchlist{identity: identity}
@@ -86,7 +86,7 @@ defmodule Explorer.Account.Notifier.EmailTest do
                  bcc: nil,
                  blocked: false,
                  cc: nil,
-                 from: "noreply@blockscout.com",
+                 from: "noreply@lux.com",
                  headers: %{},
                  html_body: nil,
                  private: %{
@@ -94,20 +94,20 @@ defmodule Explorer.Account.Notifier.EmailTest do
                      dynamic_template_data: %{
                        "address_hash" => "0xe1f4dd38f00b0d8d4d2b4b5010be53f2a0b934e5",
                        "address_name" => "wallet",
-                       "address_url" => "https://eth.blockscout.com/address/0xe1f4dd38f00b0d8d4d2b4b5010be53f2a0b934e5",
+                       "address_url" => "https://eth.lux.com/address/0xe1f4dd38f00b0d8d4d2b4b5010be53f2a0b934e5",
                        "amount" => Decimal.new(1),
                        "block_number" => 24_121_177,
-                       "block_url" => "https://eth.blockscout.com/block/24121177",
+                       "block_url" => "https://eth.lux.com/block/24121177",
                        "direction" => "received at",
                        "from_address_hash" => "0x092d537737e767dae48c28ae509f34094496f030",
-                       "from_url" => "https://eth.blockscout.com/address/0x092d537737e767dae48c28ae509f34094496f030",
+                       "from_url" => "https://eth.lux.com/address/0x092d537737e767dae48c28ae509f34094496f030",
                        "method" => "transfer",
                        "name" => "wallet",
                        "to_address_hash" => "0xe1f4dd38f00b0d8d4d2b4b5010be53f2a0b934e5",
-                       "to_url" => "https://eth.blockscout.com/address/0xe1f4dd38f00b0d8d4d2b4b5010be53f2a0b934e5",
+                       "to_url" => "https://eth.lux.com/address/0xe1f4dd38f00b0d8d4d2b4b5010be53f2a0b934e5",
                        "transaction_hash" => "0x5d5ff210261f1b2d6e4af22ea494f428f9997d4ab614a629d4f1390004b3e80d",
                        "transaction_url" =>
-                         "https://eth.blockscout.com/tx/0x5d5ff210261f1b2d6e4af22ea494f428f9997d4ab614a629d4f1390004b3e80d",
+                         "https://eth.lux.com/tx/0x5d5ff210261f1b2d6e4af22ea494f428f9997d4ab614a629d4f1390004b3e80d",
                        "tx_fee" => Decimal.new(210_000),
                        "username" => "John Snow"
                      },
@@ -116,7 +116,7 @@ defmodule Explorer.Account.Notifier.EmailTest do
                  },
                  subject: nil,
                  text_body: nil,
-                 to: "john@blockscout.com"
+                 to: "john@lux.com"
                }
     end
   end

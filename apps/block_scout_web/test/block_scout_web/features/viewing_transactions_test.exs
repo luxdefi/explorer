@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.ViewingTransactionsTest do
+defmodule ExplorerWeb.ViewingTransactionsTest do
   @moduledoc false
 
   import Mox
 
-  use BlockScoutWeb.FeatureCase, async: false
+  use ExplorerWeb.FeatureCase, async: false
 
-  alias BlockScoutWeb.{AddressPage, TransactionListPage, TransactionLogsPage, TransactionPage}
+  alias ExplorerWeb.{AddressPage, TransactionListPage, TransactionLogsPage, TransactionPage}
   alias Explorer.Chain.Wei
 
   setup :set_mox_global

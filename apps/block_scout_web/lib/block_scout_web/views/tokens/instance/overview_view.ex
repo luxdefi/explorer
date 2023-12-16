@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.Tokens.Instance.OverviewView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.Instance.OverviewView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.{CurrencyHelper, NFTHelper}
+  alias ExplorerWeb.{CurrencyHelper, NFTHelper}
   alias Explorer.Chain
   alias Explorer.Chain.{Address, SmartContract, Token}
   alias Explorer.SmartContract.Helper
 
-  import BlockScoutWeb.APIDocsView, only: [blockscout_url: 1]
-  import BlockScoutWeb.NFTHelper, only: [external_url: 1]
+  import ExplorerWeb.APIDocsView, only: [lux_url: 1]
+  import ExplorerWeb.NFTHelper, only: [external_url: 1]
 
   @tabs ["token-transfers", "metadata"]
   @stub_image "/images/controller.svg"
@@ -96,7 +96,7 @@ defmodule BlockScoutWeb.Tokens.Instance.OverviewView do
   def qr_code(conn, token_id, hash) do
     token_instance_path = token_instance_path(conn, :show, to_string(hash), to_string(token_id))
 
-    url_prefix = blockscout_url(false)
+    url_prefix = lux_url(false)
 
     url = Path.join(url_prefix, token_instance_path)
 

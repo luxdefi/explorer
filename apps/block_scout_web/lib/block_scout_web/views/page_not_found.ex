@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.PageNotFoundView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.PageNotFoundView do
+  use ExplorerWeb, :view
 
   @dialyzer :no_match
 end

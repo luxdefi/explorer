@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.SmartContractControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.SmartContractControllerTest do
+  use ExplorerWeb.ConnCase
 
   import Mox
 
@@ -13,7 +13,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
   describe "GET index/3" do
     test "returns not found for nonexistent address" do
       nonexistent_address_hash = Hash.to_string(Factory.address_hash())
-      path = smart_contract_path(BlockScoutWeb.Endpoint, :index, hash: nonexistent_address_hash)
+      path = smart_contract_path(ExplorerWeb.Endpoint, :index, hash: nonexistent_address_hash)
 
       conn =
         build_conn()
@@ -24,7 +24,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
     end
 
     test "error for invalid address" do
-      path = smart_contract_path(BlockScoutWeb.Endpoint, :index, hash: "0x00", type: :regular, action: :read)
+      path = smart_contract_path(ExplorerWeb.Endpoint, :index, hash: "0x00", type: :regular, action: :read)
 
       conn =
         build_conn()
@@ -37,7 +37,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
     test "only responds to ajax requests", %{conn: conn} do
       smart_contract = insert(:smart_contract, contract_code_md5: "123")
 
-      path = smart_contract_path(BlockScoutWeb.Endpoint, :index, hash: smart_contract.address_hash)
+      path = smart_contract_path(ExplorerWeb.Endpoint, :index, hash: smart_contract.address_hash)
 
       conn = get(conn, path)
 
@@ -52,7 +52,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
       blockchain_get_function_mock()
 
       path =
-        smart_contract_path(BlockScoutWeb.Endpoint, :index,
+        smart_contract_path(ExplorerWeb.Endpoint, :index,
           hash: token_contract_address.hash,
           type: :regular,
           action: :read
@@ -89,7 +89,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
       get_eip1967_implementation_zero_addresses()
 
       path =
-        smart_contract_path(BlockScoutWeb.Endpoint, :index,
+        smart_contract_path(ExplorerWeb.Endpoint, :index,
           hash: token_contract_address.hash,
           type: :proxy,
           action: :read
@@ -126,7 +126,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
       blockchain_get_implementation_mock()
 
       path =
-        smart_contract_path(BlockScoutWeb.Endpoint, :index,
+        smart_contract_path(ExplorerWeb.Endpoint, :index,
           hash: token_contract_address.hash,
           type: :proxy,
           action: :read
@@ -163,7 +163,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
       blockchain_get_implementation_mock_2()
 
       path =
-        smart_contract_path(BlockScoutWeb.Endpoint, :index,
+        smart_contract_path(ExplorerWeb.Endpoint, :index,
           hash: token_contract_address.hash,
           type: :proxy,
           action: :read
@@ -185,7 +185,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
 
       path =
         smart_contract_path(
-          BlockScoutWeb.Endpoint,
+          ExplorerWeb.Endpoint,
           :show,
           nonexistent_address_hash,
           function_name: "get",
@@ -203,7 +203,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
     test "error for invalid address" do
       path =
         smart_contract_path(
-          BlockScoutWeb.Endpoint,
+          ExplorerWeb.Endpoint,
           :show,
           "0x00",
           function_name: "get",
@@ -223,7 +223,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
 
       path =
         smart_contract_path(
-          BlockScoutWeb.Endpoint,
+          ExplorerWeb.Endpoint,
           :show,
           Address.checksum(smart_contract.address_hash),
           function_name: "get",
@@ -243,7 +243,7 @@ defmodule BlockScoutWeb.SmartContractControllerTest do
 
       path =
         smart_contract_path(
-          BlockScoutWeb.Endpoint,
+          ExplorerWeb.Endpoint,
           :show,
           Address.checksum(smart_contract.address_hash),
           function_name: "get",

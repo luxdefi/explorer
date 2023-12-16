@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.AddressWriteContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressWriteContractView do
+  use ExplorerWeb, :view
 end

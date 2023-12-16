@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.RPC.BlockControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.RPC.BlockControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain.{Hash, Wei}
-  alias BlockScoutWeb.Chain
+  alias ExplorerWeb.Chain
 
   describe "getblockreward" do
     test "with missing block number", %{conn: conn} do

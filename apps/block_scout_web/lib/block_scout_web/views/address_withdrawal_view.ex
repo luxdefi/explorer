@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.AddressWithdrawalView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressWithdrawalView do
+  use ExplorerWeb, :view
 end

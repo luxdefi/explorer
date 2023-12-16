@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
-  use BlockScoutWeb.ConnCase, async: false
-  use BlockScoutWeb.ChannelCase, async: false
+defmodule ExplorerWeb.API.V2.SmartContractControllerTest do
+  use ExplorerWeb.ConnCase, async: false
+  use ExplorerWeb.ChannelCase, async: false
 
   import Mox
 
-  alias BlockScoutWeb.AddressContractView
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.AddressContractView
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Chain.{Address, SmartContract}
   alias Plug.Conn
 
@@ -320,9 +320,9 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
 
     test "automatically verify contract", %{conn: conn} do
       {:ok, pid} = Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand.start_link([])
-      old_chain_id = Application.get_env(:block_scout_web, :chain_id)
+      old_chain_id = Application.get_env(:explorer_web, :chain_id)
 
-      Application.put_env(:block_scout_web, :chain_id, 5)
+      Application.put_env(:explorer_web, :chain_id, 5)
 
       bypass = Bypass.open()
       eth_bytecode_response = File.read!("./test/support/fixture/smart_contract/eth_bytecode_db_search_response.json")
@@ -348,7 +348,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       topic = "addresses:#{address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -389,7 +389,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       assert %{"is_partially_verified" => true} = response
       assert %{"is_fully_verified" => false} = response
 
-      Application.put_env(:block_scout_web, :chain_id, old_chain_id)
+      Application.put_env(:explorer_web, :chain_id, old_chain_id)
       Application.put_env(:explorer, Explorer.SmartContract.RustVerifierInterfaceBehaviour, old_env)
       Bypass.down(bypass)
       GenServer.stop(pid)
@@ -397,9 +397,9 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
 
     test "automatically verify contract using search-all (ethBytecodeDbSources) endpoint", %{conn: conn} do
       {:ok, pid} = Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand.start_link([])
-      old_chain_id = Application.get_env(:block_scout_web, :chain_id)
+      old_chain_id = Application.get_env(:explorer_web, :chain_id)
 
-      Application.put_env(:block_scout_web, :chain_id, 5)
+      Application.put_env(:explorer_web, :chain_id, 5)
 
       bypass = Bypass.open()
 
@@ -427,7 +427,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       topic = "addresses:#{address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -515,7 +515,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       assert response["additional_sources"] |> Enum.sort_by(fn x -> x["file_path"] end) ==
                additional_sources |> Enum.sort_by(fn x -> x["file_path"] end)
 
-      Application.put_env(:block_scout_web, :chain_id, old_chain_id)
+      Application.put_env(:explorer_web, :chain_id, old_chain_id)
       Application.put_env(:explorer, Explorer.SmartContract.RustVerifierInterfaceBehaviour, old_env)
       Bypass.down(bypass)
       GenServer.stop(pid)
@@ -523,9 +523,9 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
 
     test "automatically verify contract using search-all (sourcifySources) endpoint", %{conn: conn} do
       {:ok, pid} = Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand.start_link([])
-      old_chain_id = Application.get_env(:block_scout_web, :chain_id)
+      old_chain_id = Application.get_env(:explorer_web, :chain_id)
 
-      Application.put_env(:block_scout_web, :chain_id, 5)
+      Application.put_env(:explorer_web, :chain_id, 5)
 
       bypass = Bypass.open()
 
@@ -553,7 +553,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       topic = "addresses:#{address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -596,7 +596,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       assert %{"is_fully_verified" => false} = response
       assert response["file_path"] == "Test.sol"
 
-      Application.put_env(:block_scout_web, :chain_id, old_chain_id)
+      Application.put_env(:explorer_web, :chain_id, old_chain_id)
       Application.put_env(:explorer, Explorer.SmartContract.RustVerifierInterfaceBehaviour, old_env)
       Bypass.down(bypass)
       GenServer.stop(pid)
@@ -604,9 +604,9 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
 
     test "automatically verify contract using search-all (sourcifySources with libraries) endpoint", %{conn: conn} do
       {:ok, pid} = Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand.start_link([])
-      old_chain_id = Application.get_env(:block_scout_web, :chain_id)
+      old_chain_id = Application.get_env(:explorer_web, :chain_id)
 
-      Application.put_env(:block_scout_web, :chain_id, 5)
+      Application.put_env(:explorer_web, :chain_id, 5)
 
       bypass = Bypass.open()
 
@@ -636,7 +636,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       topic = "addresses:#{address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -704,7 +704,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
       assert response["additional_sources"] |> Enum.sort_by(fn x -> x["file_path"] end) ==
                additional_sources |> Enum.sort_by(fn x -> x["file_path"] end)
 
-      Application.put_env(:block_scout_web, :chain_id, old_chain_id)
+      Application.put_env(:explorer_web, :chain_id, old_chain_id)
       Application.put_env(:explorer, Explorer.SmartContract.RustVerifierInterfaceBehaviour, old_env)
       Bypass.down(bypass)
       GenServer.stop(pid)
@@ -713,16 +713,16 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
     test "check fetch interval for LookUpSmartContractSourcesOnDemand and use sources:search endpoint since chain_id is unset",
          %{conn: conn} do
       {:ok, pid} = Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand.start_link([])
-      old_chain_id = Application.get_env(:block_scout_web, :chain_id)
+      old_chain_id = Application.get_env(:explorer_web, :chain_id)
 
-      Application.put_env(:block_scout_web, :chain_id, nil)
+      Application.put_env(:explorer_web, :chain_id, nil)
 
       bypass = Bypass.open()
       address = insert(:contract_address)
       topic = "addresses:#{address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -837,7 +837,7 @@ defmodule BlockScoutWeb.API.V2.SmartContractControllerTest do
                      },
                      :timer.seconds(1)
 
-      Application.put_env(:block_scout_web, :chain_id, old_chain_id)
+      Application.put_env(:explorer_web, :chain_id, old_chain_id)
       Application.put_env(:explorer, Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand, old_interval_env)
       Application.put_env(:explorer, Explorer.SmartContract.RustVerifierInterfaceBehaviour, old_env)
       Bypass.down(bypass)

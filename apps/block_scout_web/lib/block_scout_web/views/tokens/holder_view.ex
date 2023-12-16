@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.HolderView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.HolderView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Tokens.OverviewView
+  alias ExplorerWeb.Tokens.OverviewView
   alias Explorer.Chain.Token
 
   @doc """
@@ -9,13 +9,13 @@ defmodule BlockScoutWeb.Tokens.HolderView do
 
   ## Examples
 
-    iex> BlockScoutWeb.Tokens.HolderView.show_total_supply_percentage?(nil)
+    iex> ExplorerWeb.Tokens.HolderView.show_total_supply_percentage?(nil)
     false
 
-    iex> BlockScoutWeb.Tokens.HolderView.show_total_supply_percentage?(0)
+    iex> ExplorerWeb.Tokens.HolderView.show_total_supply_percentage?(0)
     false
 
-    iex> BlockScoutWeb.Tokens.HolderView.show_total_supply_percentage?(100)
+    iex> ExplorerWeb.Tokens.HolderView.show_total_supply_percentage?(100)
     true
 
   """
@@ -29,7 +29,7 @@ defmodule BlockScoutWeb.Tokens.HolderView do
 
     iex> value = Decimal.new(200)
     iex> total_supply = Decimal.new(1000)
-    iex> BlockScoutWeb.Tokens.HolderView.total_supply_percentage(value, total_supply)
+    iex> ExplorerWeb.Tokens.HolderView.total_supply_percentage(value, total_supply)
     "20.0000%"
 
   """
@@ -54,11 +54,11 @@ defmodule BlockScoutWeb.Tokens.HolderView do
   ## Examples
 
     iex> token = build(:token, type: "ERC-20", decimals: Decimal.new(2))
-    iex> BlockScoutWeb.Tokens.HolderView.format_token_balance_value(100000, nil, token)
+    iex> ExplorerWeb.Tokens.HolderView.format_token_balance_value(100000, nil, token)
     "1,000"
 
     iex> token = build(:token, type: "ERC-721")
-    iex> BlockScoutWeb.Tokens.HolderView.format_token_balance_value(1, nil, token)
+    iex> ExplorerWeb.Tokens.HolderView.format_token_balance_value(1, nil, token)
     1
 
   """

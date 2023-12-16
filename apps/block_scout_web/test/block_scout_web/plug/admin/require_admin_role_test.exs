@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Plug.Admin.RequireAdminRoleTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Plug.Admin.RequireAdminRoleTest do
+  use ExplorerWeb.ConnCase
 
   import Plug.Conn, only: [put_session: 3, assign: 3]
 
-  alias BlockScoutWeb.Router
-  alias BlockScoutWeb.Plug.Admin.RequireAdminRole
+  alias ExplorerWeb.Router
+  alias ExplorerWeb.Plug.Admin.RequireAdminRole
 
   test "init/1" do
     assert RequireAdminRole.init([]) == []

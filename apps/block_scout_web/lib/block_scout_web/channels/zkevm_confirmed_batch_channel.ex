@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.ZkevmConfirmedBatchChannel do
+defmodule ExplorerWeb.ZkevmConfirmedBatchChannel do
   @moduledoc """
   Establishes pub/sub channel for live updates of zkEVM confirmed batch events.
   """
-  use BlockScoutWeb, :channel
+  use ExplorerWeb, :channel
 
-  alias BlockScoutWeb.API.V2.ZkevmView
+  alias ExplorerWeb.API.V2.ZkevmView
 
   intercept(["new_zkevm_confirmed_batch"])
 
@@ -15,7 +15,7 @@ defmodule BlockScoutWeb.ZkevmConfirmedBatchChannel do
   def handle_out(
         "new_zkevm_confirmed_batch",
         %{batch: batch},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       ) do
     rendered_batch = ZkevmView.render("zkevm_batch.json", %{batch: batch, socket: nil})
 

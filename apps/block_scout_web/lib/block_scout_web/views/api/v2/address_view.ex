@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.API.V2.AddressView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.AddressView do
+  use ExplorerWeb, :view
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  alias BlockScoutWeb.AddressView
-  alias BlockScoutWeb.API.V2.{ApiView, Helper, TokenView}
-  alias BlockScoutWeb.API.V2.Helper
+  alias ExplorerWeb.AddressView
+  alias ExplorerWeb.API.V2.{ApiView, Helper, TokenView}
+  alias ExplorerWeb.API.V2.Helper
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.Address.Counters
   alias Explorer.Chain.{Address, SmartContract}
@@ -228,7 +228,7 @@ defmodule BlockScoutWeb.API.V2.AddressView do
              token.contract_address_hash,
              @api_true
            ) do
-        # `%{hash: address_hash}` will match with `address_with_info(_, address_hash)` clause in `BlockScoutWeb.API.V2.Helper`
+        # `%{hash: address_hash}` will match with `address_with_info(_, address_hash)` clause in `ExplorerWeb.API.V2.Helper`
         {:ok, token_instance} -> %Instance{token_instance | owner: %{hash: address_hash}}
         {:error, :not_found} -> %Instance{token_id: token_id, metadata: nil, owner: %{hash: address_hash}}
       end

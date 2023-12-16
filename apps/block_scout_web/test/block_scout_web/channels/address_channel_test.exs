@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.AddressChannelTest do
-  use BlockScoutWeb.ChannelCase,
+defmodule ExplorerWeb.AddressChannelTest do
+  use ExplorerWeb.ChannelCase,
     # ETS tables are shared in `Explorer.Counters.AddressesCounter`
     async: false
 
-  alias BlockScoutWeb.UserSocket
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.UserSocket
+  alias ExplorerWeb.Notifier
   alias Explorer.Counters.AddressesCounter
 
   test "subscribed user is notified of new_address count event" do

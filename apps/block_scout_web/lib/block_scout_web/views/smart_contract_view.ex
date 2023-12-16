@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.SmartContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.SmartContractView do
+  use ExplorerWeb, :view
 
   import Explorer.SmartContract.Reader, only: [zip_tuple_values_with_types: 2]
 

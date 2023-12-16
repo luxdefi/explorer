@@ -818,7 +818,7 @@ defmodule Explorer.SmartContract.Solidity.VerifierTest do
     end
   end
 
-  describe "regression tests for https://github.com/blockscout/blockscout/pull/5166" do
+  describe "regression tests for https://github.com/lux/lux/pull/5166" do
     test "issue 5114" do
       contract_source_code =
         "#{File.cwd!()}/test/support/fixture/smart_contract/issue_5114.sol"
@@ -1132,7 +1132,7 @@ defmodule Explorer.SmartContract.Solidity.VerifierTest do
     end
   end
 
-  describe "cover new functionality from https://github.com/blockscout/blockscout/pull/5479" do
+  describe "cover new functionality from https://github.com/lux/lux/pull/5479" do
     test "return {:error, :no_creation_data} when there is no contract creation code" do
       contract_source_code =
         "#{File.cwd!()}/test/support/fixture/smart_contract/issue_5431.sol"

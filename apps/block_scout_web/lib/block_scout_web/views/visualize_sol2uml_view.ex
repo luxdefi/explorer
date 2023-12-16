@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.VisualizeSol2umlView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.VisualizeSol2umlView do
+  use ExplorerWeb, :view
 end

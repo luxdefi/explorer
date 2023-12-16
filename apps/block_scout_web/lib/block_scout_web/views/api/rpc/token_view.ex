@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.RPC.TokenView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.RPC.TokenView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.RPC.RPCView
+  alias ExplorerWeb.API.RPC.RPCView
 
   def render("gettoken.json", %{token: token}) do
     RPCView.render("show.json", data: prepare_token(token))

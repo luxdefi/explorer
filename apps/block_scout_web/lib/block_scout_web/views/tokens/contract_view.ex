@@ -1,6 +1,6 @@
-defmodule BlockScoutWeb.Tokens.ContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.ContractView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Tokens.OverviewView
+  alias ExplorerWeb.Tokens.OverviewView
   alias Explorer.Chain.Address
 end

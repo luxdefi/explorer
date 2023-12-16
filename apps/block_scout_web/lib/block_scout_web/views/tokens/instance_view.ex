@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.Tokens.InstanceView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.InstanceView do
+  use ExplorerWeb, :view
 end

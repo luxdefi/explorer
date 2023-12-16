@@ -69,7 +69,7 @@ defmodule Explorer.Tags.AddressTag.Cataloger do
   end
 
   def create_chainlink_oracle_tag do
-    chainlink_oracles_config = Application.get_env(:block_scout_web, :chainlink_oracles)
+    chainlink_oracles_config = Application.get_env(:explorer_web, :chainlink_oracles)
 
     if chainlink_oracles_config do
       chainlink_oracles_config
@@ -182,7 +182,7 @@ defmodule Explorer.Tags.AddressTag.Cataloger do
   end
 
   defp chainlink_oracles_list do
-    chainlink_oracles_config = Application.get_env(:block_scout_web, :chainlink_oracles)
+    chainlink_oracles_config = Application.get_env(:explorer_web, :chainlink_oracles)
 
     if chainlink_oracles_config do
       try do

@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressContractVerificationViaFlattenedCodeController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressContractVerificationViaFlattenedCodeController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Controller
+  alias ExplorerWeb.Controller
   alias Explorer.Chain.SmartContract
   alias Explorer.SmartContract.{CompilerVersion, Solidity.CodeCompiler, Solidity.PublisherWorker}
 

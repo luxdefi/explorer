@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.AddressController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  import BlockScoutWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
 
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{
+  alias ExplorerWeb.{
     AccessHelper,
     AddressTransactionController,
     AddressView,

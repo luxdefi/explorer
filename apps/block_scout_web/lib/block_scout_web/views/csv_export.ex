@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.CsvExportView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.CsvExportView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Controller, as: BlockScoutWebController
+  alias ExplorerWeb.Controller, as: ExplorerWebController
   alias Explorer.Chain
   alias Explorer.Chain.Address
   alias Explorer.Chain.CSVExport.Helper

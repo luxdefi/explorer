@@ -603,7 +603,7 @@ defmodule Explorer.Chain.TransactionTest do
     end
 
     test "with emission rewards" do
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: true)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: true)
 
       Application.put_env(:explorer, Explorer.Chain.Block.Reward,
         validators_contract_address: "0x0000000000000000000000000000000000000005",
@@ -658,7 +658,7 @@ defmodule Explorer.Chain.TransactionTest do
       :timer.sleep(500)
 
       on_exit(fn ->
-        Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: false)
+        Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: false)
 
         Application.put_env(:explorer, Explorer.Chain.Block.Reward,
           validators_contract_address: nil,
@@ -668,7 +668,7 @@ defmodule Explorer.Chain.TransactionTest do
     end
 
     test "with emission rewards and transactions" do
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: true)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: true)
 
       Application.put_env(:explorer, Explorer.Chain.Block.Reward,
         validators_contract_address: "0x0000000000000000000000000000000000000005",
@@ -727,7 +727,7 @@ defmodule Explorer.Chain.TransactionTest do
       :timer.sleep(500)
 
       on_exit(fn ->
-        Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: false)
+        Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: false)
 
         Application.put_env(:explorer, Explorer.Chain.Block.Reward,
           validators_contract_address: nil,
@@ -737,7 +737,7 @@ defmodule Explorer.Chain.TransactionTest do
     end
 
     test "with transactions if rewards are not in the range of blocks" do
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: true)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: true)
 
       block = insert(:block)
 
@@ -762,11 +762,11 @@ defmodule Explorer.Chain.TransactionTest do
 
       assert [_] = Transaction.address_to_transactions_with_rewards(block.miner.hash, direction: :from)
 
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: false)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: false)
     end
 
     test "with emissions rewards, but feature disabled" do
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: false)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: false)
 
       block = insert(:block)
 

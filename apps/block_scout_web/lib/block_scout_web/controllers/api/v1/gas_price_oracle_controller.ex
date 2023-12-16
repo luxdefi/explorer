@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V1.GasPriceOracleController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V1.GasPriceOracleController do
+  use ExplorerWeb, :controller
 
   alias Explorer.Chain.Cache.GasPriceOracle
 

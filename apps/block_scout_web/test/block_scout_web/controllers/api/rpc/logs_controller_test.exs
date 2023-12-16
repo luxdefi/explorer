@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.RPC.LogsControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.RPC.LogsControllerTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.API.RPC.LogsController
+  alias ExplorerWeb.API.RPC.LogsController
   alias Explorer.Chain.{Log, Transaction}
 
   describe "getLogs" do

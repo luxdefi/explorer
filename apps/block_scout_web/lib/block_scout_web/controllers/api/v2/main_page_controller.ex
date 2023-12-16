@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.API.V2.MainPageController do
+defmodule ExplorerWeb.API.V2.MainPageController do
   use Phoenix.Controller
 
   alias Explorer.{Chain, PagingOptions}
-  alias BlockScoutWeb.API.V2.{BlockView, TransactionView}
+  alias ExplorerWeb.API.V2.{BlockView, TransactionView}
   alias Explorer.{Chain, Repo}
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
   @transactions_options [
     necessity_by_association: %{
@@ -21,7 +21,7 @@ defmodule BlockScoutWeb.API.V2.MainPageController do
     api?: true
   ]
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   def blocks(conn, _params) do
     blocks =

@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Plug.FetchUserFromSession do
+defmodule ExplorerWeb.Plug.FetchUserFromSession do
   @moduledoc """
   Fetches a `t:Explorer.Accounts.User.t/0` record if a user id is found in the session.
   """

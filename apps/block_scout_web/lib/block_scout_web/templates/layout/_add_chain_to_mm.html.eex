@@ -1,6 +1,6 @@
-<%= unless Application.get_env(:block_scout_web, :disable_add_to_mm_button) do %>
+<%= unless Application.get_env(:explorer_web, :disable_add_to_mm_button) do %>
     <input id="js-coin-name" class="d-none" value="<%= Explorer.coin_name() %>" />
-    <% sub_network = Keyword.get(Application.get_env(:block_scout_web, BlockScoutWeb.Chain), :subnetwork) %>
+    <% sub_network = Keyword.get(Application.get_env(:explorer_web, ExplorerWeb.Chain), :subnetwork) %>
     <input id="js-subnetwork" class="d-none" value="<%= sub_network %>" />
     <li>
         <a 

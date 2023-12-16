@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.API.V2.TransactionController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.TransactionController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       next_page_params: 3,
       put_key_value_to_paging_options: 3,
@@ -12,7 +12,7 @@ defmodule BlockScoutWeb.API.V2.TransactionController do
       split_list_by_page: 1
     ]
 
-  import BlockScoutWeb.PagingHelper,
+  import ExplorerWeb.PagingHelper,
     only: [
       delete_parameters_from_next_page_params: 1,
       paging_options: 2,
@@ -22,13 +22,13 @@ defmodule BlockScoutWeb.API.V2.TransactionController do
       type_filter_options: 1
     ]
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.Models.TransactionStateHelper
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.Models.TransactionStateHelper
   alias Explorer.Chain
   alias Explorer.Chain.Zkevm.Reader
   alias Indexer.Fetcher.FirstTraceOnDemand
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   @transaction_necessity_by_association %{
     :block => :optional,

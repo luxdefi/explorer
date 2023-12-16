@@ -5,14 +5,14 @@
 # address a better way to organize the controllers.
 #
 # So, for now, I'm adding this comment to disable the credo check for this file.
-defmodule BlockScoutWeb.AddressReadContractController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressReadContractController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.AddressView
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.AddressView
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.Address
   alias Explorer.SmartContract.Reader

@@ -1,14 +1,14 @@
-defmodule BlockScoutWeb.AccessHelper do
+defmodule ExplorerWeb.AccessHelper do
   @moduledoc """
   Helper to restrict access to some pages filtering by address
   """
 
   import Phoenix.Controller
 
-  alias BlockScoutWeb.API.APILogger
-  alias BlockScoutWeb.API.RPC.RPCView
-  alias BlockScoutWeb.API.V2.ApiView
-  alias BlockScoutWeb.WebRouter.Helpers
+  alias ExplorerWeb.API.APILogger
+  alias ExplorerWeb.API.RPC.RPCView
+  alias ExplorerWeb.API.V2.ApiView
+  alias ExplorerWeb.WebRouter.Helpers
   alias Explorer.AccessHelper
   alias Explorer.Account.Api.Key, as: ApiKey
   alias Plug.Conn
@@ -54,7 +54,7 @@ defmodule BlockScoutWeb.AccessHelper do
   end
 
   def check_rate_limit(conn) do
-    rate_limit_config = Application.get_env(:block_scout_web, :api_rate_limit)
+    rate_limit_config = Application.get_env(:explorer_web, :api_rate_limit)
 
     if rate_limit_config[:disabled] do
       :ok
@@ -159,16 +159,16 @@ defmodule BlockScoutWeb.AccessHelper do
   defp is_api_v2_request?(_), do: false
 
   def conn_to_ip_string(conn) do
-    is_blockscout_behind_proxy = Application.get_env(:block_scout_web, :api_rate_limit)[:is_blockscout_behind_proxy]
+    is_lux_behind_proxy = Application.get_env(:explorer_web, :api_rate_limit)[:is_lux_behind_proxy]
 
-    remote_ip_from_headers = is_blockscout_behind_proxy && RemoteIp.from(conn.req_headers)
+    remote_ip_from_headers = is_lux_behind_proxy && RemoteIp.from(conn.req_headers)
     ip = remote_ip_from_headers || conn.remote_ip
 
     to_string(:inet_parse.ntoa(ip))
   end
 
   defp get_ui_v2_token(conn, ip_string) do
-    api_v2_temp_token_key = Application.get_env(:block_scout_web, :api_v2_temp_token_key)
+    api_v2_temp_token_key = Application.get_env(:explorer_web, :api_v2_temp_token_key)
     conn = Conn.fetch_cookies(conn, signed: [api_v2_temp_token_key])
 
     case is_api_v2_request?(conn) && conn.cookies[api_v2_temp_token_key] do

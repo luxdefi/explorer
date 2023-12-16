@@ -1,12 +1,12 @@
-defmodule BlockScoutWeb.API.V2.VerificationController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.VerificationController do
+  use ExplorerWeb, :controller
 
   import Explorer.SmartContract.Solidity.Verifier, only: [parse_boolean: 1]
 
   require Logger
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.API.V2.ApiView
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.API.V2.ApiView
   alias Explorer.Chain
   alias Explorer.Chain.SmartContract
   alias Explorer.SmartContract.Solidity.PublisherWorker, as: SolidityPublisherWorker
@@ -14,7 +14,7 @@ defmodule BlockScoutWeb.API.V2.VerificationController do
   alias Explorer.SmartContract.Vyper.PublisherWorker, as: VyperPublisherWorker
   alias Explorer.SmartContract.{CompilerVersion, RustVerifierInterface, Solidity.CodeCompiler}
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   @api_true [api?: true]
   @sc_verification_started "Smart-contract verification started"

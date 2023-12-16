@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.AddressCoinBalanceByDayController do
+defmodule ExplorerWeb.AddressCoinBalanceByDayController do
   @moduledoc """
   Manages the grouping by day of the coin balance history of an address
   """
 
-  use BlockScoutWeb, :controller
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AccessHelper
+  alias ExplorerWeb.AccessHelper
   alias Explorer.Chain
 
   def index(conn, %{"address_id" => address_hash_string, "type" => "JSON"} = params) do

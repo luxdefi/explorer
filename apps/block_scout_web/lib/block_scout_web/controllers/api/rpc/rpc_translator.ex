@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.API.RPC.RPCTranslator do
+defmodule ExplorerWeb.API.RPC.RPCTranslator do
   @moduledoc """
   Converts an RPC-style request into a controller action.
 
@@ -18,9 +18,9 @@ defmodule BlockScoutWeb.API.RPC.RPCTranslator do
   import Plug.Conn
   import Phoenix.Controller, only: [put_view: 2]
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.API.APILogger
-  alias BlockScoutWeb.API.RPC.RPCView
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.API.APILogger
+  alias ExplorerWeb.API.RPC.RPCView
   alias Phoenix.Controller
   alias Plug.Conn
 
@@ -103,7 +103,7 @@ defmodule BlockScoutWeb.API.RPC.RPCTranslator do
   end
 
   defp action_accessed?(action, write_actions) do
-    conf = Application.get_env(:block_scout_web, BlockScoutWeb.ApiRouter)
+    conf = Application.get_env(:explorer_web, ExplorerWeb.ApiRouter)
 
     if action in write_actions do
       conf[:writing_enabled] || {:error, :no_action}

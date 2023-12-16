@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.Instance.MetadataView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.Instance.MetadataView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Tokens.Instance.OverviewView
+  alias ExplorerWeb.Tokens.Instance.OverviewView
 
   def format_metadata(nil), do: ""
 

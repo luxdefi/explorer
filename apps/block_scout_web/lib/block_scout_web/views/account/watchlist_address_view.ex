@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Account.WatchlistAddressView do
-  use BlockScoutWeb, :view
-  import BlockScoutWeb.AddressView, only: [trimmed_hash: 1]
-  import BlockScoutWeb.WeiHelper, only: [format_wei_value: 2]
+defmodule ExplorerWeb.Account.WatchlistAddressView do
+  use ExplorerWeb, :view
+  import ExplorerWeb.AddressView, only: [trimmed_hash: 1]
+  import ExplorerWeb.WeiHelper, only: [format_wei_value: 2]
 
   def balance_ether(nil), do: ""
 

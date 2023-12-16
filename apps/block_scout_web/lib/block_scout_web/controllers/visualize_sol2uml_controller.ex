@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.VisualizeSol2umlController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.VisualizeSol2umlController do
+  use ExplorerWeb, :controller
   alias Explorer.Chain
   alias Explorer.Visualize.Sol2uml
 

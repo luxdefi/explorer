@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.SmartContractController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.SmartContractController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AddressView
+  alias ExplorerWeb.AddressView
   alias Explorer.Chain
   alias Explorer.Chain.SmartContract
   alias Explorer.SmartContract.{Reader, Writer}

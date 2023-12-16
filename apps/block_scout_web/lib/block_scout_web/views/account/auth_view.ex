@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.Account.AuthView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Account.AuthView do
+  use ExplorerWeb, :view
 end

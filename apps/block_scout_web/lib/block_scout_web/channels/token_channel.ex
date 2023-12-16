@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.TokenChannel do
+defmodule ExplorerWeb.TokenChannel do
   @moduledoc """
   Establishes pub/sub channel for live updates of token transfer events.
   """
-  use BlockScoutWeb, :channel
+  use ExplorerWeb, :channel
 
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
-  alias BlockScoutWeb.{CurrencyHelper, TokensView}
-  alias BlockScoutWeb.Tokens.TransferView
+  alias ExplorerWeb.{CurrencyHelper, TokensView}
+  alias ExplorerWeb.Tokens.TransferView
   alias Explorer.Chain
   alias Explorer.Chain.Hash
   alias Phoenix.View
@@ -24,7 +24,7 @@ defmodule BlockScoutWeb.TokenChannel do
   def handle_out(
         "token_transfer",
         %{token_transfers: token_transfers},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       )
       when is_list(token_transfers) do
     push(socket, "token_transfer", %{token_transfer: Enum.count(token_transfers)})
@@ -35,9 +35,9 @@ defmodule BlockScoutWeb.TokenChannel do
   def handle_out(
         "token_transfer",
         %{token_transfer: token_transfer},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocket} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocket} = socket
       ) do
-    Gettext.put_locale(BlockScoutWeb.Gettext, socket.assigns.locale)
+    Gettext.put_locale(ExplorerWeb.Gettext, socket.assigns.locale)
 
     rendered_token_transfer =
       View.render_to_string(
@@ -64,7 +64,7 @@ defmodule BlockScoutWeb.TokenChannel do
   def handle_out(
         "token_total_supply",
         %{token: %Explorer.Chain.Token{total_supply: total_supply}},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       ) do
     push(socket, "total_supply", %{total_supply: to_string(total_supply)})
 

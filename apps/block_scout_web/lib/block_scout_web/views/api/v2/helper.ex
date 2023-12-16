@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.API.V2.Helper do
+defmodule ExplorerWeb.API.V2.Helper do
   @moduledoc """
     API V2 helper
   """
@@ -7,8 +7,8 @@ defmodule BlockScoutWeb.API.V2.Helper do
   alias Explorer.Chain.Address
   alias Explorer.Chain.Transaction.History.TransactionStats
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 3]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 3]
 
   def address_with_info(conn, address, address_hash, tags_needed?, watchlist_names_cached \\ nil)
 

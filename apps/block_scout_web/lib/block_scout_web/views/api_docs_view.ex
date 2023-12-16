@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.APIDocsView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.APIDocsView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.LayoutView
+  alias ExplorerWeb.LayoutView
   alias Explorer
 
   def action_tile_id(module, action) do
@@ -35,8 +35,8 @@ defmodule BlockScoutWeb.APIDocsView do
     end)
   end
 
-  def blockscout_url(set_path) when set_path == false do
-    url_params = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url]
+  def lux_url(set_path) when set_path == false do
+    url_params = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url]
     host = url_params[:host]
 
     scheme = Keyword.get(url_params, :scheme, "http")
@@ -44,13 +44,13 @@ defmodule BlockScoutWeb.APIDocsView do
     if host != "localhost" do
       "#{scheme}://#{host}"
     else
-      port = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:http][:port]
+      port = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:http][:port]
       "#{scheme}://#{host}:#{to_string(port)}"
     end
   end
 
-  def blockscout_url(set_path) when set_path == true do
-    url_params = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url]
+  def lux_url(set_path) when set_path == true do
+    url_params = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url]
     host = url_params[:host]
 
     path = url_params[:path]
@@ -60,20 +60,20 @@ defmodule BlockScoutWeb.APIDocsView do
     if host != "localhost" do
       "#{scheme}://#{host}#{path}"
     else
-      port = Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:http][:port]
+      port = Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:http][:port]
       "#{scheme}://#{host}:#{to_string(port)}"
     end
   end
 
   def api_url do
     true
-    |> blockscout_url()
+    |> lux_url()
     |> Path.join("api")
   end
 
   def eth_rpc_api_url do
     true
-    |> blockscout_url()
+    |> lux_url()
     |> Path.join("api/eth-rpc")
   end
 end

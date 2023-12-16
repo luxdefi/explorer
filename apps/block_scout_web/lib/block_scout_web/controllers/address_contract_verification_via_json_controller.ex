@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressContractVerificationViaJsonController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressContractVerificationViaJsonController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Controller
+  alias ExplorerWeb.Controller
   alias Explorer.Chain.SmartContract
   alias Explorer.SmartContract.Solidity.PublishHelper
   alias Explorer.ThirdPartyIntegrations.Sourcify

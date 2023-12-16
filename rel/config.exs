@@ -70,11 +70,11 @@ end
 # when running `mix release`, the first release in the file
 # will be used by default
 
-release :blockscout do
+release :lux do
   set version: "5.3.3-beta"
   set applications: [
     :runtime_tools,
-    block_scout_web: :permanent,
+    explorer_web: :permanent,
     ethereum_jsonrpc: :permanent,
     explorer: :permanent,
     indexer: :permanent

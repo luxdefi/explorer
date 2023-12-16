@@ -1,7 +1,7 @@
 <tr data-identifier-hash="<%= @contract.address_hash %>">
     <!-- Address -->
     <td class="stakes-td">
-    <%= render BlockScoutWeb.AddressView,
+    <%= render ExplorerWeb.AddressView,
       "_link.html",
       address: @contract.address,
       contract: true,

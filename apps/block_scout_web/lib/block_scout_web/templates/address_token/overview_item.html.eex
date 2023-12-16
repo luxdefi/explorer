@@ -2,7 +2,7 @@
     <div>
         <div class="d-flex">
             <h1 class="card-title mb-2"><%= @title %></h1>
-            <%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip.html",
+            <%= render ExplorerWeb.CommonComponentsView, "_i_tooltip.html",
                 text: @tooltip,
                 additional_classes: ["ml-2"]
             %>

@@ -1,38 +1,38 @@
-defmodule BlockScoutWeb.WebRouter do
+defmodule ExplorerWeb.WebRouter do
   @moduledoc """
   Router for web app
   """
-  use BlockScoutWeb, :router
+  use ExplorerWeb, :router
   require Ueberauth
 
-  alias BlockScoutWeb.Plug.CheckAccountWeb
+  alias ExplorerWeb.Plug.CheckAccountWeb
 
   pipeline :browser do
-    plug(BlockScoutWeb.Plug.Logger, application: :block_scout_web)
+    plug(ExplorerWeb.Plug.Logger, application: :explorer_web)
     plug(:accepts, ["html"])
     plug(:fetch_session)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
-    plug(BlockScoutWeb.CSPHeader)
-    plug(BlockScoutWeb.ChecksumAddress)
+    plug(ExplorerWeb.CSPHeader)
+    plug(ExplorerWeb.ChecksumAddress)
   end
 
   pipeline :account do
-    plug(BlockScoutWeb.Plug.Logger, application: :block_scout_web)
+    plug(ExplorerWeb.Plug.Logger, application: :explorer_web)
     plug(:accepts, ["html"])
     plug(:fetch_session)
     plug(:fetch_flash)
     plug(CheckAccountWeb)
     plug(:protect_from_forgery)
-    plug(BlockScoutWeb.CSPHeader)
-    plug(BlockScoutWeb.ChecksumAddress)
+    plug(ExplorerWeb.CSPHeader)
+    plug(ExplorerWeb.ChecksumAddress)
   end
 
   if Mix.env() == :dev do
     forward("/sent_emails", Bamboo.SentEmailViewerPlug)
   end
 
-  scope "/auth", BlockScoutWeb do
+  scope "/auth", ExplorerWeb do
     pipe_through(:account)
 
     get("/profile", Account.AuthController, :profile)
@@ -41,7 +41,7 @@ defmodule BlockScoutWeb.WebRouter do
     get("/:provider/callback", Account.AuthController, :callback)
   end
 
-  scope "/account", BlockScoutWeb do
+  scope "/account", ExplorerWeb do
     pipe_through(:account)
 
     resources("/tag_address", Account.TagAddressController,
@@ -82,13 +82,13 @@ defmodule BlockScoutWeb.WebRouter do
   end
 
   # Disallows Iframes (write routes)
-  scope "/", BlockScoutWeb do
+  scope "/", ExplorerWeb do
     pipe_through(:browser)
   end
 
   # Allows Iframes (read-only routes)
-  scope "/", BlockScoutWeb do
-    pipe_through([:browser, BlockScoutWeb.Plug.AllowIframe])
+  scope "/", ExplorerWeb do
+    pipe_through([:browser, ExplorerWeb.Plug.AllowIframe])
 
     resources("/", ChainController, only: [:show], singleton: true, as: :chain)
 

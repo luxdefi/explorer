@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Admin.TaskController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Admin.TaskController do
+  use ExplorerWeb, :controller
 
   require Logger
 

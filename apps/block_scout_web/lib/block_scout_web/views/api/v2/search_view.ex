@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.SearchView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.SearchView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.{BlockView, Endpoint}
+  alias ExplorerWeb.{BlockView, Endpoint}
   alias Explorer.Chain
   alias Explorer.Chain.{Address, Block, Hash, Transaction}
 

@@ -1,16 +1,16 @@
-defmodule BlockScoutWeb.Account.Api.V1.EmailController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.Api.V1.EmailController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Account.Identity
   alias Explorer.Repo
   alias Explorer.ThirdPartyIntegrations.Auth0
 
   require Logger
 
-  @invalid_session_key Application.compile_env(:block_scout_web, :invalid_session_key)
+  @invalid_session_key Application.compile_env(:explorer_web, :invalid_session_key)
 
-  action_fallback(BlockScoutWeb.Account.Api.V1.FallbackController)
+  action_fallback(ExplorerWeb.Account.Api.V1.FallbackController)
 
   plug(:fetch_cookies, signed: [@invalid_session_key])
 

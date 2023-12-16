@@ -1,11 +1,11 @@
-defmodule BlockScout.Mixfile do
+defmodule Explorer.Mixfile do
   use Mix.Project
 
   # Functions
 
   def project do
     [
-      # app: :block_scout,
+      # app: :explorer,
       # aliases: aliases(config_env()),
       version: "5.3.3",
       apps_path: "apps",
@@ -18,9 +18,9 @@ defmodule BlockScout.Mixfile do
       ],
       # start_permanent: config_env() == :prod,
       releases: [
-        blockscout: [
+        lux: [
           applications: [
-            block_scout_web: :permanent,
+            explorer_web: :permanent,
             ethereum_jsonrpc: :permanent,
             explorer: :permanent,
             indexer: :permanent
@@ -93,7 +93,7 @@ defmodule BlockScout.Mixfile do
   defp deps do
     [
       {:prometheus_ex, git: "https://github.com/lanodan/prometheus.ex", branch: "fix/elixir-1.14", override: true},
-      {:absinthe_plug, git: "https://github.com/blockscout/absinthe_plug.git", tag: "1.5.3", override: true},
+      {:absinthe_plug, git: "https://github.com/lux/absinthe_plug.git", tag: "1.5.3", override: true},
       {:tesla, "~> 1.8.0"},
       # Documentation
       {:ex_doc, "~> 0.31.0", only: :dev, runtime: false},

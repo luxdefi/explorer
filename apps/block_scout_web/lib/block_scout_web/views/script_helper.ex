@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Views.ScriptHelper do
+defmodule ExplorerWeb.Views.ScriptHelper do
   @moduledoc """
   Helper for rendering view specific script tags.
   """
 
   import Phoenix.HTML, only: [sigil_E: 2]
-  import BlockScoutWeb.Router.Helpers, only: [static_path: 2]
+  import ExplorerWeb.Router.Helpers, only: [static_path: 2]
 
   def render_scripts(conn, file_names) do
     conn

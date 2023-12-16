@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.PolygonEdgeController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.PolygonEdgeController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       next_page_params: 3,
       paging_options: 1,
@@ -10,7 +10,7 @@ defmodule BlockScoutWeb.API.V2.PolygonEdgeController do
 
   alias Explorer.Chain.PolygonEdge.Reader
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   @spec deposits(Plug.Conn.t(), map()) :: Plug.Conn.t()
   def deposits(conn, params) do

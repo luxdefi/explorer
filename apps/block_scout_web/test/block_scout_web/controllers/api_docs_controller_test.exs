@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.APIDocsControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.APIDocsControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.Router.Helpers, only: [api_docs_path: 2]
+  import ExplorerWeb.Router.Helpers, only: [api_docs_path: 2]
 
   describe "GET index/2" do
     test "renders documentation tiles for each API module#action", %{conn: conn} do
-      conn = get(conn, api_docs_path(BlockScoutWeb.Endpoint, :index))
+      conn = get(conn, api_docs_path(ExplorerWeb.Endpoint, :index))
 
-      documentation = BlockScoutWeb.Etherscan.get_documentation()
+      documentation = ExplorerWeb.Etherscan.get_documentation()
 
       for module <- documentation, action <- module.actions do
         assert html_response(conn, 200) =~ action.name

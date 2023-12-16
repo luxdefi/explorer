@@ -1,1 +1,1 @@
-<%= render BlockScoutWeb.TransactionInternalTransactionView, "index.html", assigns %>
+<%= render ExplorerWeb.TransactionInternalTransactionView, "index.html", assigns %>

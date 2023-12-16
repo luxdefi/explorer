@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.ExchangeRateChannelTest do
-  use BlockScoutWeb.ChannelCase
+defmodule ExplorerWeb.ExchangeRateChannelTest do
+  use ExplorerWeb.ChannelCase
 
   import Mox
 
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
   alias Explorer.ExchangeRates
   alias Explorer.ExchangeRates.Token
   alias Explorer.ExchangeRates.Source.TestSource

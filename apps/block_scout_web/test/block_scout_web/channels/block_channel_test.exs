@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.BlockChannelTest do
-  use BlockScoutWeb.ChannelCase
+defmodule ExplorerWeb.BlockChannelTest do
+  use ExplorerWeb.ChannelCase
 
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
 
   test "subscribed user is notified of new_block event" do
     topic = "blocks:new_block"

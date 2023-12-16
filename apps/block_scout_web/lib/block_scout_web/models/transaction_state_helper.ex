@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Models.TransactionStateHelper do
+defmodule ExplorerWeb.Models.TransactionStateHelper do
   @moduledoc """
     Transaction state changes related functions
   """
 
-  import BlockScoutWeb.Chain, only: [default_paging_options: 0]
+  import ExplorerWeb.Chain, only: [default_paging_options: 0]
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
   alias Explorer.Chain.Transaction.StateChange

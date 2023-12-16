@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.PageNotFoundController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.PageNotFoundController do
+  use ExplorerWeb, :controller
 
   def index(conn, _params) do
     conn

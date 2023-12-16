@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.AddressWithdrawalControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressWithdrawalControllerTest do
+  use ExplorerWeb.ConnCase, async: true
   use ExUnit.Case, async: false
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [address_withdrawal_path: 3, address_withdrawal_path: 4]
-  import BlockScoutWeb.WeiHelper, only: [format_wei_value: 2]
+  import ExplorerWeb.WebRouter.Helpers, only: [address_withdrawal_path: 3, address_withdrawal_path: 4]
+  import ExplorerWeb.WeiHelper, only: [format_wei_value: 2]
   import Mox
 
   alias Explorer.Chain.Address
@@ -62,7 +62,7 @@ defmodule BlockScoutWeb.AddressWithdrawalControllerTest do
     test "includes USD exchange rate value for address in assigns", %{conn: conn} do
       address = insert(:address)
 
-      conn = get(conn, address_withdrawal_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)))
+      conn = get(conn, address_withdrawal_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)))
 
       assert %Token{} = conn.assigns.exchange_rate
     end
@@ -76,7 +76,7 @@ defmodule BlockScoutWeb.AddressWithdrawalControllerTest do
         |> Enum.split(51)
 
       conn =
-        get(conn, address_withdrawal_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), %{
+        get(conn, address_withdrawal_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), %{
           "index" => first_page |> List.last() |> (& &1.index).() |> Integer.to_string(),
           "type" => "JSON"
         })

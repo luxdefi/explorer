@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.API.V2.FallbackController do
+defmodule ExplorerWeb.API.V2.FallbackController do
   use Phoenix.Controller
 
   require Logger
 
-  alias BlockScoutWeb.API.V2.ApiView
+  alias ExplorerWeb.API.V2.ApiView
 
   @verification_failed "API v2 smart-contract verification failed"
   @invalid_parameters "Invalid parameter(s)"

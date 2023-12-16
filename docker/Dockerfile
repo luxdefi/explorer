@@ -26,7 +26,7 @@ ENV CHAIN_TYPE=${CHAIN_TYPE}
 
 # Cache elixir deps
 ADD mix.exs mix.lock ./
-ADD apps/block_scout_web/mix.exs ./apps/block_scout_web/
+ADD apps/explorer_web/mix.exs ./apps/explorer_web/
 ADD apps/explorer/mix.exs ./apps/explorer/
 ADD apps/ethereum_jsonrpc/mix.exs ./apps/ethereum_jsonrpc/
 ADD apps/indexer/mix.exs ./apps/indexer/
@@ -45,8 +45,8 @@ RUN apk add --update nodejs npm
 # Run forderground build and phoenix digest
 RUN mix compile && npm install npm@latest
 
-# Add blockscout npm deps
-RUN cd apps/block_scout_web/assets/ && \
+# Add lux npm deps
+RUN cd apps/explorer_web/assets/ && \
     npm install && \
     npm run deploy && \
     cd /app/apps/explorer/ && \
@@ -60,8 +60,8 @@ RUN apk add --update git make
 RUN mix phx.digest
 
 RUN mkdir -p /opt/release \
-  && mix release blockscout \
-  && mv _build/${MIX_ENV}/rel/blockscout /opt/release
+  && mix release lux \
+  && mv _build/${MIX_ENV}/rel/lux /opt/release
 
 ##############################################################
 FROM hexpm/elixir:1.14.5-erlang-24.2.2-alpine-3.18.2
@@ -70,14 +70,14 @@ ARG RELEASE_VERSION
 ENV RELEASE_VERSION=${RELEASE_VERSION}
 ARG CHAIN_TYPE
 ENV CHAIN_TYPE=${CHAIN_TYPE}
-ARG BLOCKSCOUT_VERSION
-ENV BLOCKSCOUT_VERSION=${BLOCKSCOUT_VERSION}
+ARG EXPLORER_VERSION
+ENV EXPLORER_VERSION=${EXPLORER_VERSION}
 
 RUN apk --no-cache --update add jq curl
 
 WORKDIR /app
 
-COPY --from=builder /opt/release/blockscout .
+COPY --from=builder /opt/release/lux .
 COPY --from=builder /app/apps/explorer/node_modules ./node_modules
 COPY --from=builder /app/config/config_helper.exs ./config/config_helper.exs
 COPY --from=builder /app/config/config_helper.exs /app/releases/${RELEASE_VERSION}/config_helper.exs

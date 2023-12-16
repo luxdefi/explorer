@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tokens.Instance.HolderView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.Instance.HolderView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Tokens.Instance.OverviewView
+  alias ExplorerWeb.Tokens.Instance.OverviewView
 end

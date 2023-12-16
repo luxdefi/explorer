@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.TransactionControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.TransactionControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.WebRouter.Helpers,
+  import ExplorerWeb.WebRouter.Helpers,
     only: [transaction_path: 3]
 
   alias Explorer.Chain.Transaction
@@ -116,20 +116,20 @@ defmodule BlockScoutWeb.TransactionControllerTest do
   describe "GET show/3" do
     test "responds with 404 with the transaction missing", %{conn: conn} do
       hash = transaction_hash()
-      conn = get(conn, transaction_path(BlockScoutWeb.Endpoint, :show, hash))
+      conn = get(conn, transaction_path(ExplorerWeb.Endpoint, :show, hash))
 
       assert html_response(conn, 404)
     end
 
     test "responds with 422 when the hash is invalid", %{conn: conn} do
-      conn = get(conn, transaction_path(BlockScoutWeb.Endpoint, :show, "wrong"))
+      conn = get(conn, transaction_path(ExplorerWeb.Endpoint, :show, "wrong"))
 
       assert html_response(conn, 422)
     end
 
     test "no redirect from tx page", %{conn: conn} do
       transaction = insert(:transaction)
-      conn = get(conn, transaction_path(BlockScoutWeb.Endpoint, :show, transaction))
+      conn = get(conn, transaction_path(ExplorerWeb.Endpoint, :show, transaction))
 
       assert html_response(conn, 200)
     end

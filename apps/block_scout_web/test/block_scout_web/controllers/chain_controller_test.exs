@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.ChainControllerTest do
-  use BlockScoutWeb.ConnCase,
+defmodule ExplorerWeb.ChainControllerTest do
+  use ExplorerWeb.ConnCase,
     # ETS table is shared in `Explorer.Counters.AddressesCounter`
     async: false
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [chain_path: 2, block_path: 3, transaction_path: 3, address_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [chain_path: 2, block_path: 3, transaction_path: 3, address_path: 3]
 
   alias Explorer.Chain.Block
   alias Explorer.Counters.AddressesCounter
@@ -21,7 +21,7 @@ defmodule BlockScoutWeb.ChainControllerTest do
 
   describe "GET index/2" do
     test "returns a welcome message", %{conn: conn} do
-      conn = get(conn, chain_path(BlockScoutWeb.Endpoint, :show))
+      conn = get(conn, chain_path(ExplorerWeb.Endpoint, :show))
 
       assert(html_response(conn, 200) =~ "POA")
     end

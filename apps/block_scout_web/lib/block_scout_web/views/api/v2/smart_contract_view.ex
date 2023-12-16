@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.API.V2.SmartContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.SmartContractView do
+  use ExplorerWeb, :view
 
   import Explorer.Helper, only: [decode_data: 2]
   import Explorer.SmartContract.Reader, only: [zip_tuple_values_with_types: 2]
 
   alias ABI.FunctionSelector
-  alias BlockScoutWeb.API.V2.{Helper, TransactionView}
-  alias BlockScoutWeb.SmartContractView
-  alias BlockScoutWeb.{ABIEncodedValueView, AddressContractView, AddressView}
+  alias ExplorerWeb.API.V2.{Helper, TransactionView}
+  alias ExplorerWeb.SmartContractView
+  alias ExplorerWeb.{ABIEncodedValueView, AddressContractView, AddressView}
   alias Ecto.Changeset
   alias Explorer.Chain
   alias Explorer.Chain.{Address, SmartContract}

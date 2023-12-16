@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.TransactionRawTraceController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.TransactionRawTraceController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
-  import BlockScoutWeb.Models.GetTransactionTags, only: [get_transaction_with_addresses_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Models.GetTransactionTags, only: [get_transaction_with_addresses_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, TransactionController}
+  alias ExplorerWeb.{AccessHelper, TransactionController}
   alias EthereumJSONRPC
   alias Explorer.{Chain, Market}
   alias Indexer.Fetcher.FirstTraceOnDemand

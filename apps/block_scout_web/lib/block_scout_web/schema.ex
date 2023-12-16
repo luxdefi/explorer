@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Schema do
+defmodule ExplorerWeb.Schema do
   @moduledoc false
 
   use Absinthe.Schema
@@ -7,7 +7,7 @@ defmodule BlockScoutWeb.Schema do
   alias Absinthe.Middleware.Dataloader, as: AbsintheMiddlewareDataloader
   alias Absinthe.Plugin, as: AbsinthePlugin
 
-  alias BlockScoutWeb.Resolvers.{
+  alias ExplorerWeb.Resolvers.{
     Address,
     Block,
     InternalTransaction,
@@ -20,7 +20,7 @@ defmodule BlockScoutWeb.Schema do
   alias Explorer.Chain.TokenTransfer, as: ExplorerChainTokenTransfer
   alias Explorer.Chain.Transaction, as: ExplorerChainTransaction
 
-  import_types(BlockScoutWeb.Schema.Types)
+  import_types(ExplorerWeb.Schema.Types)
 
   node interface do
     resolve_type(fn

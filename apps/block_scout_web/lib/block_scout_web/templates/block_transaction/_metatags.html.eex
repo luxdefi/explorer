@@ -1,1 +1,1 @@
-<%= render BlockScoutWeb.BlockView, "_metatags.html", conn: @conn, block: @block %>
+<%= render ExplorerWeb.BlockView, "_metatags.html", conn: @conn, block: @block %>

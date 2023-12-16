@@ -2,7 +2,7 @@
 
 ## Motivation
 
-*Why we should merge these changes.  If using GitHub keywords to close [issues](https://github.com/poanetwork/blockscout/issues), this is optional as the motivation can be read on the issue page.*
+*Why we should merge these changes.  If using GitHub keywords to close [issues](https://github.com/poanetwork/lux/issues), this is optional as the motivation can be read on the issue page.*
 
 ## Changelog
 
@@ -24,6 +24,6 @@
   - [ ] I added an entry to `CHANGELOG.md` with this PR
   - [ ] If I added new functionality, I added tests covering it.
   - [ ] If I fixed a bug, I added a regression test to prevent the bug from silently reappearing again.
-  - [ ] I checked whether I should update the docs and did so by submitting a PR to https://github.com/blockscout/docs
-  - [ ] If I added/changed/removed ENV var, I submitted a PR to https://github.com/blockscout/docs to update the list of env vars at https://github.com/blockscout/docs/blob/master/for-developers/information-and-settings/env-variables.md and I updated the version to `master` in the Version column. Changes will be reflected in this table: https://docs.blockscout.com/for-developers/information-and-settings/env-variables. 
+  - [ ] I checked whether I should update the docs and did so by submitting a PR to https://github.com/lux/docs
+  - [ ] If I added/changed/removed ENV var, I submitted a PR to https://github.com/lux/docs to update the list of env vars at https://github.com/lux/docs/blob/master/for-developers/information-and-settings/env-variables.md and I updated the version to `master` in the Version column. Changes will be reflected in this table: https://docs.lux.com/for-developers/information-and-settings/env-variables. 
   - [ ] If I add new indices into DB, I checked, that they are not redundant with PGHero or other tools

@@ -7,7 +7,7 @@ import Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 
-config :block_scout_web, BlockScoutWeb.Endpoint,
+config :explorer_web, ExplorerWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -38,21 +38,21 @@ config :block_scout_web, BlockScoutWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :block_scout_web, BlockScoutWeb.Endpoint,
+config :explorer_web, ExplorerWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
-      ~r{lib/block_scout_web/views/.*(ex)$},
-      ~r{lib/block_scout_web/templates/.*(eex)$}
+      ~r{lib/explorer_web/views/.*(ex)$},
+      ~r{lib/explorer_web/templates/.*(eex)$}
     ]
   ]
 
-config :block_scout_web, BlockScoutWeb.Tracer, env: "dev", disabled?: true
+config :explorer_web, ExplorerWeb.Tracer, env: "dev", disabled?: true
 
-config :logger, :block_scout_web,
+config :logger, :explorer_web,
   level: :debug,
-  path: Path.absname("logs/dev/block_scout_web.log")
+  path: Path.absname("logs/dev/explorer_web.log")
 
 config :logger, :api,
   level: :debug,
@@ -68,4 +68,4 @@ config :logger, :api_v2,
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-config :block_scout_web, :captcha_helper, BlockScoutWeb.CaptchaHelper
+config :explorer_web, :captcha_helper, ExplorerWeb.CaptchaHelper

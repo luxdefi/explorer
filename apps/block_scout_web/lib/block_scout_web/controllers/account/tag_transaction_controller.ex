@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Account.TagTransactionController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.TagTransactionController do
+  use ExplorerWeb, :controller
 
   alias Explorer.Account.TagTransaction
 
-  import BlockScoutWeb.Account.AuthController, only: [authenticate!: 1]
+  import ExplorerWeb.Account.AuthController, only: [authenticate!: 1]
 
   def index(conn, _params) do
     current_user = authenticate!(conn)

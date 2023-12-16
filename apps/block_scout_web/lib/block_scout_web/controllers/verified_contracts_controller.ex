@@ -1,12 +1,12 @@
-defmodule BlockScoutWeb.VerifiedContractsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.VerifiedContractsController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1, fetch_page_number: 1]
 
-  import BlockScoutWeb.PagingHelper, only: [current_filter: 1, search_query: 1]
+  import ExplorerWeb.PagingHelper, only: [current_filter: 1, search_query: 1]
 
-  alias BlockScoutWeb.{Controller, VerifiedContractsView}
+  alias ExplorerWeb.{Controller, VerifiedContractsView}
   alias Explorer.Chain
   alias Explorer.Chain.SmartContract
   alias Phoenix.View

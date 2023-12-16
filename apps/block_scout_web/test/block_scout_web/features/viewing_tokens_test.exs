@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.ViewingTokensTest do
-  use BlockScoutWeb.FeatureCase, async: true
+defmodule ExplorerWeb.ViewingTokensTest do
+  use ExplorerWeb.FeatureCase, async: true
 
-  alias BlockScoutWeb.TokenPage
+  alias ExplorerWeb.TokenPage
 
   describe "viewing token holders" do
     test "list the token holders", %{session: session} do

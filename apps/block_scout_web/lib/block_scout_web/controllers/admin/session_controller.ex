@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Admin.SessionController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Admin.SessionController do
+  use ExplorerWeb, :controller
 
   alias Ecto.Changeset
   alias Explorer.{Accounts, Admin}

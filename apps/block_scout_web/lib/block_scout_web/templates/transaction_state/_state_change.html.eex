@@ -3,13 +3,13 @@
   <%= if @address.hash == @burn_address_hash do %>
     <td class="stakes-td">
       <dt class="text-muted">
-        <%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip_2.html",
+        <%= render ExplorerWeb.CommonComponentsView, "_i_tooltip_2.html",
                   text: gettext("Address used in token mintings and burnings.") %>
         <%= gettext("Burn address") %>
       </dt>
     </td>
     <td class="stakes-td">
-      <%= render BlockScoutWeb.AddressView, "_link.html", address: @address, contract: BlockScoutWeb.AddressView.contract?(@address), use_custom_tooltip: false %>
+      <%= render ExplorerWeb.AddressView, "_link.html", address: @address, contract: ExplorerWeb.AddressView.contract?(@address), use_custom_tooltip: false %>
     </td>
     <td class="stakes-td"></td>
     <td class="stakes-td"></td>
@@ -17,18 +17,18 @@
     <%= if Map.get(assigns, :miner) do %>
       <td class="stakes-td">
         <dt class="text-muted">
-          <%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip_2.html",
+          <%= render ExplorerWeb.CommonComponentsView, "_i_tooltip_2.html",
                   text: gettext("A block producer who successfully included the block onto the blockchain.") %>
           <%= gettext("Miner") %>
         </dt>
       </td>
       <td class="stakes-td">
-        <%= render BlockScoutWeb.AddressView, "_link.html", address: @address, contract: false, use_custom_tooltip: false %>
+        <%= render ExplorerWeb.AddressView, "_link.html", address: @address, contract: false, use_custom_tooltip: false %>
       </td>
     <% else %>
       <td class="stakes-td"></td>
       <td class="stakes-td">
-        <%= render BlockScoutWeb.AddressView, "_link.html", address: @address, contract: BlockScoutWeb.AddressView.contract?(@address), use_custom_tooltip: false %>
+        <%= render ExplorerWeb.AddressView, "_link.html", address: @address, contract: ExplorerWeb.AddressView.contract?(@address), use_custom_tooltip: false %>
       </td>
     <% end %>
     <%= if not_negative?(@balance_before) and not_negative?(@balance_after) do %>

@@ -1,16 +1,16 @@
-defmodule BlockScoutWeb.AddressTokenTransferController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressTokenTransferController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, Controller, TransactionView}
+  alias ExplorerWeb.{AccessHelper, Controller, TransactionView}
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.Address
   alias Indexer.Fetcher.CoinBalanceOnDemand
   alias Phoenix.View
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [current_filter: 1, next_page_params: 3, paging_options: 1, split_list_by_page: 1]
 
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]

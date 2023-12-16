@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.ExchangeRateChannel do
+defmodule ExplorerWeb.ExchangeRateChannel do
   @moduledoc """
   Establishes pub/sub channel for address page live updates.
   """
-  use BlockScoutWeb, :channel
+  use ExplorerWeb, :channel
 
   intercept(["new_rate"])
 
@@ -13,7 +13,7 @@ defmodule BlockScoutWeb.ExchangeRateChannel do
   def handle_out(
         "new_rate",
         %{exchange_rate: exchange_rate, market_history_data: market_history_data},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       ) do
     push(socket, "new_rate", %{
       exchange_rate: exchange_rate.usd_value,

@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.LogView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.LogView do
+  use ExplorerWeb, :view
 end

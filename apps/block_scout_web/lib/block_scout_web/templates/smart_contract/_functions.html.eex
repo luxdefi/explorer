@@ -1,14 +1,14 @@
 <% minimal_proxy_template = if assigns[:custom_abi], do: nil, else: EIP1167.get_implementation_address(@address.hash) %>
 <% metadata_for_verification = if assigns[:custom_abi], do: nil, else: minimal_proxy_template || SmartContract.get_address_verified_twin_contract(@address.hash).verified_contract %>
-<% smart_contract_verified = if assigns[:custom_abi], do: false, else: BlockScoutWeb.AddressView.smart_contract_verified?(@address) %>
+<% smart_contract_verified = if assigns[:custom_abi], do: false, else: ExplorerWeb.AddressView.smart_contract_verified?(@address) %>
 <%= unless smart_contract_verified do %>
   <%= if metadata_for_verification do %>
     <%= if minimal_proxy_template do %>
-      <%= render BlockScoutWeb.CommonComponentsView, "_minimal_proxy_pattern.html", address_hash: metadata_for_verification.address_hash, conn: @conn %>
+      <%= render ExplorerWeb.CommonComponentsView, "_minimal_proxy_pattern.html", address_hash: metadata_for_verification.address_hash, conn: @conn %>
     <% else %>
       <% path = address_verify_contract_path(@conn, :new, @address.hash) %>
       <div class="mb-4">
-        <%= render BlockScoutWeb.CommonComponentsView, "_info.html" %><span> <%= gettext("Contract is not verified. However, we found a verified contract with the same bytecode in Blockscout DB") %> <%= link(
+        <%= render ExplorerWeb.CommonComponentsView, "_info.html" %><span> <%= gettext("Contract is not verified. However, we found a verified contract with the same bytecode in Explorer DB") %> <%= link(
   metadata_for_verification.address_hash,
   to: address_contract_path(@conn, :index, metadata_for_verification.address_hash)) %>.<br/> <%= gettext("All functions displayed below are from ABI of that contract. In order to verify current contract, proceed with") %> <%= link(
         gettext("Verify & Publish"),
@@ -20,10 +20,10 @@
 <% end %>
 <%= if smart_contract_verified do %>
   <%= if @address.smart_contract.is_changed_bytecode do %>
-    <%= render BlockScoutWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
+    <%= render ExplorerWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
   <% else %>
     <div class="d-none" data-selector="hidden-bytecode-warning">
-      <%= render BlockScoutWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
+      <%= render ExplorerWeb.CommonComponentsView, "_changed_bytecode_warning.html" %>
     </div>
   <% end %>
 <% end %>
@@ -41,9 +41,9 @@
       <%= counter %>.
       <%= case function["type"] do %>
         <% "fallback" -> %>
-          <%= gettext "fallback" %><%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip_2.html", text: gettext("The fallback function is executed on a call to the contract if none of the other functions match the given function signature, or if no data was supplied at all and there is no receive Ether function. The fallback function always receives data, but in order to also receive Ether it must be marked payable.") %>
+          <%= gettext "fallback" %><%= render ExplorerWeb.CommonComponentsView, "_i_tooltip_2.html", text: gettext("The fallback function is executed on a call to the contract if none of the other functions match the given function signature, or if no data was supplied at all and there is no receive Ether function. The fallback function always receives data, but in order to also receive Ether it must be marked payable.") %>
         <% "receive" -> %>
-          <%= gettext "receive" %><%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip_2.html", text: gettext("The receive function is executed on a call to the contract with empty calldata. This is the function that is executed on plain Ether transfers (e.g. via .send() or .transfer()). If no such function exists, but a payable fallback function exists, the fallback function will be called on a plain Ether transfer. If neither a receive Ether nor a payable fallback function is present, the contract cannot receive Ether through regular transactions and throws an exception.") %>
+          <%= gettext "receive" %><%= render ExplorerWeb.CommonComponentsView, "_i_tooltip_2.html", text: gettext("The receive function is executed on a call to the contract with empty calldata. This is the function that is executed on plain Ether transfers (e.g. via .send() or .transfer()). If no such function exists, but a payable fallback function exists, the fallback function will be called on a plain Ether transfer. If neither a receive Ether nor a payable fallback function is present, the contract cannot receive Ether through regular transactions and throws an exception.") %>
         <% _ -> %>
           <%= function["name"] %>
       <% end %>
@@ -63,7 +63,7 @@
                           @contract_abi
                         end
                     end %>
-        <form class="form-inline" data-function-form data-action="<%= if @action == "write", do: :write, else: :read %>" data-type="<%= @contract_type %>" data-url="<%= smart_contract_path(@conn, :show, Address.checksum(@address.hash)) %>" data-contract-address="<%= @address.hash %>" data-contract-abi="<%= function_abi %>" data-implementation-abi="<%= function_abi %>" data-chain-id="<%= Application.get_env(:block_scout_web, :chain_id) %>" data-custom-abi="<%= if assigns[:custom_abi], do: true, else: false %>">
+        <form class="form-inline" data-function-form data-action="<%= if @action == "write", do: :write, else: :read %>" data-type="<%= @contract_type %>" data-url="<%= smart_contract_path(@conn, :show, Address.checksum(@address.hash)) %>" data-contract-address="<%= @address.hash %>" data-contract-abi="<%= function_abi %>" data-implementation-abi="<%= function_abi %>" data-chain-id="<%= Application.get_env(:explorer_web, :chain_id) %>" data-custom-abi="<%= if assigns[:custom_abi], do: true, else: false %>">
           <input type="hidden" name="function_name" value='<%= function["name"] %>' />
           <input type="hidden" name="method_id" value='<%= function["method_id"] %>' />
 

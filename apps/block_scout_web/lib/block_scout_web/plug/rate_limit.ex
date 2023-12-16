@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.Plug.RateLimit do
+defmodule ExplorerWeb.Plug.RateLimit do
   @moduledoc """
     Rate limiting
   """
-  alias BlockScoutWeb.AccessHelper
+  alias ExplorerWeb.AccessHelper
 
   def init(opts), do: opts
 

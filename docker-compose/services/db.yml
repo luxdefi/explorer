@@ -4,7 +4,7 @@ services:
   db-init:
     image: postgres:14
     volumes:
-      - ./blockscout-db-data:/var/lib/postgresql/data
+      - ./lux-db-data:/var/lib/postgresql/data
     entrypoint:
       - sh
       - -c
@@ -21,15 +21,15 @@ services:
     container_name: 'db'
     command: postgres -c 'max_connections=200' -c 'client_connection_check_interval=60000'
     environment:
-        POSTGRES_DB: 'blockscout'
-        POSTGRES_USER: 'blockscout'
+        POSTGRES_DB: 'lux'
+        POSTGRES_USER: 'lux'
         POSTGRES_PASSWORD: 'ceWb1MeLBEeOIfk65gU8EjF8'
     ports:
       - 7432:5432
     volumes:
-      - ./blockscout-db-data:/var/lib/postgresql/data
+      - ./lux-db-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U blockscout -d blockscout"]
+      test: ["CMD-SHELL", "pg_isready -U lux -d lux"]
       interval: 10s
       timeout: 5s
       retries: 5

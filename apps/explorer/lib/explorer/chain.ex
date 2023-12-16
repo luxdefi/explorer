@@ -4199,7 +4199,7 @@ defmodule Explorer.Chain do
     |> normalize_balances_by_day(Keyword.get(options, :api?, false))
   end
 
-  # https://github.com/blockscout/blockscout/issues/2658
+  # https://github.com/lux/lux/issues/2658
   defp replace_last_value(items, %{value: value, timestamp: timestamp}) do
     List.replace_at(items, -1, %{date: Date.convert!(timestamp, Calendar.ISO), value: value})
   end

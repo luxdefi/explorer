@@ -59,7 +59,7 @@ defmodule Explorer.Factory do
   def account_identity_factory do
     %Identity{
       uid: sequence("github|"),
-      email: sequence(:email, &"me-#{&1}@blockscout.com"),
+      email: sequence(:email, &"me-#{&1}@lux.com"),
       name: sequence("John")
     }
   end
@@ -69,7 +69,7 @@ defmodule Explorer.Factory do
       info: %Info{
         birthday: nil,
         description: nil,
-        email: sequence(:email, &"test_user-#{&1}@blockscout.com"),
+        email: sequence(:email, &"test_user-#{&1}@lux.com"),
         first_name: nil,
         image: sequence("https://example.com/avatar/test_user"),
         last_name: nil,
@@ -81,7 +81,7 @@ defmodule Explorer.Factory do
       },
       provider: :auth0,
       strategy: Auth0,
-      uid: sequence("blockscout|000")
+      uid: sequence("lux|000")
     }
   end
 
@@ -138,7 +138,7 @@ defmodule Explorer.Factory do
   def public_tags_request_factory do
     %{
       "full_name" => sequence("full name"),
-      "email" => sequence(:email, &"test_user-#{&1}@blockscout.com"),
+      "email" => sequence(:email, &"test_user-#{&1}@lux.com"),
       "tags" => Enum.join(Enum.map(1..Enum.random(1..2), fn _ -> sequence("Tag") end), ";"),
       "website" => sequence("website"),
       "additional_comment" => sequence("additional_comment"),
@@ -1037,7 +1037,7 @@ defmodule Explorer.Factory do
       password_hash: Bcrypt.hash_pwd_salt("password"),
       contacts: [
         %UserContact{
-          email: "#{username}@blockscout",
+          email: "#{username}@lux",
           primary: true,
           verified: true
         }

@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Plug.Admin.CheckOwnerRegisteredTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Plug.Admin.CheckOwnerRegisteredTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.Plug.Admin.CheckOwnerRegistered
+  alias ExplorerWeb.Plug.Admin.CheckOwnerRegistered
   alias Explorer.Admin
 
   test "init/1" do

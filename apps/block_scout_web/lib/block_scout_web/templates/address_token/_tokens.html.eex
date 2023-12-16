@@ -2,11 +2,11 @@
   <td class="stakes-td">
   </td>
   <td>
-    <%= if Application.get_env(:block_scout_web, :display_token_icons) do %>
-      <% chain_id_for_token_icon = Application.get_env(:block_scout_web, :chain_id) %>
+    <%= if Application.get_env(:explorer_web, :display_token_icons) do %>
+      <% chain_id_for_token_icon = Application.get_env(:explorer_web, :chain_id) %>
       <% address_hash = @token.contract_address_hash %>
       <%=
-        render BlockScoutWeb.TokensView,
+        render ExplorerWeb.TokensView,
         "_token_icon.html",
         chain_id: chain_id_for_token_icon,
         address: Address.checksum(address_hash)
@@ -46,7 +46,7 @@
   </td>
   <td class="stakes-td">
     <%= with {:ok, address} <- Chain.hash_to_address(@token.contract_address_hash) do
-      render BlockScoutWeb.AddressView,
+      render ExplorerWeb.AddressView,
       "_link.html",
       address: address,
       contract: false,

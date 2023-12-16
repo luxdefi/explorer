@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.PendingTransactionController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.PendingTransactionController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
-  alias BlockScoutWeb.{Controller, TransactionView}
+  alias ExplorerWeb.{Controller, TransactionView}
   alias Explorer.Chain
   alias Phoenix.View
 

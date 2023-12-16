@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.TokenControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.RPC.TokenControllerTest do
+  use ExplorerWeb.ConnCase
 
   describe "gettoken" do
     test "with missing contract address", %{conn: conn} do

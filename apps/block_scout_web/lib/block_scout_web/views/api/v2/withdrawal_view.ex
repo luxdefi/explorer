@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.WithdrawalView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.WithdrawalView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.V2.Helper
+  alias ExplorerWeb.API.V2.Helper
   alias Explorer.Chain.Withdrawal
 
   def render("withdrawals.json", %{withdrawals: withdrawals, next_page_params: next_page_params}) do

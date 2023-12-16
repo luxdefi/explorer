@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.Tokens.Instance.HolderController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.Instance.HolderController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Tokens.HolderView
-  alias BlockScoutWeb.Tokens.Instance.Helper
+  alias ExplorerWeb.Tokens.HolderView
+  alias ExplorerWeb.Tokens.Instance.Helper
   alias Explorer.Chain
   alias Explorer.Chain.Address
   alias Phoenix.View
 
-  import BlockScoutWeb.Chain, only: [split_list_by_page: 1, paging_options: 1, next_page_params: 3]
+  import ExplorerWeb.Chain, only: [split_list_by_page: 1, paging_options: 1, next_page_params: 3]
 
   def index(conn, %{"token_id" => token_address_hash, "instance_id" => token_id_str, "type" => "JSON"} = params) do
     with {:ok, address_hash} <- Chain.string_to_address_hash(token_address_hash),

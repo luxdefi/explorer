@@ -21,8 +21,8 @@ config :logger,
     {LoggerFileBackend, :error},
     # only :ecto, but all levels
     {LoggerFileBackend, :ecto},
-    # only :block_scout_web, but all levels
-    {LoggerFileBackend, :block_scout_web},
+    # only :explorer_web, but all levels
+    {LoggerFileBackend, :explorer_web},
     # only :ethereum_jsonrpc, but all levels
     {LoggerFileBackend, :ethereum_jsonrpc},
     # only :explorer, but all levels

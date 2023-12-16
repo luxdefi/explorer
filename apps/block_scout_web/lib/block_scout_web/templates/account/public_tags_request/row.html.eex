@@ -7,7 +7,7 @@
   <td><%= Enum.join(@public_tags_request.addresses, "\n") %></td>
   <td><%= Calendar.strftime(@public_tags_request.inserted_at, "%b %d, %Y") %></td>
   <td>
-    <%= link (render BlockScoutWeb.CommonComponentsView, "_svg_pen.html"), to: public_tags_request_path(@conn, :edit, @public_tags_request.id) %>
+    <%= link (render ExplorerWeb.CommonComponentsView, "_svg_pen.html"), to: public_tags_request_path(@conn, :edit, @public_tags_request.id) %>
   </td>
   <td>
     <form method="post" action="<%= public_tags_request_path(@conn, :delete, @public_tags_request.id) %>">
@@ -15,6 +15,6 @@
       <input type="hidden" name="_method" value="delete">
       <input type="hidden" name="remove_reason" value="">
     </form>  
-    <a href="" data-delete-request data-tags="<%= @public_tags_request.tags %>"><%= (render BlockScoutWeb.CommonComponentsView, "_svg_trash.html") %></a>
+    <a href="" data-delete-request data-tags="<%= @public_tags_request.tags %>"><%= (render ExplorerWeb.CommonComponentsView, "_svg_trash.html") %></a>
   </td>
 </tr>

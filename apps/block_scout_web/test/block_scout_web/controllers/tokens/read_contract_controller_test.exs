@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tokens.ContractControllerTest do
-  use BlockScoutWeb.ConnCase, async: false
+defmodule ExplorerWeb.Tokens.ContractControllerTest do
+  use ExplorerWeb.ConnCase, async: false
 
   import Mox
 
@@ -7,7 +7,7 @@ defmodule BlockScoutWeb.Tokens.ContractControllerTest do
 
   describe "GET index/3" do
     test "with invalid address hash", %{conn: conn} do
-      conn = get(conn, token_read_contract_path(BlockScoutWeb.Endpoint, :index, "invalid_address"))
+      conn = get(conn, token_read_contract_path(ExplorerWeb.Endpoint, :index, "invalid_address"))
 
       assert html_response(conn, 404)
     end
@@ -30,7 +30,7 @@ defmodule BlockScoutWeb.Tokens.ContractControllerTest do
         token: token
       )
 
-      conn = get(conn, token_read_contract_path(BlockScoutWeb.Endpoint, :index, token.contract_address_hash))
+      conn = get(conn, token_read_contract_path(ExplorerWeb.Endpoint, :index, token.contract_address_hash))
 
       assert html_response(conn, 404)
     end
@@ -57,7 +57,7 @@ defmodule BlockScoutWeb.Tokens.ContractControllerTest do
 
       request_zero_implementations()
 
-      conn = get(conn, token_read_contract_path(BlockScoutWeb.Endpoint, :index, token.contract_address_hash))
+      conn = get(conn, token_read_contract_path(ExplorerWeb.Endpoint, :index, token.contract_address_hash))
 
       assert html_response(conn, 200)
       assert token.contract_address_hash == conn.assigns.token.contract_address_hash

@@ -6,12 +6,12 @@
       </span>
   </td>
   <td class="token-icon">
-    <%= if Application.get_env(:block_scout_web, :display_token_icons) do %>
-      <% chain_id_for_token_icon = Application.get_env(:block_scout_web, :chain_id) %>
+    <%= if Application.get_env(:explorer_web, :display_token_icons) do %>
+      <% chain_id_for_token_icon = Application.get_env(:explorer_web, :chain_id) %>
       <% foreign_token_contract_address_hash = nil %>
       <% token_hash_for_token_icon = if foreign_token_contract_address_hash, do: foreign_token_contract_address_hash, else: Address.checksum(@token.contract_address_hash) %>
       <%=
-        render BlockScoutWeb.TokensView,
+        render ExplorerWeb.TokensView,
         "_token_icon.html",
         chain_id: chain_id_for_token_icon,
         address: token_hash_for_token_icon
@@ -21,12 +21,12 @@
   <td class="stakes-td">
     <% token = token_display_name(@token) %>
     <%= link(token,
-      to: token_path(BlockScoutWeb.Endpoint, :show, @token.contract_address_hash),
+      to: token_path(ExplorerWeb.Endpoint, :show, @token.contract_address_hash),
       "data-test": "token_link",
       class: "text-truncate") %>
   </td>
   <td class="stakes-td">
-    <%= render BlockScoutWeb.AddressView,
+    <%= render ExplorerWeb.AddressView,
       "_link.html",
       address: @token.contract_address,
       contract: true,

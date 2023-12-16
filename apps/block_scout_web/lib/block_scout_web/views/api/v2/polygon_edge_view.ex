@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V2.PolygonEdgeView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.PolygonEdgeView do
+  use ExplorerWeb, :view
 
   @spec render(String.t(), map()) :: map()
   def render("polygon_edge_deposits.json", %{

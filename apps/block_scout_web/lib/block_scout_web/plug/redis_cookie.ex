@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Plug.RedisCookie do
+defmodule ExplorerWeb.Plug.RedisCookie do
   @moduledoc """
     Extended version of Plug.Session.COOKIE from https://github.com/elixir-plug/plug/blob/main/lib/plug/session/cookie.ex
     Added Redis to have a possibility to invalidate session
@@ -199,7 +199,7 @@ defmodule BlockScoutWeb.Plug.RedisCookie do
       cookie_key(hash(cookie)),
       1,
       "EX",
-      Application.get_env(:block_scout_web, :session_cookie_ttl)
+      Application.get_env(:explorer_web, :session_cookie_ttl)
     ])
 
     cookie

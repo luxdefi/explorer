@@ -1,6 +1,6 @@
 defmodule Explorer.SmartContract.SigProviderInterface do
   @moduledoc """
-    Adapter for decoding events and function calls with https://github.com/blockscout/blockscout-rs/tree/main/sig-provider
+    Adapter for decoding events and function calls with https://github.com/lux/lux-rs/tree/main/sig-provider
   """
 
   alias Explorer.Utility.RustService

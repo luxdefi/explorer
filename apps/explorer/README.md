@@ -1,4 +1,4 @@
-# BlockScout
+# Explorer
 
 This is a tool for inspecting and analyzing the POA Network blockchain.
 
@@ -16,7 +16,7 @@ This is a tool for inspecting and analyzing the POA Network blockchain.
 
 ### Development
 
-To get BlockScout up and running locally:
+To get Explorer up and running locally:
 
 * Install dependencies with `$ mix do deps.get, local.rebar, deps.compile, compile`
 * Create and migrate your database with `$ mix ecto.create && mix ecto.migrate`

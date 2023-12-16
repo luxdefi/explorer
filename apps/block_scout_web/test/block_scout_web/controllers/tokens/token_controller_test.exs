@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tokens.TokenControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.TokenControllerTest do
+  use ExplorerWeb.ConnCase, async: true
 
   alias Explorer.Chain.Address
 

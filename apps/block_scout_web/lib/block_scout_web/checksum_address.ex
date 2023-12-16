@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.ChecksumAddress do
+defmodule ExplorerWeb.ChecksumAddress do
   @moduledoc """
   Adds checksummed version of address hashes.
   """
 
   import Plug.Conn
 
-  alias BlockScoutWeb.Controller, as: BlockScoutWebController
+  alias ExplorerWeb.Controller, as: ExplorerWebController
   alias Explorer.Chain
   alias Explorer.Chain.Address
   alias Phoenix.Controller
@@ -24,7 +24,7 @@ defmodule BlockScoutWeb.ChecksumAddress do
   def call(conn, _), do: conn
 
   defp check_checksum(conn, id, param_name) do
-    if Application.get_env(:block_scout_web, :checksum_address_hashes) do
+    if Application.get_env(:explorer_web, :checksum_address_hashes) do
       case Chain.string_to_address_hash(id) do
         {:ok, address_hash} ->
           compose_conn(conn, address_hash, param_name, id)
@@ -48,7 +48,7 @@ defmodule BlockScoutWeb.ChecksumAddress do
       new_path = compose_path(conn, path_with_checksummed_address)
 
       conn
-      |> Controller.redirect(to: new_path |> BlockScoutWebController.full_path())
+      |> Controller.redirect(to: new_path |> ExplorerWebController.full_path())
       |> halt
     else
       conn

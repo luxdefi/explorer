@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.EthControllerTest do
-  use BlockScoutWeb.ConnCase, async: false
+defmodule ExplorerWeb.API.RPC.EthControllerTest do
+  use ExplorerWeb.ConnCase, async: false
 
   alias Explorer.Counters.{AddressesCounter, AverageBlockTime}
   alias Explorer.Repo

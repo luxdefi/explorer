@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressCoinBalanceByDayControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.AddressCoinBalanceByDayControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain.Address
 

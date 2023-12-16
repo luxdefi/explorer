@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Admin.SetupView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Admin.SetupView do
+  use ExplorerWeb, :view
 
-  import BlockScoutWeb.AdminRouter.Helpers
+  import ExplorerWeb.AdminRouter.Helpers
 
-  alias BlockScoutWeb.FormView
+  alias ExplorerWeb.FormView
 end

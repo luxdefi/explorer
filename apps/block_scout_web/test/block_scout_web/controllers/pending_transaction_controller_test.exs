@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.PendingTransactionControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.PendingTransactionControllerTest do
+  use ExplorerWeb.ConnCase
   alias Explorer.Chain.{Hash, Transaction}
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [pending_transaction_path: 2, pending_transaction_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [pending_transaction_path: 2, pending_transaction_path: 3]
 
   describe "GET index/2" do
     test "returns no transactions that are in a block", %{conn: conn} do
@@ -10,7 +10,7 @@ defmodule BlockScoutWeb.PendingTransactionControllerTest do
       |> insert()
       |> with_block()
 
-      conn = get(conn, pending_transaction_path(BlockScoutWeb.Endpoint, :index, %{"type" => "JSON"}))
+      conn = get(conn, pending_transaction_path(ExplorerWeb.Endpoint, :index, %{"type" => "JSON"}))
 
       assert conn |> json_response(200) |> Map.get("items") |> Enum.empty?()
     end
@@ -18,7 +18,7 @@ defmodule BlockScoutWeb.PendingTransactionControllerTest do
     test "returns pending transactions", %{conn: conn} do
       transaction = insert(:transaction)
 
-      conn = get(conn, pending_transaction_path(BlockScoutWeb.Endpoint, :index, %{"type" => "JSON"}))
+      conn = get(conn, pending_transaction_path(ExplorerWeb.Endpoint, :index, %{"type" => "JSON"}))
 
       assert hd(json_response(conn, 200)["items"]) =~ to_string(transaction.hash)
     end
@@ -31,7 +31,7 @@ defmodule BlockScoutWeb.PendingTransactionControllerTest do
         |> insert(status: 0, error: "dropped/replaced")
         |> with_block()
 
-      conn = get(conn, pending_transaction_path(BlockScoutWeb.Endpoint, :index, %{"type" => "JSON"}))
+      conn = get(conn, pending_transaction_path(ExplorerWeb.Endpoint, :index, %{"type" => "JSON"}))
 
       assert hd(json_response(conn, 200)["items"]) =~ to_string(transaction.hash)
       refute hd(json_response(conn, 200)["items"]) =~ to_string(dropped_replaced.hash)
@@ -52,7 +52,7 @@ defmodule BlockScoutWeb.PendingTransactionControllerTest do
       %Transaction{inserted_at: inserted_at, hash: hash} = insert(:transaction)
 
       conn =
-        get(conn, pending_transaction_path(BlockScoutWeb.Endpoint, :index), %{
+        get(conn, pending_transaction_path(ExplorerWeb.Endpoint, :index), %{
           "type" => "JSON",
           "inserted_at" => DateTime.to_iso8601(inserted_at),
           "hash" => Hash.to_string(hash)
@@ -68,7 +68,7 @@ defmodule BlockScoutWeb.PendingTransactionControllerTest do
       |> insert_list(:transaction)
       |> Enum.fetch!(10)
 
-      conn = get(conn, pending_transaction_path(BlockScoutWeb.Endpoint, :index, %{"type" => "JSON"}))
+      conn = get(conn, pending_transaction_path(ExplorerWeb.Endpoint, :index, %{"type" => "JSON"}))
 
       assert json_response(conn, 200)["next_page_path"]
     end
@@ -76,7 +76,7 @@ defmodule BlockScoutWeb.PendingTransactionControllerTest do
     test "next_page_path is empty if on last page", %{conn: conn} do
       insert(:transaction)
 
-      conn = get(conn, pending_transaction_path(BlockScoutWeb.Endpoint, :index, %{"type" => "JSON"}))
+      conn = get(conn, pending_transaction_path(ExplorerWeb.Endpoint, :index, %{"type" => "JSON"}))
 
       refute json_response(conn, 200)["next_page_path"]
     end

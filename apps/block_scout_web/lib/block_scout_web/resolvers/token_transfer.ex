@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Resolvers.TokenTransfer do
+defmodule ExplorerWeb.Resolvers.TokenTransfer do
   @moduledoc false
 
   alias Absinthe.Relay.Connection

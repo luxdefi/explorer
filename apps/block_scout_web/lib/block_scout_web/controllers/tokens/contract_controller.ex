@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Tokens.ContractController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.ContractController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, TabHelper}
+  alias ExplorerWeb.{AccessHelper, TabHelper}
   alias Explorer.Chain
   alias Explorer.Chain.{Address, SmartContract}
 

@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.TransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.TransactionView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.{AccessHelper, AddressView, BlockView, TabHelper}
-  alias BlockScoutWeb.Account.AuthController
-  alias BlockScoutWeb.Cldr.Number
+  alias ExplorerWeb.{AccessHelper, AddressView, BlockView, TabHelper}
+  alias ExplorerWeb.Account.AuthController
+  alias ExplorerWeb.Cldr.Number
   alias Explorer.{Chain, CustomContractsHelper, Repo}
   alias Explorer.Chain.Block.Reward
   alias Explorer.Chain.{Address, Block, InternalTransaction, Transaction, Wei}
@@ -11,9 +11,9 @@ defmodule BlockScoutWeb.TransactionView do
   alias Explorer.ExchangeRates.Token
   alias Timex.Duration
 
-  import BlockScoutWeb.Gettext
-  import BlockScoutWeb.AddressView, only: [from_address_hash: 1, short_token_id: 2, tag_name_to_label: 1]
-  import BlockScoutWeb.Tokens.Helper
+  import ExplorerWeb.Gettext
+  import ExplorerWeb.AddressView, only: [from_address_hash: 1, short_token_id: 2, tag_name_to_label: 1]
+  import ExplorerWeb.Tokens.Helper
 
   @tabs ["token-transfers", "internal-transactions", "logs", "raw-trace", "state"]
 
@@ -560,7 +560,7 @@ defmodule BlockScoutWeb.TransactionView do
   end
 
   defp show_tenderly_link? do
-    Application.get_env(:block_scout_web, :show_tenderly_link)
+    Application.get_env(:explorer_web, :show_tenderly_link)
   end
 
   defp tenderly_chain_path do
@@ -568,7 +568,7 @@ defmodule BlockScoutWeb.TransactionView do
   end
 
   def get_max_length do
-    string_value = Application.get_env(:block_scout_web, :contract)[:max_length_to_show_string_without_trimming]
+    string_value = Application.get_env(:explorer_web, :contract)[:max_length_to_show_string_without_trimming]
 
     case Integer.parse(string_value) do
       {integer, ""} -> integer

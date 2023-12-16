@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Schema.Query.TransactionTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Schema.Query.TransactionTest do
+  use ExplorerWeb.ConnCase
 
   describe "transaction field" do
     test "with valid argument 'hash', returns all expected fields", %{conn: conn} do

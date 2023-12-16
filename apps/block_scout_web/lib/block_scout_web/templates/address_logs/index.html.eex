@@ -1,10 +1,10 @@
 <section class="container">
-  <% is_proxy = BlockScoutWeb.AddressView.smart_contract_is_proxy?(@address) %>
+  <% is_proxy = ExplorerWeb.AddressView.smart_contract_is_proxy?(@address) %>
 
-  <%= render BlockScoutWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
+  <%= render ExplorerWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
   <section data-page="address-logs">
   <div class="card">
-    <%= render BlockScoutWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
+    <%= render ExplorerWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
 
     <div class="card-body" data-async-load data-async-listing="<%= @current_path %>" data-no-self-calls>
       <h2 class="card-title"><%= gettext "Logs" %></h2>
@@ -16,7 +16,7 @@
           <button data-search-button class="logs-search-btn" type="button"><%= gettext("Search") %></button>
         </div>
 
-        <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+        <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "top", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
       </div>
 
         <button data-error-message class="alert alert-danger col-12 text-left" style="display: none;">
@@ -30,12 +30,12 @@
         </div>
 
         <div data-items>
-          <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
+          <%= render ExplorerWeb.CommonComponentsView, "_tile-loader.html" %>
         </div>
 
         <div class="transaction-bottom-panel">
-          <%= render BlockScoutWeb.CommonComponentsView, "_csv_export_button.html", address: Address.checksum(@address.hash), type: "logs", conn: @conn %>
-          <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+          <%= render ExplorerWeb.CommonComponentsView, "_csv_export_button.html", address: Address.checksum(@address.hash), type: "logs", conn: @conn %>
+          <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
         </div>
 
     </div>

@@ -1,11 +1,11 @@
 {
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blockscout/blockscout.git"
+    "url": "git+https://github.com/lux/lux.git"
   },
   "private": true,
-  "name": "blockscout",
-  "author": "Blockscout",
+  "name": "lux",
+  "author": "Explorer",
   "license": "GPL-3.0",
   "engines": {
     "node": ">=16.0.0",

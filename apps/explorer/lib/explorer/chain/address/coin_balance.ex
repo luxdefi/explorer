@@ -101,7 +101,7 @@ defmodule Explorer.Chain.Address.CoinBalance do
   """
   def balances_by_day(address_hash, block_timestamp \\ nil) do
     days_to_consider =
-      Application.get_env(:block_scout_web, BlockScoutWeb.Chain.Address.CoinBalance)[:coin_balance_history_days]
+      Application.get_env(:explorer_web, ExplorerWeb.Chain.Address.CoinBalance)[:coin_balance_history_days]
 
     CoinBalance
     |> join(:inner, [cb], block in Block, on: cb.block_number == block.number)

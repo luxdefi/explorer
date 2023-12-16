@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.RobotsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.RobotsController do
+  use ExplorerWeb, :controller
 
   def robots(conn, _params) do
     conn

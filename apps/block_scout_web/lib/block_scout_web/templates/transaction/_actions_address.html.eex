@@ -1,4 +1,4 @@
-<%= link to: address_path(BlockScoutWeb.Endpoint, :show, @address_string), "data-test": "address_hash_link" do %>
+<%= link to: address_path(ExplorerWeb.Endpoint, :show, @address_string), "data-test": "address_hash_link" do %>
   <% name = Map.get(@action.data, "name") %>
   <span data-toggle="tooltip" data-placement="top" title="<%= name %>">
     <span class="d-none d-md-none d-lg-inline d-xl-inline"><%= AddressView.short_string(name, 15) %></span>

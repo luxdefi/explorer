@@ -1,17 +1,17 @@
-defmodule BlockScoutWeb.Tokens.HolderController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.HolderController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, Controller}
-  alias BlockScoutWeb.Tokens.HolderView
+  alias ExplorerWeb.{AccessHelper, Controller}
+  alias ExplorerWeb.Tokens.HolderView
   alias Explorer.Chain
   alias Explorer.Chain.Address
   alias Indexer.Fetcher.TokenTotalSupplyOnDemand
   alias Phoenix.View
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       split_list_by_page: 1,
       paging_options: 1,

@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Plug.Logger do
+defmodule ExplorerWeb.Plug.Logger do
   @moduledoc """
     Extended version of Plug.Logger from https://github.com/elixir-plug/plug/blob/v1.14.0/lib/plug/logger.ex
     Now it's possible to put parameters in order to log API v2 requests separately from API and others
 
     Usage example:
-      `plug(BlockScoutWeb.Plug.Logger, application: :api_v2)`
+      `plug(ExplorerWeb.Plug.Logger, application: :api_v2)`
   """
 
   require Logger

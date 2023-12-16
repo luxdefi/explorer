@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Chain.MarketHistoryChartController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Chain.MarketHistoryChartController do
+  use ExplorerWeb, :controller
 
   alias Explorer.{Chain, Market}
 

@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.WeiHelperTest do
+defmodule ExplorerWeb.WeiHelperTest do
   use ExUnit.Case
 
   # Needed for doctest
   alias Explorer.Chain.Wei
 
-  doctest BlockScoutWeb.WeiHelper, import: true
+  doctest ExplorerWeb.WeiHelper, import: true
 end

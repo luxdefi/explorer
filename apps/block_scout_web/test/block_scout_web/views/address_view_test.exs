@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.AddressViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
   alias Explorer.Chain.{Address, Data, Hash, Transaction}
-  alias BlockScoutWeb.{AddressView, Endpoint}
+  alias ExplorerWeb.{AddressView, Endpoint}
 
   describe "address_partial_selector/4" do
     test "for a pending transaction contract creation to address" do
@@ -145,19 +145,19 @@ defmodule BlockScoutWeb.AddressViewTest do
 
   describe "balance_percentage_enabled/1" do
     test "with non_zero market cap" do
-      Application.put_env(:block_scout_web, :show_percentage, true)
+      Application.put_env(:explorer_web, :show_percentage, true)
 
       assert AddressView.balance_percentage_enabled?(100_500) == true
     end
 
     test "with zero market cap" do
-      Application.put_env(:block_scout_web, :show_percentage, true)
+      Application.put_env(:explorer_web, :show_percentage, true)
 
       assert AddressView.balance_percentage_enabled?(0) == false
     end
 
     test "with switched off show_percentage" do
-      Application.put_env(:block_scout_web, :show_percentage, false)
+      Application.put_env(:explorer_web, :show_percentage, false)
 
       assert AddressView.balance_percentage_enabled?(100_501) == false
     end

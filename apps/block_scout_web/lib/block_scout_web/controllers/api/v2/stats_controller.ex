@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.V2.StatsController do
+defmodule ExplorerWeb.API.V2.StatsController do
   use Phoenix.Controller
 
-  alias BlockScoutWeb.API.V2.Helper
-  alias BlockScoutWeb.Chain.MarketHistoryChartController
+  alias ExplorerWeb.API.V2.Helper
+  alias ExplorerWeb.Chain.MarketHistoryChartController
   alias EthereumJSONRPC.Variant
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.Address.Counters
@@ -39,7 +39,7 @@ defmodule BlockScoutWeb.API.V2.StatsController do
           nil
       end
 
-    gas_price = Application.get_env(:block_scout_web, :gas_price)
+    gas_price = Application.get_env(:explorer_web, :gas_price)
 
     json(
       conn,
@@ -75,7 +75,7 @@ defmodule BlockScoutWeb.API.V2.StatsController do
 
   def transactions_chart(conn, _params) do
     [{:history_size, history_size}] =
-      Application.get_env(:block_scout_web, BlockScoutWeb.Chain.TransactionHistoryChartController, [{:history_size, 30}])
+      Application.get_env(:explorer_web, ExplorerWeb.Chain.TransactionHistoryChartController, [{:history_size, 30}])
 
     today = Date.utc_today()
     latest = Date.add(today, -1)

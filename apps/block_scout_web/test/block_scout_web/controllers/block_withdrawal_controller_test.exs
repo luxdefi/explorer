@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.BlockWithdrawalControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.BlockWithdrawalControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [block_withdrawal_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [block_withdrawal_path: 3]
 
   describe "GET index/2" do
     test "with invalid block number", %{conn: conn} do
@@ -30,8 +30,8 @@ defmodule BlockScoutWeb.BlockWithdrawalControllerTest do
       block = insert(:block, withdrawals: insert_list(3, :withdrawal))
 
       # to check that we can render a block overview
-      get(conn, block_withdrawal_path(BlockScoutWeb.Endpoint, :index, block))
-      conn = get(conn, block_withdrawal_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      get(conn, block_withdrawal_path(ExplorerWeb.Endpoint, :index, block))
+      conn = get(conn, block_withdrawal_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -83,7 +83,7 @@ defmodule BlockScoutWeb.BlockWithdrawalControllerTest do
       insert(:withdrawal)
       block = insert(:block)
 
-      conn = get(conn, block_withdrawal_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_withdrawal_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -97,7 +97,7 @@ defmodule BlockScoutWeb.BlockWithdrawalControllerTest do
     test "next_page_path exists if not on last page", %{conn: conn} do
       block = insert(:block, withdrawals: insert_list(60, :withdrawal))
 
-      conn = get(conn, block_withdrawal_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_withdrawal_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       {:ok, %{"next_page_path" => next_page_path}} =
         conn.resp_body
@@ -109,7 +109,7 @@ defmodule BlockScoutWeb.BlockWithdrawalControllerTest do
     test "next_page_path is empty if on last page", %{conn: conn} do
       block = insert(:block, withdrawals: insert_list(1, :withdrawal))
 
-      conn = get(conn, block_withdrawal_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_withdrawal_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       {:ok, %{"next_page_path" => next_page_path}} =
         conn.resp_body

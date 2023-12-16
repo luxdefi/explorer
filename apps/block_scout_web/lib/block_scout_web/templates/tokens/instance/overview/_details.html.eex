@@ -5,7 +5,7 @@
         <div class="card-body">
           <h1 class="card-title">
             <%= if token_name?(@token) do %>
-              <%= link(@token.name, to: token_path(BlockScoutWeb.Endpoint, :show, @token.contract_address_hash)) %>
+              <%= link(@token.name, to: token_path(ExplorerWeb.Endpoint, :show, @token.contract_address_hash)) %>
             <% else %>
               <%= gettext("Token Details") %>
             <% end %>
@@ -26,12 +26,12 @@
                   </svg>
                 </span>
               </span>
-              <%= render BlockScoutWeb.CommonComponentsView, "_btn_copy.html",
+              <%= render ExplorerWeb.CommonComponentsView, "_btn_copy.html",
                   additional_classes: ["overview-title-item"],
                   clipboard_text: @token_id,
                   aria_label: gettext("Copy Token ID"),
                   title: gettext("Copy Token ID") %>
-              <%= render BlockScoutWeb.CommonComponentsView, "_btn_qr_code.html" %>
+              <%= render ExplorerWeb.CommonComponentsView, "_btn_qr_code.html" %>
             </span>
           </h1>
 
@@ -42,7 +42,7 @@
               <%= if external_url(@token_instance.instance) do %>
                 <span class="mr-4">
                   <a data-test="external_url" href=<%=external_url(@token_instance.instance) %> target="_blank">
-                  View In App <span class="external-token-icon"><%= render BlockScoutWeb.IconsView, "_external_link.html" %></span>
+                  View In App <span class="external-token-icon"><%= render ExplorerWeb.IconsView, "_external_link.html" %></span>
                   </a>
                 </span>
               <% end %>
@@ -94,4 +94,4 @@
     </div>
   </div>
 </div>
-<%= render BlockScoutWeb.Advertisement.BannersAdView, "_banner_728.html", conn: @conn %>
+<%= render ExplorerWeb.Advertisement.BannersAdView, "_banner_728.html", conn: @conn %>

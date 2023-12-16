@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressContractView do
+  use ExplorerWeb, :view
 
   require Logger
 
@@ -20,10 +20,10 @@ defmodule BlockScoutWeb.AddressContractView do
   @doc """
   Returns the correct format for the optimization text.
 
-    iex> BlockScoutWeb.AddressContractView.format_optimization_text(true)
+    iex> ExplorerWeb.AddressContractView.format_optimization_text(true)
     "true"
 
-    iex> BlockScoutWeb.AddressContractView.format_optimization_text(false)
+    iex> ExplorerWeb.AddressContractView.format_optimization_text(false)
     "false"
   """
   def format_optimization_text(true), do: gettext("true")

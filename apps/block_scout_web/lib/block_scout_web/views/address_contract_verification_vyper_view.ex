@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressContractVerificationVyperView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressContractVerificationVyperView do
+  use ExplorerWeb, :view
 
   alias Explorer.Chain.SmartContract
 end

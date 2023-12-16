@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V2.StatsControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.StatsControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Counters.{AddressesCounter, AverageBlockTime}
 

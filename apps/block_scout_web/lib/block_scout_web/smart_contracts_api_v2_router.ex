@@ -1,13 +1,13 @@
 # This file in ignore list of `sobelow`, be careful while adding new endpoints here
-defmodule BlockScoutWeb.SmartContractsApiV2Router do
+defmodule ExplorerWeb.SmartContractsApiV2Router do
   @moduledoc """
     Router for /api/v2/smart-contracts. This route has separate router in order to ignore sobelow's warning about missing CSRF protection
   """
-  use BlockScoutWeb, :router
-  alias BlockScoutWeb.Plug.{CheckApiV2, RateLimit}
+  use ExplorerWeb, :router
+  alias ExplorerWeb.Plug.{CheckApiV2, RateLimit}
 
   pipeline :api_v2_no_forgery_protect do
-    plug(BlockScoutWeb.Plug.Logger, application: :api_v2)
+    plug(ExplorerWeb.Plug.Logger, application: :api_v2)
     plug(:accepts, ["json"])
     plug(CheckApiV2)
     plug(RateLimit)
@@ -17,7 +17,7 @@ defmodule BlockScoutWeb.SmartContractsApiV2Router do
   scope "/", as: :api_v2 do
     pipe_through(:api_v2_no_forgery_protect)
 
-    alias BlockScoutWeb.API.V2
+    alias ExplorerWeb.API.V2
 
     get("/", V2.SmartContractController, :smart_contracts_list)
     get("/counters", V2.SmartContractController, :smart_contracts_counters)

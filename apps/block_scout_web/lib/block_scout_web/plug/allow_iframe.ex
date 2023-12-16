@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Plug.AllowIframe do
+defmodule ExplorerWeb.Plug.AllowIframe do
   @moduledoc """
   Allows for iframes by deleting the
   [`X-Frame-Options` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)

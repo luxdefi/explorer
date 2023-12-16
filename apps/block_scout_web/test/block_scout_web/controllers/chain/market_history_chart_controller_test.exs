@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Chain.MarketHistoryChartControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Chain.MarketHistoryChartControllerTest do
+  use ExplorerWeb.ConnCase
 
   describe "GET show/2" do
     test "returns error when not an ajax request" do
-      path = market_history_chart_path(BlockScoutWeb.Endpoint, :show)
+      path = market_history_chart_path(ExplorerWeb.Endpoint, :show)
 
       conn = get(build_conn(), path)
 
@@ -11,7 +11,7 @@ defmodule BlockScoutWeb.Chain.MarketHistoryChartControllerTest do
     end
 
     test "returns ok when request is ajax" do
-      path = market_history_chart_path(BlockScoutWeb.Endpoint, :show)
+      path = market_history_chart_path(ExplorerWeb.Endpoint, :show)
 
       conn =
         build_conn()

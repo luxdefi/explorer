@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Tokens.Helper do
+defmodule ExplorerWeb.Tokens.Helper do
   @moduledoc """
-  Helper functions for interacting with `t:BlockScoutWeb.Chain.Token` attributes.
+  Helper functions for interacting with `t:ExplorerWeb.Chain.Token` attributes.
   """
 
-  alias BlockScoutWeb.{AddressView, CurrencyHelper}
+  alias ExplorerWeb.{AddressView, CurrencyHelper}
   alias Explorer.Chain.{Address, Token}
 
   @doc """

@@ -1,20 +1,20 @@
-defmodule BlockScoutWeb.AddressLogsController do
+defmodule ExplorerWeb.AddressLogsController do
   @moduledoc """
   Manages events logs tab.
   """
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  import BlockScoutWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
 
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, AddressLogsView, Controller}
+  alias ExplorerWeb.{AccessHelper, AddressLogsView, Controller}
   alias Explorer.{Chain, Market}
   alias Indexer.Fetcher.CoinBalanceOnDemand
   alias Phoenix.View
 
-  use BlockScoutWeb, :controller
+  use ExplorerWeb, :controller
 
   def index(conn, %{"address_id" => address_hash_string, "type" => "JSON"} = params) do
     with {:ok, address_hash} <- Chain.string_to_address_hash(address_hash_string),

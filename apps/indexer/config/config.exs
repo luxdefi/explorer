@@ -10,7 +10,7 @@ config :indexer,
 config :indexer, Indexer.Tracer,
   service: :indexer,
   adapter: SpandexDatadog.Adapter,
-  trace_key: :blockscout
+  trace_key: :lux
 
 config :indexer, Indexer.Block.Catchup.MissingRangesCollector, future_check_interval: :timer.minutes(1)
 

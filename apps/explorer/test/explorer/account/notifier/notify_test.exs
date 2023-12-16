@@ -13,7 +13,7 @@ defmodule Explorer.Account.Notifier.NotifyTest do
   setup do
     Application.put_env(:explorer, Explorer.Account,
       sendgrid: [
-        sender: "noreply@blockscout.com",
+        sender: "noreply@lux.com",
         template: "d-666"
       ]
     )

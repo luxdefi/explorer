@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.BlockWithdrawalView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.BlockWithdrawalView do
+  use ExplorerWeb, :view
 end

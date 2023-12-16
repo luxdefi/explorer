@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.RPC.TokenController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.RPC.TokenController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.API.RPC.Helper
+  alias ExplorerWeb.API.RPC.Helper
   alias Explorer.{Chain, PagingOptions}
 
   def gettoken(conn, params) do

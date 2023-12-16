@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressContractVerificationViaMultiPartFilesController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressContractVerificationViaMultiPartFilesController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Controller
+  alias ExplorerWeb.Controller
   alias Explorer.Chain.SmartContract
   alias Explorer.SmartContract.{CompilerVersion, Solidity.CodeCompiler}
 

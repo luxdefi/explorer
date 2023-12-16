@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Admin.DashboardController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Admin.DashboardController do
+  use ExplorerWeb, :controller
 
   def index(conn, _) do
     render(conn, "index.html")

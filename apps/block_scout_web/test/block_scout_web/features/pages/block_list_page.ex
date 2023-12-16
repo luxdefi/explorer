@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.BlockListPage do
+defmodule ExplorerWeb.BlockListPage do
   @moduledoc false
 
   use Wallaby.DSL

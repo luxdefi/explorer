@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.ViewingAddressesTest do
-  use BlockScoutWeb.FeatureCase,
+defmodule ExplorerWeb.ViewingAddressesTest do
+  use ExplorerWeb.FeatureCase,
     # Because ETS tables is shared for `Explorer.Counters.*`
     async: false
 
   alias Explorer.Counters.AddressesCounter
-  alias BlockScoutWeb.{AddressPage, AddressView, Notifier}
+  alias ExplorerWeb.{AddressPage, AddressView, Notifier}
 
   setup do
-    Application.put_env(:block_scout_web, :checksum_address_hashes, false)
+    Application.put_env(:explorer_web, :checksum_address_hashes, false)
 
     block = insert(:block, number: 42)
 
@@ -41,7 +41,7 @@ defmodule BlockScoutWeb.ViewingAddressesTest do
       )
 
     on_exit(fn ->
-      Application.put_env(:block_scout_web, :checksum_address_hashes, true)
+      Application.put_env(:explorer_web, :checksum_address_hashes, true)
     end)
 
     {:ok,
@@ -198,14 +198,14 @@ defmodule BlockScoutWeb.ViewingAddressesTest do
       session: session,
       transactions: transactions
     } do
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: true)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: true)
 
       session
       |> AddressPage.visit_page(addresses.lincoln)
       |> assert_has(AddressPage.transaction(transactions.from_taft))
       |> assert_has(AddressPage.transaction(transactions.from_lincoln))
 
-      Application.put_env(:block_scout_web, BlockScoutWeb.Chain, has_emission_funds: false)
+      Application.put_env(:explorer_web, ExplorerWeb.Chain, has_emission_funds: false)
     end
   end
 

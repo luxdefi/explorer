@@ -45,8 +45,8 @@ defmodule Explorer.Account.PublicTagsRequest do
     waste_fields = association_fields ++ @local_fields
 
     network =
-      Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url][:host] <>
-        Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url][:path]
+      Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url][:host] <>
+        Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url][:path]
 
     request |> Map.from_struct() |> Map.drop(waste_fields) |> Map.put(:network, network)
   end

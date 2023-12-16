@@ -1,6 +1,6 @@
-defmodule BlockScoutWeb.Account.Api.V1.UserView do
-  alias BlockScoutWeb.Account.Api.V1.AccountView
-  alias BlockScoutWeb.API.V2.Helper
+defmodule ExplorerWeb.Account.Api.V1.UserView do
+  alias ExplorerWeb.Account.Api.V1.AccountView
+  alias ExplorerWeb.API.V2.Helper
   alias Ecto.Changeset
   alias Explorer.Chain
 

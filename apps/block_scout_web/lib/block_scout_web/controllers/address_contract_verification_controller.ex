@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressContractVerificationController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressContractVerificationController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Controller
+  alias ExplorerWeb.Controller
   alias Explorer.Chain.Events.Publisher, as: EventsPublisher
   alias Explorer.Chain.SmartContract
   alias Explorer.SmartContract.{CompilerVersion, Solidity.CodeCompiler}
@@ -124,7 +124,7 @@ defmodule BlockScoutWeb.AddressContractVerificationController do
       if SmartContract.verified_with_full_match?(address_hash_string) do
         EventsPublisher.broadcast(
           PublishHelper.prepare_verification_error(
-            "This contract already verified in Blockscout.",
+            "This contract already verified in Explorer.",
             address_hash_string,
             conn
           ),

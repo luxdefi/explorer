@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.ViewingBlocksTest do
-  use BlockScoutWeb.FeatureCase, async: false
+defmodule ExplorerWeb.ViewingBlocksTest do
+  use ExplorerWeb.FeatureCase, async: false
 
-  alias BlockScoutWeb.{BlockListPage, BlockPage}
+  alias ExplorerWeb.{BlockListPage, BlockPage}
   alias Explorer.Chain.Block
 
   setup do

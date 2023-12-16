@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Models.GetAddressTags do
+defmodule ExplorerWeb.Models.GetAddressTags do
   @moduledoc """
   Get various types of tags associated with the address
   """

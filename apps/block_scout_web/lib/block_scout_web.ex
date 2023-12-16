@@ -1,12 +1,12 @@
-defmodule BlockScoutWeb do
+defmodule ExplorerWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use BlockScoutWeb, :controller
-      use BlockScoutWeb, :view
+      use ExplorerWeb, :controller
+      use ExplorerWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -16,28 +16,28 @@ defmodule BlockScoutWeb do
   below. Instead, define any helper function in modules
   and import those modules here.
   """
-  def version(), do: Application.get_env(:block_scout_web, :version)
+  def version(), do: Application.get_env(:explorer_web, :version)
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: BlockScoutWeb
+      use Phoenix.Controller, namespace: ExplorerWeb
 
-      import BlockScoutWeb.Controller
-      import BlockScoutWeb.Router.Helpers
-      import BlockScoutWeb.WebRouter.Helpers, except: [static_path: 2]
-      import BlockScoutWeb.Gettext
-      import BlockScoutWeb.ErrorHelper
+      import ExplorerWeb.Controller
+      import ExplorerWeb.Router.Helpers
+      import ExplorerWeb.WebRouter.Helpers, except: [static_path: 2]
+      import ExplorerWeb.Gettext
+      import ExplorerWeb.ErrorHelper
       import Plug.Conn
 
-      alias BlockScoutWeb.AdminRouter.Helpers, as: AdminRoutes
+      alias ExplorerWeb.AdminRouter.Helpers, as: AdminRoutes
     end
   end
 
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/block_scout_web/templates",
-        namespace: BlockScoutWeb
+        root: "lib/explorer_web/templates",
+        namespace: ExplorerWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
@@ -45,7 +45,7 @@ defmodule BlockScoutWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import BlockScoutWeb.{
+      import ExplorerWeb.{
         CurrencyHelper,
         ErrorHelper,
         Gettext,
@@ -56,7 +56,7 @@ defmodule BlockScoutWeb do
         WeiHelper
       }
 
-      import BlockScoutWeb.WebRouter.Helpers, except: [static_path: 2]
+      import ExplorerWeb.WebRouter.Helpers, except: [static_path: 2]
     end
   end
 
@@ -73,7 +73,7 @@ defmodule BlockScoutWeb do
     quote do
       use Phoenix.Channel
 
-      import BlockScoutWeb.Gettext
+      import ExplorerWeb.Gettext
     end
   end
 

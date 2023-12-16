@@ -1,5 +1,5 @@
-DOCKER_REPO := blockscout
-BACKEND_APP_NAME := blockscout
+DOCKER_REPO := lux
+BACKEND_APP_NAME := lux
 FRONTEND_APP_NAME := frontend
 BACKEND_CONTAINER_IMAGE := $(DOCKER_REPO)/$(BACKEND_APP_NAME)
 BACKEND_CONTAINER_NAME := backend
@@ -15,9 +15,9 @@ TAG := $(RELEASE_VERSION)-commit-$(shell git log -1 --pretty=format:"%h")
 STABLE_TAG := $(RELEASE_VERSION)
 
 start:
-	@echo "==> Starting blockscout db"
+	@echo "==> Starting lux db"
 	@docker-compose -f ../docker-compose/services/db.yml up -d
-	@echo "==> Starting blockscout backend"
+	@echo "==> Starting lux backend"
 	@docker-compose -f ../docker-compose/services/backend.yml up -d
 	@echo "==> Starting stats microservice"
 	@docker-compose -f ../docker-compose/services/stats.yml up -d
@@ -25,7 +25,7 @@ start:
 	@docker-compose -f ../docker-compose/services/visualizer.yml up -d
 	@echo "==> Starting sig-provider microservice"
 	@docker-compose -f ../docker-compose/services/sig-provider.yml up -d
-	@echo "==> Starting blockscout frontend"
+	@echo "==> Starting lux frontend"
 	@docker-compose -f ../docker-compose/services/frontend.yml up -d
 	@echo "==> Starting Nginx proxy"
 	@docker-compose -f ../docker-compose/services/nginx.yml up -d
@@ -39,46 +39,46 @@ BS_SIG_PROVIDER_STARTED := $(shell docker ps --no-trunc --filter name=^/${SIG_PR
 BS_PROXY_STARTED := $(shell docker ps --no-trunc --filter name=^/${PROXY_CONTAINER_NAME}$  | grep ${PROXY_CONTAINER_NAME})
 stop:
 ifdef BS_FRONTEND_STARTED
-	@echo "==> Stopping Blockscout frontend container."
+	@echo "==> Stopping Explorer frontend container."
 	@docker stop $(FRONTEND_CONTAINER_NAME) && docker rm -f $(FRONTEND_CONTAINER_NAME)
-	@echo "==> Blockscout frontend container stopped."
+	@echo "==> Explorer frontend container stopped."
 else
-	@echo "==> Blockscout frontend container already stopped before."
+	@echo "==> Explorer frontend container already stopped before."
 endif
 ifdef BS_BACKEND_STARTED
-	@echo "==> Stopping Blockscout backend container."
+	@echo "==> Stopping Explorer backend container."
 	@docker stop $(BACKEND_CONTAINER_NAME)  && docker rm -f $(BACKEND_CONTAINER_NAME)
-	@echo "==> Blockscout backend container stopped."
+	@echo "==> Explorer backend container stopped."
 else
-	@echo "==> Blockscout backend container already stopped before."
+	@echo "==> Explorer backend container already stopped before."
 endif
 ifdef BS_STATS_DB_STARTED
-	@echo "==> Stopping Blockscout stats db container."
+	@echo "==> Stopping Explorer stats db container."
 	@docker stop $(STATS_DB_CONTAINER_NAME) && docker rm -f $(STATS_DB_CONTAINER_NAME)
-	@echo "==> Blockscout stats db container stopped."
+	@echo "==> Explorer stats db container stopped."
 else
-	@echo "==> Blockscout stats db container already stopped before."
+	@echo "==> Explorer stats db container already stopped before."
 endif
 ifdef BS_STATS_STARTED
-	@echo "==> Stopping Blockscout stats container."
+	@echo "==> Stopping Explorer stats container."
 	@docker stop $(STATS_CONTAINER_NAME) && docker rm -f $(STATS_CONTAINER_NAME)
-	@echo "==> Blockscout stats container stopped."
+	@echo "==> Explorer stats container stopped."
 else
-	@echo "==> Blockscout stats container already stopped before."
+	@echo "==> Explorer stats container already stopped before."
 endif
 ifdef BS_VISUALIZER_STARTED
-	@echo "==> Stopping Blockscout visualizer container."
+	@echo "==> Stopping Explorer visualizer container."
 	@docker stop $(VISUALIZER_CONTAINER_NAME) && docker rm -f $(VISUALIZER_CONTAINER_NAME)
-	@echo "==> Blockscout visualizer container stopped."
+	@echo "==> Explorer visualizer container stopped."
 else
-	@echo "==> Blockscout visualizer container already stopped before."
+	@echo "==> Explorer visualizer container already stopped before."
 endif
 ifdef BS_SIG_PROVIDER_STARTED
-	@echo "==> Stopping Blockscout sig-provider container."
+	@echo "==> Stopping Explorer sig-provider container."
 	@docker stop $(SIG_PROVIDER_CONTAINER_NAME) && docker rm -f $(SIG_PROVIDER_CONTAINER_NAME)
-	@echo "==> Blockscout sig-provider container stopped."
+	@echo "==> Explorer sig-provider container stopped."
 else
-	@echo "==> Blockscout sig-provider container already stopped before."
+	@echo "==> Explorer sig-provider container already stopped before."
 endif
 ifdef BS_PROXY_STARTED
 	@echo "==> Stopping Nginx proxy container."

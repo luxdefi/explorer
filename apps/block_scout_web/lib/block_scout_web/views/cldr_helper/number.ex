@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.CldrHelper.Number do
+defmodule ExplorerWeb.CldrHelper.Number do
   @moduledoc """
   Work-arounds for `Cldr.Number` bugs
   """
 
-  alias BlockScoutWeb.Cldr.Number
+  alias ExplorerWeb.Cldr.Number
 
   def to_string(decimal, options) do
     # We do this to trick Dialyzer to not complain about non-local returns caused by bug in Cldr.Number.to_string spec

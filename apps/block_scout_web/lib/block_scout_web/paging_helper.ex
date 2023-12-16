@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.PagingHelper do
+defmodule ExplorerWeb.PagingHelper do
   @moduledoc """
     Helper for fetching filters and other url query parameters
   """

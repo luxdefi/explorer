@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.API.V2.TransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.TransactionView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.V2.{ApiView, Helper, TokenView}
-  alias BlockScoutWeb.{ABIEncodedValueView, TransactionView}
-  alias BlockScoutWeb.Models.GetTransactionTags
-  alias BlockScoutWeb.Tokens.Helper, as: TokensHelper
-  alias BlockScoutWeb.TransactionStateView
+  alias ExplorerWeb.API.V2.{ApiView, Helper, TokenView}
+  alias ExplorerWeb.{ABIEncodedValueView, TransactionView}
+  alias ExplorerWeb.Models.GetTransactionTags
+  alias ExplorerWeb.Tokens.Helper, as: TokensHelper
+  alias ExplorerWeb.TransactionStateView
   alias Ecto.Association.NotLoaded
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.{Address, Block, Hash, InternalTransaction, Log, Token, Transaction, Wei}
@@ -15,7 +15,7 @@ defmodule BlockScoutWeb.API.V2.TransactionView do
   alias Explorer.Counters.AverageBlockTime
   alias Timex.Duration
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
   import Explorer.Chain.Transaction, only: [maybe_prepare_stability_fees: 1, bytes_to_address_hash: 1]
   import Explorer.Helper, only: [decode_data: 2]
 

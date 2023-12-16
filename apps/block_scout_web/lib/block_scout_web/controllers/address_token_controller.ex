@@ -1,13 +1,13 @@
-defmodule BlockScoutWeb.AddressTokenController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.AddressTokenController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [next_page_params: 4, paging_options: 1, split_list_by_page: 1, paging_params_with_fiat_value: 1]
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2]
 
-  alias BlockScoutWeb.{AccessHelper, AddressTokenView, Controller}
+  alias ExplorerWeb.{AccessHelper, AddressTokenView, Controller}
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.Address
   alias Indexer.Fetcher.CoinBalanceOnDemand

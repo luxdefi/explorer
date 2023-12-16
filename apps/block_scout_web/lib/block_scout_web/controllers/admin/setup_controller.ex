@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Admin.SetupController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Admin.SetupController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.AdminRouter.Helpers
+  import ExplorerWeb.AdminRouter.Helpers
 
-  alias BlockScoutWeb.Endpoint
+  alias ExplorerWeb.Endpoint
   alias Explorer.Accounts.User.Registration
   alias Explorer.Admin
   alias Phoenix.Token

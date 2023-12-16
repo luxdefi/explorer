@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.Tokens.Instance.Helper do
+defmodule ExplorerWeb.Tokens.Instance.Helper do
   @moduledoc """
   Token instance controllers common helper
   """
 
-  use BlockScoutWeb, :controller
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Controller
+  alias ExplorerWeb.Controller
   alias Explorer.Chain
 
   def render(conn, token_instance, hash, token_id, token) do

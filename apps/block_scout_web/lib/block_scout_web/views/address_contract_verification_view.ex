@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressContractVerificationView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressContractVerificationView do
+  use ExplorerWeb, :view
 
   alias Explorer.SmartContract.RustVerifierInterface
 end

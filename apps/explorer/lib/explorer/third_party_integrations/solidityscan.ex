@@ -5,7 +5,7 @@ defmodule Explorer.ThirdPartyIntegrations.SolidityScan do
 
   alias Explorer.Helper
 
-  @blockscout_platform_id "16"
+  @lux_platform_id "16"
   @recv_timeout 60_000
 
   @doc """
@@ -27,7 +27,7 @@ defmodule Explorer.ThirdPartyIntegrations.SolidityScan do
   end
 
   defp base_url(address_hash_string) do
-    "https://api.solidityscan.com/api/v1/quickscan/#{@blockscout_platform_id}/#{chain_id()}/#{address_hash_string}"
+    "https://api.solidityscan.com/api/v1/quickscan/#{@lux_platform_id}/#{chain_id()}/#{address_hash_string}"
   end
 
   defp chain_id do

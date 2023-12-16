@@ -4,11 +4,11 @@
       <div class="modal-status-graph modal-status-graph-<%= if assigns[:status] do @status end %>">
         <%=
           if @status in ["error", "success", "warning", "question"] do
-            render BlockScoutWeb.CommonComponentsView, "_icon_#{@status}_modal.html"
+            render ExplorerWeb.CommonComponentsView, "_icon_#{@status}_modal.html"
           end
         %>
       </div>
-      <%= render BlockScoutWeb.CommonComponentsView, "_modal_close_button.html" %>
+      <%= render ExplorerWeb.CommonComponentsView, "_modal_close_button.html" %>
       <div class="modal-body modal-status-body">
         <h2 class="modal-status-title"><%= if assigns[:title] do @title end %></h2>
         <p class="modal-status-text" style="<%= if @status == "error", do: "word-break: break-all;" %>"><%= if assigns[:text] do @text end %></p>

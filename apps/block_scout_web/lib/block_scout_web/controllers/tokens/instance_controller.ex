@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.InstanceController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.InstanceController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Controller
+  alias ExplorerWeb.Controller
   alias Explorer.Chain
 
   def show(conn, %{"token_id" => token_address_hash, "id" => token_id}) do

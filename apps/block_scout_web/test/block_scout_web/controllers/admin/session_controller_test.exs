@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Admin.SessionControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Admin.SessionControllerTest do
+  use ExplorerWeb.ConnCase
 
   setup %{conn: conn} do
     conn =

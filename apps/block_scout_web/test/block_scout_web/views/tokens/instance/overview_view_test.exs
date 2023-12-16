@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.Instance.OverviewViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.Instance.OverviewViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.Tokens.Instance.OverviewView
+  alias ExplorerWeb.Tokens.Instance.OverviewView
 
   describe "media_src/1" do
     test "fetches image from ['properties']['image']['description'] path" do

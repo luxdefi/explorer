@@ -1,16 +1,16 @@
-defmodule BlockScoutWeb.UserSocketV2 do
+defmodule ExplorerWeb.UserSocketV2 do
   @moduledoc """
     Module to distinct new and old UI websocket connections
   """
   use Phoenix.Socket
 
-  channel("addresses:*", BlockScoutWeb.AddressChannel)
-  channel("blocks:*", BlockScoutWeb.BlockChannel)
-  channel("exchange_rate:*", BlockScoutWeb.ExchangeRateChannel)
-  channel("rewards:*", BlockScoutWeb.RewardChannel)
-  channel("transactions:*", BlockScoutWeb.TransactionChannel)
-  channel("tokens:*", BlockScoutWeb.TokenChannel)
-  channel("zkevm_batches:*", BlockScoutWeb.ZkevmConfirmedBatchChannel)
+  channel("addresses:*", ExplorerWeb.AddressChannel)
+  channel("blocks:*", ExplorerWeb.BlockChannel)
+  channel("exchange_rate:*", ExplorerWeb.ExchangeRateChannel)
+  channel("rewards:*", ExplorerWeb.RewardChannel)
+  channel("transactions:*", ExplorerWeb.TransactionChannel)
+  channel("tokens:*", ExplorerWeb.TokenChannel)
+  channel("zkevm_batches:*", ExplorerWeb.ZkevmConfirmedBatchChannel)
 
   def connect(_params, socket) do
     {:ok, socket}

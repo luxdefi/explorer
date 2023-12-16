@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.TransactionStateControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.TransactionStateControllerTest do
+  use ExplorerWeb.ConnCase
 
   import Mox
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [transaction_state_path: 3]
-  import BlockScoutWeb.WeiHelper, only: [format_wei_value: 2]
+  import ExplorerWeb.WebRouter.Helpers, only: [transaction_state_path: 3]
+  import ExplorerWeb.WeiHelper, only: [format_wei_value: 2]
   import EthereumJSONRPC, only: [integer_to_quantity: 1]
   alias Explorer.Chain.Wei
   alias Indexer.Fetcher.CoinBalance
@@ -43,13 +43,13 @@ defmodule BlockScoutWeb.TransactionStateControllerTest do
 
     test "with missing transaction", %{conn: conn} do
       hash = transaction_hash()
-      conn = get(conn, transaction_state_path(BlockScoutWeb.Endpoint, :index, hash))
+      conn = get(conn, transaction_state_path(ExplorerWeb.Endpoint, :index, hash))
 
       assert html_response(conn, 404)
     end
 
     test "with invalid transaction hash", %{conn: conn} do
-      conn = get(conn, transaction_state_path(BlockScoutWeb.Endpoint, :index, "nope"))
+      conn = get(conn, transaction_state_path(ExplorerWeb.Endpoint, :index, "nope"))
 
       assert html_response(conn, 422)
     end

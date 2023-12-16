@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Notifier do
+defmodule ExplorerWeb.Notifier do
   @moduledoc """
   Responds to events by sending appropriate channel updates to front-end.
   """
@@ -7,9 +7,9 @@ defmodule BlockScoutWeb.Notifier do
 
   alias Absinthe.Subscription
 
-  alias BlockScoutWeb.API.V2, as: API_V2
+  alias ExplorerWeb.API.V2, as: API_V2
 
-  alias BlockScoutWeb.{
+  alias ExplorerWeb.{
     AddressContractVerificationViaFlattenedCodeView,
     AddressContractVerificationViaJsonView,
     AddressContractVerificationViaMultiPartFilesView,
@@ -99,7 +99,7 @@ defmodule BlockScoutWeb.Notifier do
   end
 
   def handle_event({:chain_event, :block_rewards, :realtime, rewards}) do
-    if Application.get_env(:block_scout_web, BlockScoutWeb.Chain)[:has_emission_funds] do
+    if Application.get_env(:explorer_web, ExplorerWeb.Chain)[:has_emission_funds] do
       broadcast_rewards(rewards)
     end
   end
@@ -155,7 +155,7 @@ defmodule BlockScoutWeb.Notifier do
     Endpoint.broadcast("transactions:#{transaction_hash}", "raw_trace", %{raw_trace_origin: transaction_hash})
   end
 
-  # internal txs broadcast disabled on the indexer level, therefore it out of scope of the refactoring within https://github.com/blockscout/blockscout/pull/7474
+  # internal txs broadcast disabled on the indexer level, therefore it out of scope of the refactoring within https://github.com/lux/lux/pull/7474
   def handle_event({:chain_event, :internal_transactions, :realtime, internal_transactions}) do
     internal_transactions
     |> Stream.map(
@@ -210,7 +210,7 @@ defmodule BlockScoutWeb.Notifier do
     today = Date.utc_today()
 
     [{:history_size, history_size}] =
-      Application.get_env(:block_scout_web, BlockScoutWeb.Chain.TransactionHistoryChartController, {:history_size, 30})
+      Application.get_env(:explorer_web, ExplorerWeb.Chain.TransactionHistoryChartController, {:history_size, 30})
 
     x_days_back = Date.add(today, -1 * history_size)
 

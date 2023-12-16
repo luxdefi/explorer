@@ -1,5 +1,5 @@
 <div class="mb-4">
-        <%= render BlockScoutWeb.CommonComponentsView, "_info.html" %>
+        <%= render ExplorerWeb.CommonComponentsView, "_info.html" %>
         <span> <%= gettext("Minimal Proxy Contract for") %> <%= link(
 @address_hash,
 to: address_contract_path(@conn, :index, @address_hash)) %>.<br/> <%= link(

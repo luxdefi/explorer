@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.SearchController do
+defmodule ExplorerWeb.API.V2.SearchController do
   use Phoenix.Controller
 
-  import BlockScoutWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1, from_param: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1, from_param: 1]
 
   alias Explorer.Chain.Search
   alias Explorer.PagingOptions

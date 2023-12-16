@@ -6,7 +6,7 @@
       <%= if @block_type == "Block" do %>
         <%= link(
               class: "tile-label",
-              to: block_path(BlockScoutWeb.Endpoint, :show, @block),
+              to: block_path(ExplorerWeb.Endpoint, :show, @block),
               "data-selector": "block-number"
             ) do %>
             #<%= @block %>
@@ -14,7 +14,7 @@
       <% else %>
         <%= link(
               class: "tile-label",
-              to: block_path(BlockScoutWeb.Endpoint, :show, @block.hash),
+              to: block_path(ExplorerWeb.Endpoint, :show, @block.hash),
               "data-selector": "block-number"
             ) do %>
             #<%= @block %>
@@ -35,11 +35,11 @@
         <!-- age -->
         <span data-from-now="<%= @block.timestamp %>"></span>
       </div>
-      <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
+      <%= if !Application.get_env(:explorer_web, :hide_block_miner) do %>
         <div class="text-nowrap text-truncate mt-3 mt-md-0">
           <!-- validator -->
           <%= gettext "Miner" %>
-          <%= render BlockScoutWeb.AddressView,
+          <%= render ExplorerWeb.AddressView,
             "_link.html",
             address: @block.miner,
             contract: false,

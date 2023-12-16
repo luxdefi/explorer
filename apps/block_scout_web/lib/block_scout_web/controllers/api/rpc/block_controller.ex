@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.RPC.BlockController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.RPC.BlockController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Chain, as: ChainWeb
+  alias ExplorerWeb.Chain, as: ChainWeb
   alias Explorer.Chain
   alias Explorer.Chain.Cache.BlockNumber
 

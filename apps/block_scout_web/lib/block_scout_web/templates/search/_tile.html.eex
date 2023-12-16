@@ -1,6 +1,6 @@
 <tr data-identifier-hash="<%= @result.address_hash %>-<%= if @result.tx_hash, do: Base.encode16(@result.tx_hash, case: :lower), else: "" %>-<%= if @result.block_hash, do: Base.encode16(@result.block_hash, case: :lower), else: "" %>">
   <!-- incremented number by order in the list -->
-  <%= render BlockScoutWeb.SearchView, "_empty_td.html" %>
+  <%= render ExplorerWeb.SearchView, "_empty_td.html" %>
   <%= case @result.type do %>
         <% "token" -> %>
             <td class="token-icon">
@@ -8,11 +8,11 @@
                     class="token-icon mr-1"
                     data-address-hash="<%= @result.address_hash %>"
                 >
-                <%= if Application.get_env(:block_scout_web, :display_token_icons) do %>
-                    <% chain_id_for_token_icon = Application.get_env(:block_scout_web, :chain_id) %>
+                <%= if Application.get_env(:explorer_web, :display_token_icons) do %>
+                    <% chain_id_for_token_icon = Application.get_env(:explorer_web, :chain_id) %>
                     <% address_hash = @result.address_hash %>
                     <%=
-                        render BlockScoutWeb.TokensView,
+                        render ExplorerWeb.TokensView,
                         "_token_icon.html",
                         chain_id: chain_id_for_token_icon,
                         address: address_hash
@@ -27,13 +27,13 @@
                 </a>
             </td>
         <% "address" -> %>
-            <%= render BlockScoutWeb.SearchView, "_empty_td.html" %>
-            <%= render BlockScoutWeb.SearchView, "_name_td.html", result: @result, query: @query, conn: @conn %>
+            <%= render ExplorerWeb.SearchView, "_empty_td.html" %>
+            <%= render ExplorerWeb.SearchView, "_name_td.html", result: @result, query: @query, conn: @conn %>
         <% "contract" -> %>
-            <%= render BlockScoutWeb.SearchView, "_empty_td.html" %>
-            <%= render BlockScoutWeb.SearchView, "_name_td.html", result: @result, query: @query, conn: @conn %>
+            <%= render ExplorerWeb.SearchView, "_empty_td.html" %>
+            <%= render ExplorerWeb.SearchView, "_name_td.html", result: @result, query: @query, conn: @conn %>
         <% "block" -> %>
-            <%= render BlockScoutWeb.SearchView, "_empty_td.html" %>
+            <%= render ExplorerWeb.SearchView, "_empty_td.html" %>
             <td class="stakes-td">
                 <%= link(
                     highlight_search_result(to_string(@result.block_number), @query),
@@ -41,15 +41,15 @@
                 ) %>
             </td>
         <% _ -> %>
-            <%= render BlockScoutWeb.SearchView, "_empty_td.html" %>
-            <%= render BlockScoutWeb.SearchView, "_empty_td.html" %>
+            <%= render ExplorerWeb.SearchView, "_empty_td.html" %>
+            <%= render ExplorerWeb.SearchView, "_empty_td.html" %>
   <% end %>
   <td class="stakes-td">
     <%= case @result.type do %>
         <% "token" -> %>
             <%= with {:ok, address_hash} = Chain.string_to_address_hash(@result.address_hash),
             {:ok, address} <- Chain.hash_to_address(address_hash) do %>
-                <%= render BlockScoutWeb.AddressView,
+                <%= render ExplorerWeb.AddressView,
                 "_link.html",
                 address: address,
                 contract: false,
@@ -59,7 +59,7 @@
         <% "address" -> %>
             <%= with {:ok, address_hash} = Chain.string_to_address_hash(@result.address_hash),
             {:ok, address} <- Chain.hash_to_address(address_hash) do %>
-                <%= render BlockScoutWeb.AddressView,
+                <%= render ExplorerWeb.AddressView,
                 "_link.html",
                 address: address,
                 contract: false,
@@ -69,7 +69,7 @@
         <% "contract" -> %>
             <%= with {:ok, address_hash} = Chain.string_to_address_hash(@result.address_hash),
             {:ok, address} <- Chain.hash_to_address(address_hash) do %>
-                <%= render BlockScoutWeb.AddressView,
+                <%= render ExplorerWeb.AddressView,
                 "_link.html",
                 address: address,
                 contract: true,
@@ -77,7 +77,7 @@
                 %>
             <% end %>
         <% "transaction" -> %>
-            <%= render BlockScoutWeb.TransactionView,
+            <%= render ExplorerWeb.TransactionView,
             "_link.html",
             transaction_hash: "0x" <> Base.encode16(@result.tx_hash, case: :lower) %>
         <% "block" -> %>

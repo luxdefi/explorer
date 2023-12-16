@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.Instance.MetadataController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.Instance.MetadataController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.Tokens.Instance.Helper
+  alias ExplorerWeb.Tokens.Instance.Helper
   alias Explorer.Chain
 
   def index(conn, %{"token_id" => token_address_hash, "instance_id" => token_id_str}) do

@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.InternalTransactionViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.InternalTransactionViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.InternalTransactionView
+  alias ExplorerWeb.InternalTransactionView
   alias Explorer.Chain.InternalTransaction
 
-  doctest BlockScoutWeb.InternalTransactionView
+  doctest ExplorerWeb.InternalTransactionView
 
   describe "type/1" do
     test "returns the correct string when the type is :call and call type is :call" do

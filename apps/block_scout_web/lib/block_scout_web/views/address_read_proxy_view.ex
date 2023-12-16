@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.AddressReadProxyView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressReadProxyView do
+  use ExplorerWeb, :view
 end

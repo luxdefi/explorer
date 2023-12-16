@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.ChainPage do
+defmodule ExplorerWeb.ChainPage do
   @moduledoc false
 
   use Wallaby.DSL

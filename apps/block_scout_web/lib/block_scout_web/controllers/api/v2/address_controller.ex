@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.AddressController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.AddressController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       next_page_params: 3,
       next_page_params: 4,
@@ -12,7 +12,7 @@ defmodule BlockScoutWeb.API.V2.AddressController do
       paging_params_with_fiat_value: 1
     ]
 
-  import BlockScoutWeb.PagingHelper,
+  import ExplorerWeb.PagingHelper,
     only: [
       delete_parameters_from_next_page_params: 1,
       token_transfers_types_options: 1,
@@ -20,8 +20,8 @@ defmodule BlockScoutWeb.API.V2.AddressController do
       nft_token_types_options: 1
     ]
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.API.V2.{BlockView, TransactionView, WithdrawalView}
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.API.V2.{BlockView, TransactionView, WithdrawalView}
   alias Explorer.{Chain, Market}
   alias Explorer.Chain.{Address, Transaction}
   alias Explorer.Chain.Address.Counters
@@ -73,7 +73,7 @@ defmodule BlockScoutWeb.API.V2.AddressController do
 
   @api_true [api?: true]
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   def address(conn, %{"address_hash_param" => address_hash_string} = params) do
     with {:ok, _address_hash, address} <- validate_address(address_hash_string, params, @address_options),

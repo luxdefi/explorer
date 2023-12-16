@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.TransactionControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.RPC.TransactionControllerTest do
+  use ExplorerWeb.ConnCase
 
   import Mox
 

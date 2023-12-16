@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Resolvers.Address do
+defmodule ExplorerWeb.Resolvers.Address do
   @moduledoc false
 
   alias Explorer.Chain

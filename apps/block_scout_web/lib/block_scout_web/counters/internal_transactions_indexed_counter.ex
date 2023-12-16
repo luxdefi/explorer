@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Counters.InternalTransactionsIndexedCounter do
+defmodule ExplorerWeb.Counters.InternalTransactionsIndexedCounter do
   @moduledoc """
   Module responsible for fetching and consolidating the number pending block operations (internal transactions) indexed.
 
@@ -7,13 +7,13 @@ defmodule BlockScoutWeb.Counters.InternalTransactionsIndexedCounter do
 
   use GenServer
 
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
   alias Explorer.Chain
 
   # It is undesirable to automatically start the counter in all environments.
   # Consider the test environment: if it initiates but does not finish before a
   # test ends, that test will fail.
-  config = Application.compile_env(:block_scout_web, __MODULE__)
+  config = Application.compile_env(:explorer_web, __MODULE__)
   @enabled Keyword.get(config, :enabled)
 
   @doc """

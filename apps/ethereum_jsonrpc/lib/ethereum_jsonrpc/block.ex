@@ -801,10 +801,10 @@ defmodule EthereumJSONRPC.Block do
     {:ignore, :ignore}
   end
 
-  # bitcoinMergedMiningCoinbaseTransaction bitcoinMergedMiningHeader bitcoinMergedMiningMerkleProof hashForMergedMining - RSK https://github.com/blockscout/blockscout/pull/2934
-  # committedSeals committee pastCommittedSeals proposerSeal round - Autonity network https://github.com/blockscout/blockscout/pull/3480
-  # blockGasCost extDataGasUsed - sgb/ava https://github.com/blockscout/blockscout/pull/5301
-  # blockExtraData extDataHash - Avalanche https://github.com/blockscout/blockscout/pull/5348
+  # bitcoinMergedMiningCoinbaseTransaction bitcoinMergedMiningHeader bitcoinMergedMiningMerkleProof hashForMergedMining - RSK https://github.com/lux/lux/pull/2934
+  # committedSeals committee pastCommittedSeals proposerSeal round - Autonity network https://github.com/lux/lux/pull/3480
+  # blockGasCost extDataGasUsed - sgb/ava https://github.com/lux/lux/pull/5301
+  # blockExtraData extDataHash - Avalanche https://github.com/lux/lux/pull/5348
   # vrf vrfProof - Harmony
   # ...
   defp entry_to_elixir({_, _}, _block) do

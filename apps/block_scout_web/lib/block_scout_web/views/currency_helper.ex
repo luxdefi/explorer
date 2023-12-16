@@ -1,16 +1,16 @@
-defmodule BlockScoutWeb.CurrencyHelper do
+defmodule ExplorerWeb.CurrencyHelper do
   @moduledoc """
-  Helper functions for interacting with `t:BlockScoutWeb.ExchangeRates.USD.t/0` values.
+  Helper functions for interacting with `t:ExplorerWeb.ExchangeRates.USD.t/0` values.
   """
 
-  alias BlockScoutWeb.CldrHelper.Number
+  alias ExplorerWeb.CldrHelper.Number
 
   @doc """
   Formats the given integer value to a currency format.
 
   ## Examples
 
-      iex> BlockScoutWeb.CurrencyHelper.format_integer_to_currency(1000000)
+      iex> ExplorerWeb.CurrencyHelper.format_integer_to_currency(1000000)
       "1,000,000"
   """
   @spec format_integer_to_currency(non_neg_integer() | nil) :: String.t()

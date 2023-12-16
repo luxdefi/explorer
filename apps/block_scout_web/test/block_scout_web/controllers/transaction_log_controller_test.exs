@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.TransactionLogControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.TransactionLogControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [transaction_log_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [transaction_log_path: 3]
 
   alias Explorer.Chain.Address
   alias Explorer.ExchangeRates.Token
@@ -157,7 +157,7 @@ defmodule BlockScoutWeb.TransactionLogControllerTest do
   test "includes USD exchange rate value for address in assigns", %{conn: conn} do
     transaction = insert(:transaction)
 
-    conn = get(conn, transaction_log_path(BlockScoutWeb.Endpoint, :index, transaction.hash))
+    conn = get(conn, transaction_log_path(ExplorerWeb.Endpoint, :index, transaction.hash))
 
     assert %Token{} = conn.assigns.exchange_rate
   end

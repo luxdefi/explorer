@@ -36,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: blockscout/blockscout
+          images: luxdefi/explorer
 
       - name: Build and push Docker image for Rootstock
         uses: docker/build-push-action@v5
@@ -44,7 +44,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: blockscout/blockscout-rsk:latest, blockscout/blockscout-rsk:${{ env.RELEASE_VERSION }}
+          tags: luxdefi/explorer-rsk:latest, luxdefi/explorer-rsk:${{ env.RELEASE_VERSION }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -56,7 +56,7 @@ jobs:
             CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED=
             ADMIN_PANEL_ENABLED=false
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}
             CHAIN_TYPE=rsk
 
@@ -66,7 +66,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: blockscout/blockscout-polygon-edge:latest, blockscout/blockscout-polygon-edge:${{ env.RELEASE_VERSION }}
+          tags: luxdefi/explorer-polygon-edge:latest, luxdefi/explorer-polygon-edge:${{ env.RELEASE_VERSION }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -78,7 +78,7 @@ jobs:
             CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED=
             ADMIN_PANEL_ENABLED=false
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}
             CHAIN_TYPE=polygon_edge
 
@@ -88,7 +88,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: blockscout/blockscout-stability:latest, blockscout/blockscout-stability:${{ env.RELEASE_VERSION }}
+          tags: luxdefi/explorer-stability:latest, luxdefi/explorer-stability:${{ env.RELEASE_VERSION }}
           platforms: |
             linux/amd64
             linux/arm64/v8
@@ -100,6 +100,6 @@ jobs:
             CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED=
             ADMIN_PANEL_ENABLED=false
             CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL=
-            BLOCKSCOUT_VERSION=v${{ env.RELEASE_VERSION }}-beta
+            EXPLORER_VERSION=v${{ env.RELEASE_VERSION }}-beta
             RELEASE_VERSION=${{ env.RELEASE_VERSION }}
             CHAIN_TYPE=stability

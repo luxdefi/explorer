@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Account.CustomABIControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Account.CustomABIControllerTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
 
   @custom_abi "[{\"type\":\"function\",\"outputs\":[{\"type\":\"string\",\"name\":\"\"}],\"name\":\"name\",\"inputs\":[],\"constant\":true}]"
 

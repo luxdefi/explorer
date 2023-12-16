@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Prometheus.Exporter do
+defmodule ExplorerWeb.Prometheus.Exporter do
   @moduledoc """
   Exports `Prometheus` metrics at `/metrics`
   """

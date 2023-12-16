@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Plug.FetchUserFromSessionTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Plug.FetchUserFromSessionTest do
+  use ExplorerWeb.ConnCase
 
   import Plug.Conn, only: [put_session: 3]
 
-  alias BlockScoutWeb.Plug.FetchUserFromSession
-  alias BlockScoutWeb.Router
+  alias ExplorerWeb.Plug.FetchUserFromSession
+  alias ExplorerWeb.Router
   alias Explorer.Accounts.User
 
   test "init/1" do

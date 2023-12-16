@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.BlockTransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.BlockTransactionView do
+  use ExplorerWeb, :view
 
-  import BlockScoutWeb.Gettext, only: [gettext: 1]
+  import ExplorerWeb.Gettext, only: [gettext: 1]
 
   def block_not_found_message({:ok, true}) do
     gettext("Easy Cowboy! This block does not exist yet!")

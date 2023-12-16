@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.BlockTransactionControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.BlockTransactionControllerTest do
+  use ExplorerWeb.ConnCase
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [block_transaction_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [block_transaction_path: 3]
 
   describe "GET index/2" do
     test "with invalid block number", %{conn: conn} do
@@ -38,7 +38,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       |> with_block(block)
       |> with_contract_creation(insert(:contract_address))
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -81,7 +81,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       |> insert()
       |> with_block(block)
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -98,7 +98,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       transaction = insert(:transaction)
       insert(:transaction_fork, hash: transaction.hash, uncle_hash: block.hash)
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -125,7 +125,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       insert(:transaction)
       block = insert(:block)
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -140,7 +140,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       block = insert(:block)
       insert(:transaction)
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       assert json_response(conn, 200)
 
@@ -158,7 +158,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       |> insert_list(:transaction)
       |> with_block(block)
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       {:ok, %{"next_page_path" => next_page_path}} =
         conn.resp_body
@@ -174,7 +174,7 @@ defmodule BlockScoutWeb.BlockTransactionControllerTest do
       |> insert()
       |> with_block(block)
 
-      conn = get(conn, block_transaction_path(BlockScoutWeb.Endpoint, :index, block), %{type: "JSON"})
+      conn = get(conn, block_transaction_path(ExplorerWeb.Endpoint, :index, block), %{type: "JSON"})
 
       {:ok, %{"next_page_path" => next_page_path}} =
         conn.resp_body

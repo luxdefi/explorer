@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.RPC.ContractView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.RPC.ContractView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.AddressView
-  alias BlockScoutWeb.API.RPC.RPCView
+  alias ExplorerWeb.AddressView
+  alias ExplorerWeb.API.RPC.RPCView
   alias Ecto.Association.NotLoaded
   alias Explorer.Chain.{Address, DecompiledSmartContract, SmartContract}
 

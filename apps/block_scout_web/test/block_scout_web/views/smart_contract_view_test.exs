@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.SmartContractViewTest do
+defmodule ExplorerWeb.SmartContractViewTest do
   use ExUnit.Case
 
-  alias BlockScoutWeb.SmartContractView
+  alias ExplorerWeb.SmartContractView
 
-  doctest BlockScoutWeb.SmartContractView, import: true
+  doctest ExplorerWeb.SmartContractView, import: true
 
   describe "values_with_type/1" do
     test "complex data type case" do

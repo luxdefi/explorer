@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.TransactionInternalTransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.TransactionInternalTransactionView do
+  use ExplorerWeb, :view
   @dialyzer :no_match
 end

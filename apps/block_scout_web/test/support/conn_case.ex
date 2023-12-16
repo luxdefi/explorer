@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.ConnCase do
+defmodule ExplorerWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,17 +20,17 @@ defmodule BlockScoutWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import BlockScoutWeb.Router.Helpers
-      import BlockScoutWeb.WebRouter.Helpers, except: [static_path: 2]
+      import ExplorerWeb.Router.Helpers
+      import ExplorerWeb.WebRouter.Helpers, except: [static_path: 2]
       import Bureaucrat.Helpers
 
       # The default endpoint for testing
-      @endpoint BlockScoutWeb.Endpoint
+      @endpoint ExplorerWeb.Endpoint
 
       import Explorer.Factory
 
-      alias BlockScoutWeb.AdminRouter.Helpers, as: AdminRoutes
-      alias BlockScoutWeb.ApiRouter.Helpers, as: ApiRoutes
+      alias ExplorerWeb.AdminRouter.Helpers, as: AdminRoutes
+      alias ExplorerWeb.ApiRouter.Helpers, as: ApiRoutes
     end
   end
 

@@ -4,12 +4,12 @@ alias EthereumJSONRPC.Variant
 alias Explorer.Repo.ConfigHelper, as: ExplorerConfigHelper
 
 ######################
-### BlockScout Web ###
+### Explorer Web ###
 ######################
 
 port = ExplorerConfigHelper.get_port()
 
-config :block_scout_web, BlockScoutWeb.Endpoint,
+config :explorer_web, ExplorerWeb.Endpoint,
   secret_key_base:
     System.get_env("SECRET_KEY_BASE") || "RMgI4C1HSkxsEjdhtGMfwAHfyT6CKWXOgzCboJflfSm4jeAlic52io05KB6mqzc5",
   http: [
@@ -17,7 +17,7 @@ config :block_scout_web, BlockScoutWeb.Endpoint,
   ],
   url: [
     scheme: "http",
-    host: System.get_env("BLOCKSCOUT_HOST", "localhost")
+    host: System.get_env("EXPLORER_HOST", "localhost")
   ],
   https: [
     port: port + 1,

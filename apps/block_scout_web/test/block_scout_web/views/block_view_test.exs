@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.BlockViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.BlockViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.BlockView
+  alias ExplorerWeb.BlockView
   alias Explorer.Repo
 
   describe "average_gas_price/1" do

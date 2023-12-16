@@ -9,10 +9,10 @@
   </td>
   <!-- To -->
   <td class="stakes-td">
-    <%= render BlockScoutWeb.AddressView,
+    <%= render ExplorerWeb.AddressView,
         "_link.html",
         address: @withdrawal.address,
-        contract: BlockScoutWeb.AddressView.contract?(@withdrawal.address),
+        contract: ExplorerWeb.AddressView.contract?(@withdrawal.address),
         use_custom_tooltip: false
     %>
   </td>

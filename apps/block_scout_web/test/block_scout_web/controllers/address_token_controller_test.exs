@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.AddressTokenControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressTokenControllerTest do
+  use ExplorerWeb.ConnCase, async: true
   use ExUnit.Case, async: false
 
-  import BlockScoutWeb.WebRouter.Helpers, only: [address_token_path: 3]
+  import ExplorerWeb.WebRouter.Helpers, only: [address_token_path: 3]
   import Mox
 
   alias Explorer.Chain.{Address, Token}
@@ -114,7 +114,7 @@ defmodule BlockScoutWeb.AddressTokenControllerTest do
       %Token{name: name, type: type, inserted_at: _inserted_at} = token
 
       conn =
-        get(conn, address_token_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), %{
+        get(conn, address_token_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), %{
           "token_name" => name,
           "token_type" => type,
           "value" => 1000,
@@ -148,7 +148,7 @@ defmodule BlockScoutWeb.AddressTokenControllerTest do
       end)
 
       conn =
-        get(conn, address_token_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), %{
+        get(conn, address_token_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), %{
           "type" => "JSON"
         })
 
@@ -177,7 +177,7 @@ defmodule BlockScoutWeb.AddressTokenControllerTest do
         insert(:token_transfer, token_contract_address: token.contract_address, from_address: address)
       end)
 
-      conn = get(conn, address_token_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), type: "JSON")
+      conn = get(conn, address_token_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), type: "JSON")
 
       {:ok, %{"next_page_path" => next_page_path}} =
         conn.resp_body
@@ -191,7 +191,7 @@ defmodule BlockScoutWeb.AddressTokenControllerTest do
       token = insert(:token)
       insert(:token_transfer, token_contract_address: token.contract_address, from_address: address)
 
-      conn = get(conn, address_token_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)), type: "JSON")
+      conn = get(conn, address_token_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)), type: "JSON")
 
       {:ok, %{"next_page_path" => next_page_path}} =
         conn.resp_body

@@ -3,7 +3,7 @@
     <%= link(
           @block,
           class: "tile-title",
-          to: block_path(BlockScoutWeb.Endpoint, :show, @block),
+          to: block_path(ExplorerWeb.Endpoint, :show, @block),
           "data-selector": "block-number"
         ) %>
     <div class="tile-bottom-contents">
@@ -11,10 +11,10 @@
         <span class="mr-2"><%= gettext("%{count} Transactions", count: Enum.count(@block.transactions)) %></span>
         <span class="text-nowrap" data-from-now="<%= @block.timestamp %>"> </span>
       </div>
-      <%= if !Application.get_env(:block_scout_web, :hide_block_miner) do %>
+      <%= if !Application.get_env(:explorer_web, :hide_block_miner) do %>
         <div class="text-truncate">
           <%= gettext "Miner" %>
-          <%= render BlockScoutWeb.AddressView,
+          <%= render ExplorerWeb.AddressView,
             "_link.html",
             address: @block.miner,
             contract: false,
@@ -22,9 +22,9 @@
             custom_classes_tooltip: ["miner-address-tooltip"] %>
         </div>
       <% end %>
-      <%= if BlockScoutWeb.BlockView.show_reward?(@block.rewards) do %>
+      <%= if ExplorerWeb.BlockView.show_reward?(@block.rewards) do %>
         <div class="text-truncate">
-          <%= gettext "Reward" %> <%= BlockScoutWeb.BlockView.combined_rewards_value(@block) %>
+          <%= gettext "Reward" %> <%= ExplorerWeb.BlockView.combined_rewards_value(@block) %>
         </div>
       <% end %>
     </div>

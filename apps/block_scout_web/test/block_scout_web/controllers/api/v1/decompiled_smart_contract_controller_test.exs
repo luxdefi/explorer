@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V1.DecompiledControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V1.DecompiledControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Repo
   alias Explorer.Chain.{Address, DecompiledSmartContract}
@@ -11,7 +11,7 @@ defmodule BlockScoutWeb.API.V1.DecompiledControllerTest do
 
   describe "when used authorized" do
     setup %{conn: conn} = context do
-      Application.put_env(:block_scout_web, :decompiled_smart_contract_token, @secret)
+      Application.put_env(:explorer_web, :decompiled_smart_contract_token, @secret)
 
       auth_conn = conn |> put_req_header("auth_token", @secret)
 

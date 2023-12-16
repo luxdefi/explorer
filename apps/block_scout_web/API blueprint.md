@@ -1,14 +1,14 @@
 FORMAT: 1A
-HOST:http://blockscout.com/poa/core
+HOST:http://lux.com/poa/core
 # 
 
 
 # API Documentation
 
 
-# Group BlockScoutWeb.Account.Api.V1.UserController
-## BlockScoutWeb.Account.Api.V1.UserController [/api/account/v1/user/info]
-### BlockScoutWeb.Account.Api.V1.UserController info [GET /api/account/v1/user/info]
+# Group ExplorerWeb.Account.Api.V1.UserController
+## ExplorerWeb.Account.Api.V1.UserController [/api/account/v1/user/info]
+### ExplorerWeb.Account.Api.V1.UserController info [GET /api/account/v1/user/info]
 
 
  
@@ -34,10 +34,10 @@ HOST:http://blockscout.com/poa/core
             {
               "nickname": "test_user23",
               "name": "User Test23",
-              "email": "test_user-37@blockscout.com",
+              "email": "test_user-37@lux.com",
               "avatar": "https://example.com/avatar/test_user23"
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_tag_address [POST /api/account/v1/user/tags/address]
+### ExplorerWeb.Account.Api.V1.UserController create_tag_address [POST /api/account/v1/user/tags/address]
 
 
  
@@ -85,9 +85,9 @@ HOST:http://blockscout.com/poa/core
               }
             }
 
-# Group BlockScoutWeb.Account.Api.V1.TagsController
-## BlockScoutWeb.Account.Api.V1.TagsController [/api/account/v1/tags/address/0x3e9ac8f16c92bc4f093357933b5befbf1e16987b]
-### BlockScoutWeb.Account.Api.V1.TagsController tags_address [GET /api/account/v1/tags/address/{address_hash}]
+# Group ExplorerWeb.Account.Api.V1.TagsController
+## ExplorerWeb.Account.Api.V1.TagsController [/api/account/v1/tags/address/0x3e9ac8f16c92bc4f093357933b5befbf1e16987b]
+### ExplorerWeb.Account.Api.V1.TagsController tags_address [GET /api/account/v1/tags/address/{address_hash}]
 
 
  
@@ -126,9 +126,9 @@ HOST:http://blockscout.com/poa/core
               "common_tags": []
             }
 
-# Group BlockScoutWeb.Account.Api.V1.UserController
-## BlockScoutWeb.Account.Api.V1.UserController [/api/account/v1/user/tags/address/70]
-### BlockScoutWeb.Account.Api.V1.UserController update_tag_address [PUT /api/account/v1/user/tags/address/{id}]
+# Group ExplorerWeb.Account.Api.V1.UserController
+## ExplorerWeb.Account.Api.V1.UserController [/api/account/v1/user/tags/address/70]
+### ExplorerWeb.Account.Api.V1.UserController update_tag_address [PUT /api/account/v1/user/tags/address/{id}]
 
 
  
@@ -179,7 +179,7 @@ HOST:http://blockscout.com/poa/core
                 "hash": "0x000000000000000000000000000000000000007E"
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController tags_address [GET /api/account/v1/user/tags/address]
+### ExplorerWeb.Account.Api.V1.UserController tags_address [GET /api/account/v1/user/tags/address]
 
 
  
@@ -249,7 +249,7 @@ HOST:http://blockscout.com/poa/core
                 }
               }
             ]
-### BlockScoutWeb.Account.Api.V1.UserController delete_tag_address [DELETE /api/account/v1/user/tags/address/{id}]
+### ExplorerWeb.Account.Api.V1.UserController delete_tag_address [DELETE /api/account/v1/user/tags/address/{id}]
 
 
  
@@ -279,7 +279,7 @@ HOST:http://blockscout.com/poa/core
             {
               "message": "OK"
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_tag_transaction [POST /api/account/v1/user/tags/transaction]
+### ExplorerWeb.Account.Api.V1.UserController create_tag_transaction [POST /api/account/v1/user/tags/transaction]
 
 
  
@@ -352,9 +352,9 @@ HOST:http://blockscout.com/poa/core
               }
             }
 
-# Group BlockScoutWeb.Account.Api.V1.TagsController
-## BlockScoutWeb.Account.Api.V1.TagsController [/api/account/v1/tags/transaction/0x0000000000000000000000000000000000000000000000000000000000000006]
-### BlockScoutWeb.Account.Api.V1.TagsController tags_transaction [GET /api/account/v1/tags/transaction/{transaction_hash}]
+# Group ExplorerWeb.Account.Api.V1.TagsController
+## ExplorerWeb.Account.Api.V1.TagsController [/api/account/v1/tags/transaction/0x0000000000000000000000000000000000000000000000000000000000000006]
+### ExplorerWeb.Account.Api.V1.TagsController tags_transaction [GET /api/account/v1/tags/transaction/{transaction_hash}]
 
 
  
@@ -390,9 +390,9 @@ HOST:http://blockscout.com/poa/core
               "common_tags": []
             }
 
-# Group BlockScoutWeb.Account.Api.V1.UserController
-## BlockScoutWeb.Account.Api.V1.UserController [/api/account/v1/user/tags/transaction/57]
-### BlockScoutWeb.Account.Api.V1.UserController update_tag_transaction [PUT /api/account/v1/user/tags/transaction/{id}]
+# Group ExplorerWeb.Account.Api.V1.UserController
+## ExplorerWeb.Account.Api.V1.UserController [/api/account/v1/user/tags/transaction/57]
+### ExplorerWeb.Account.Api.V1.UserController update_tag_transaction [PUT /api/account/v1/user/tags/transaction/{id}]
 
 
  
@@ -433,7 +433,7 @@ HOST:http://blockscout.com/poa/core
               "name": "name1",
               "id": 57
             }
-### BlockScoutWeb.Account.Api.V1.UserController tags_transaction [GET /api/account/v1/user/tags/transaction]
+### ExplorerWeb.Account.Api.V1.UserController tags_transaction [GET /api/account/v1/user/tags/transaction]
 
 
  
@@ -473,7 +473,7 @@ HOST:http://blockscout.com/poa/core
                 "id": 62
               }
             ]
-### BlockScoutWeb.Account.Api.V1.UserController delete_tag_transaction [DELETE /api/account/v1/user/tags/transaction/{id}]
+### ExplorerWeb.Account.Api.V1.UserController delete_tag_transaction [DELETE /api/account/v1/user/tags/transaction/{id}]
 
 
  
@@ -503,7 +503,7 @@ HOST:http://blockscout.com/poa/core
             {
               "message": "OK"
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_watchlist [POST /api/account/v1/user/watchlist]
+### ExplorerWeb.Account.Api.V1.UserController create_watchlist [POST /api/account/v1/user/watchlist]
 
 
  
@@ -586,7 +586,7 @@ HOST:http://blockscout.com/poa/core
                 "hash": "0x000000000000000000000000000000000000007f"
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController watchlist [GET /api/account/v1/user/watchlist]
+### ExplorerWeb.Account.Api.V1.UserController watchlist [GET /api/account/v1/user/watchlist]
 
 
  
@@ -679,7 +679,7 @@ HOST:http://blockscout.com/poa/core
                 }
               }
             ]
-### BlockScoutWeb.Account.Api.V1.UserController delete_watchlist [DELETE /api/account/v1/user/watchlist/{id}]
+### ExplorerWeb.Account.Api.V1.UserController delete_watchlist [DELETE /api/account/v1/user/watchlist/{id}]
 
 
  
@@ -709,7 +709,7 @@ HOST:http://blockscout.com/poa/core
             {
               "message": "OK"
             }
-### BlockScoutWeb.Account.Api.V1.UserController update_watchlist [PUT /api/account/v1/user/watchlist/{id}]
+### ExplorerWeb.Account.Api.V1.UserController update_watchlist [PUT /api/account/v1/user/watchlist/{id}]
 
 
  
@@ -796,7 +796,7 @@ HOST:http://blockscout.com/poa/core
                 "hash": "0x0000000000000000000000000000000000000064"
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_watchlist [POST /api/account/v1/user/watchlist]
+### ExplorerWeb.Account.Api.V1.UserController create_watchlist [POST /api/account/v1/user/watchlist]
 
 
  
@@ -852,7 +852,7 @@ HOST:http://blockscout.com/poa/core
                 ]
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController update_watchlist [PUT /api/account/v1/user/watchlist/{id}]
+### ExplorerWeb.Account.Api.V1.UserController update_watchlist [PUT /api/account/v1/user/watchlist/{id}]
 
 
  
@@ -912,7 +912,7 @@ HOST:http://blockscout.com/poa/core
                 ]
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_api_key [POST /api/account/v1/user/api_keys]
+### ExplorerWeb.Account.Api.V1.UserController create_api_key [POST /api/account/v1/user/api_keys]
 
 
  
@@ -981,7 +981,7 @@ HOST:http://blockscout.com/poa/core
                 ]
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController api_keys [GET /api/account/v1/user/api_keys]
+### ExplorerWeb.Account.Api.V1.UserController api_keys [GET /api/account/v1/user/api_keys]
 
 
  
@@ -1018,7 +1018,7 @@ HOST:http://blockscout.com/poa/core
                 "api_key": "8af19684-7d84-4fa5-bc5e-98391204fa21"
               }
             ]
-### BlockScoutWeb.Account.Api.V1.UserController update_api_key [PUT /api/account/v1/user/api_keys/{api_key}]
+### ExplorerWeb.Account.Api.V1.UserController update_api_key [PUT /api/account/v1/user/api_keys/{api_key}]
 
 
  
@@ -1057,7 +1057,7 @@ HOST:http://blockscout.com/poa/core
               "name": "test_1",
               "api_key": "e6fcab8c-d092-415d-a64e-caeebdab7e0a"
             }
-### BlockScoutWeb.Account.Api.V1.UserController delete_api_key [DELETE /api/account/v1/user/api_keys/{api_key}]
+### ExplorerWeb.Account.Api.V1.UserController delete_api_key [DELETE /api/account/v1/user/api_keys/{api_key}]
 
 
  
@@ -1087,7 +1087,7 @@ HOST:http://blockscout.com/poa/core
             {
               "message": "OK"
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_custom_abi [POST /api/account/v1/user/custom_abis]
+### ExplorerWeb.Account.Api.V1.UserController create_custom_abi [POST /api/account/v1/user/custom_abis]
 
 
  
@@ -1259,7 +1259,7 @@ HOST:http://blockscout.com/poa/core
                 ]
               }
             }
-### BlockScoutWeb.Account.Api.V1.UserController custom_abis [GET /api/account/v1/user/custom_abis]
+### ExplorerWeb.Account.Api.V1.UserController custom_abis [GET /api/account/v1/user/custom_abis]
 
 
  
@@ -1959,7 +1959,7 @@ HOST:http://blockscout.com/poa/core
                 ]
               }
             ]
-### BlockScoutWeb.Account.Api.V1.UserController update_custom_abi [PUT /api/account/v1/user/custom_abis/{id}]
+### ExplorerWeb.Account.Api.V1.UserController update_custom_abi [PUT /api/account/v1/user/custom_abis/{id}]
 
 
  
@@ -2070,7 +2070,7 @@ HOST:http://blockscout.com/poa/core
                 }
               ]
             }
-### BlockScoutWeb.Account.Api.V1.UserController delete_custom_abi [DELETE /api/account/v1/user/custom_abis/{id}]
+### ExplorerWeb.Account.Api.V1.UserController delete_custom_abi [DELETE /api/account/v1/user/custom_abis/{id}]
 
 
  
@@ -2100,7 +2100,7 @@ HOST:http://blockscout.com/poa/core
             {
               "message": "OK"
             }
-### BlockScoutWeb.Account.Api.V1.UserController create_public_tags_request [POST /api/account/v1/user/public_tags]
+### ExplorerWeb.Account.Api.V1.UserController create_public_tags_request [POST /api/account/v1/user/public_tags]
 
 
  
@@ -2119,7 +2119,7 @@ HOST:http://blockscout.com/poa/core
               "tags": "Tag17",
               "is_owner": false,
               "full_name": "full name11",
-              "email": "test_user-24@blockscout.com",
+              "email": "test_user-24@lux.com",
               "company": "company11",
               "addresses": [
                 "0x0000000000000000000000000000000000000067",
@@ -2153,7 +2153,7 @@ HOST:http://blockscout.com/poa/core
               "is_owner": false,
               "id": 202,
               "full_name": "full name11",
-              "email": "test_user-24@blockscout.com",
+              "email": "test_user-24@lux.com",
               "company": "company11",
               "addresses_with_info": [
                 {
@@ -2238,7 +2238,7 @@ HOST:http://blockscout.com/poa/core
               ],
               "additional_comment": "additional_comment11"
             }
-### BlockScoutWeb.Account.Api.V1.UserController public_tags_requests [GET /api/account/v1/user/public_tags]
+### ExplorerWeb.Account.Api.V1.UserController public_tags_requests [GET /api/account/v1/user/public_tags]
 
 
  
@@ -2269,7 +2269,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": false,
                 "id": 200,
                 "full_name": "full name9",
-                "email": "test_user-13@blockscout.com",
+                "email": "test_user-13@lux.com",
                 "company": "company9",
                 "addresses_with_info": [
                   {
@@ -2383,7 +2383,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": false,
                 "id": 199,
                 "full_name": "full name8",
-                "email": "test_user-12@blockscout.com",
+                "email": "test_user-12@lux.com",
                 "company": "company8",
                 "addresses_with_info": [
                   {
@@ -2431,7 +2431,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": true,
                 "id": 198,
                 "full_name": "full name7",
-                "email": "test_user-11@blockscout.com",
+                "email": "test_user-11@lux.com",
                 "company": "company7",
                 "addresses_with_info": [
                   {
@@ -2534,7 +2534,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": true,
                 "id": 197,
                 "full_name": "full name6",
-                "email": "test_user-10@blockscout.com",
+                "email": "test_user-10@lux.com",
                 "company": "company6",
                 "addresses_with_info": [
                   {
@@ -2615,7 +2615,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": true,
                 "id": 196,
                 "full_name": "full name5",
-                "email": "test_user-9@blockscout.com",
+                "email": "test_user-9@lux.com",
                 "company": "company5",
                 "addresses_with_info": [
                   {
@@ -2674,7 +2674,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": false,
                 "id": 195,
                 "full_name": "full name4",
-                "email": "test_user-8@blockscout.com",
+                "email": "test_user-8@lux.com",
                 "company": "company4",
                 "addresses_with_info": [
                   {
@@ -2777,7 +2777,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": true,
                 "id": 194,
                 "full_name": "full name3",
-                "email": "test_user-7@blockscout.com",
+                "email": "test_user-7@lux.com",
                 "company": "company3",
                 "addresses_with_info": [
                   {
@@ -2858,7 +2858,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": true,
                 "id": 193,
                 "full_name": "full name2",
-                "email": "test_user-6@blockscout.com",
+                "email": "test_user-6@lux.com",
                 "company": "company2",
                 "addresses_with_info": [
                   {
@@ -2983,7 +2983,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": false,
                 "id": 192,
                 "full_name": "full name1",
-                "email": "test_user-5@blockscout.com",
+                "email": "test_user-5@lux.com",
                 "company": "company1",
                 "addresses_with_info": [
                   {
@@ -3020,7 +3020,7 @@ HOST:http://blockscout.com/poa/core
                 "is_owner": true,
                 "id": 191,
                 "full_name": "full name0",
-                "email": "test_user-4@blockscout.com",
+                "email": "test_user-4@lux.com",
                 "company": "company0",
                 "addresses_with_info": [
                   {
@@ -3095,7 +3095,7 @@ HOST:http://blockscout.com/poa/core
                 "additional_comment": "additional_comment0"
               }
             ]
-### BlockScoutWeb.Account.Api.V1.UserController delete_public_tags_request [DELETE /api/account/v1/user/public_tags/{id}]
+### ExplorerWeb.Account.Api.V1.UserController delete_public_tags_request [DELETE /api/account/v1/user/public_tags/{id}]
 
 
  
@@ -3133,7 +3133,7 @@ HOST:http://blockscout.com/poa/core
             {
               "message": "OK"
             }
-### BlockScoutWeb.Account.Api.V1.UserController update_public_tags_request [PUT /api/account/v1/user/public_tags/{id}]
+### ExplorerWeb.Account.Api.V1.UserController update_public_tags_request [PUT /api/account/v1/user/public_tags/{id}]
 
 
  
@@ -3156,7 +3156,7 @@ HOST:http://blockscout.com/poa/core
               "tags": "Tag20;Tag21",
               "is_owner": false,
               "full_name": "full name13",
-              "email": "test_user-35@blockscout.com",
+              "email": "test_user-35@lux.com",
               "company": "company13",
               "addresses": [
                 "0x0000000000000000000000000000000000000085",
@@ -3190,7 +3190,7 @@ HOST:http://blockscout.com/poa/core
               "is_owner": false,
               "id": 203,
               "full_name": "full name13",
-              "email": "test_user-35@blockscout.com",
+              "email": "test_user-35@lux.com",
               "company": "company13",
               "addresses_with_info": [
                 {

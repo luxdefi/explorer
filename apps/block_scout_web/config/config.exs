@@ -10,8 +10,8 @@ import Config
 |> Code.eval_file()
 
 # General application configuration
-config :block_scout_web,
-  namespace: BlockScoutWeb,
+config :explorer_web,
+  namespace: ExplorerWeb,
   ecto_repos: ConfigHelper.repos(),
   cookie_domain: System.get_env("SESSION_COOKIE_DOMAIN"),
   # 604800 seconds, 1 week
@@ -19,42 +19,42 @@ config :block_scout_web,
   invalid_session_key: "invalid_session",
   api_v2_temp_token_key: "api_v2_temp_token"
 
-config :block_scout_web,
+config :explorer_web,
   admin_panel_enabled: System.get_env("ADMIN_PANEL_ENABLED", "") == "true"
 
-config :block_scout_web, BlockScoutWeb.Counters.BlocksIndexedCounter, enabled: true
+config :explorer_web, ExplorerWeb.Counters.BlocksIndexedCounter, enabled: true
 
-config :block_scout_web, BlockScoutWeb.Counters.InternalTransactionsIndexedCounter, enabled: true
+config :explorer_web, ExplorerWeb.Counters.InternalTransactionsIndexedCounter, enabled: true
 
-config :block_scout_web, BlockScoutWeb.Tracer,
-  service: :block_scout_web,
+config :explorer_web, ExplorerWeb.Tracer,
+  service: :explorer_web,
   adapter: SpandexDatadog.Adapter,
-  trace_key: :blockscout
+  trace_key: :lux
 
 # Configures gettext
-config :block_scout_web, BlockScoutWeb.Gettext, locales: ~w(en), default_locale: "en"
+config :explorer_web, ExplorerWeb.Gettext, locales: ~w(en), default_locale: "en"
 
-config :block_scout_web, BlockScoutWeb.SocialMedia,
+config :explorer_web, ExplorerWeb.SocialMedia,
   twitter: "PoaNetwork",
   telegram: "poa_network",
   facebook: "PoaNetwork",
   instagram: "PoaNetwork"
 
-config :block_scout_web, BlockScoutWeb.Chain.TransactionHistoryChartController,
+config :explorer_web, ExplorerWeb.Chain.TransactionHistoryChartController,
   # days
   history_size: 30
 
 config :ex_cldr,
   default_locale: "en",
-  default_backend: BlockScoutWeb.Cldr
+  default_backend: ExplorerWeb.Cldr
 
-config :logger, :block_scout_web,
+config :logger, :explorer_web,
   # keep synced with `config/config.exs`
   format: "$dateT$time $metadata[$level] $message\n",
   metadata:
     ~w(application fetcher request_id first_block_number last_block_number missing_block_range_count missing_block_count
        block_number step count error_count shrunk import_id transaction_id)a,
-  metadata_filter: [application: :block_scout_web]
+  metadata_filter: [application: :explorer_web]
 
 config :logger, :api,
   # keep synced with `config/config.exs`
@@ -72,7 +72,7 @@ config :logger, :api_v2,
        block_number step count error_count shrunk import_id transaction_id)a,
   metadata_filter: [application: :api_v2]
 
-config :prometheus, BlockScoutWeb.Prometheus.Instrumenter,
+config :prometheus, ExplorerWeb.Prometheus.Instrumenter,
   # override default for Phoenix 1.4 compatibility
   # * `:transport_name` to `:transport`
   # * remove `:vsn`
@@ -82,15 +82,15 @@ config :prometheus, BlockScoutWeb.Prometheus.Instrumenter,
   # * remove `:vsn`
   channel_receive_labels: [:channel, :topic, :transport, :event]
 
-config :spandex_phoenix, tracer: BlockScoutWeb.Tracer
+config :spandex_phoenix, tracer: ExplorerWeb.Tracer
 
-config :block_scout_web, BlockScoutWeb.ApiRouter,
+config :explorer_web, ExplorerWeb.ApiRouter,
   writing_enabled: System.get_env("API_V1_WRITE_METHODS_DISABLED") != "true",
   reading_enabled: System.get_env("API_V1_READ_METHODS_DISABLED") != "true"
 
-config :block_scout_web, BlockScoutWeb.WebRouter, enabled: System.get_env("DISABLE_WEBAPP") != "true"
+config :explorer_web, ExplorerWeb.WebRouter, enabled: System.get_env("DISABLE_WEBAPP") != "true"
 
-config :block_scout_web, BlockScoutWeb.CSPHeader,
+config :explorer_web, ExplorerWeb.CSPHeader,
   mixpanel_url: System.get_env("MIXPANEL_URL", "https://api-js.mixpanel.com"),
   amplitude_url: System.get_env("AMPLITUDE_URL", "https://api2.amplitude.com/2/httpapi")
 

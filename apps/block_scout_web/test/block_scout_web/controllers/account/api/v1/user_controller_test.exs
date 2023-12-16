@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Account.Api.V1.UserControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Account.Api.V1.UserControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Account.{
     TagAddress,
@@ -9,7 +9,7 @@ defmodule BlockScoutWeb.Account.Api.V1.UserControllerTest do
 
   alias Explorer.Chain.Address
   alias Explorer.Repo
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
 
   setup %{conn: conn} do
     auth = build(:auth)

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Schema.Query.TokenTransfersTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Schema.Query.TokenTransfersTest do
+  use ExplorerWeb.ConnCase
 
   describe "token_transfers field" do
     test "with valid argument, returns all expected fields", %{conn: conn} do

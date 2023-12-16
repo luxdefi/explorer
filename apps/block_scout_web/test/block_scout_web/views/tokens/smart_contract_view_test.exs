@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.SmartContractViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.SmartContractViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.SmartContractView
+  alias ExplorerWeb.SmartContractView
 
   describe "queryable?" do
     test "returns true when there are inputs" do

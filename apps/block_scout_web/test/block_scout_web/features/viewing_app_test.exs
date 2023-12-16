@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.ViewingAppTest do
+defmodule ExplorerWeb.ViewingAppTest do
   @moduledoc false
 
-  # use BlockScoutWeb.FeatureCase, async: true
+  # use ExplorerWeb.FeatureCase, async: true
 
-  # alias BlockScoutWeb.AppPage
-  # alias BlockScoutWeb.Counters.BlocksIndexedCounter
+  # alias ExplorerWeb.AppPage
+  # alias ExplorerWeb.Counters.BlocksIndexedCounter
   # alias Explorer.Counters.AddressesCounter
   # alias Explorer.{Repo}
   # alias Explorer.Chain.PendingBlockOperation

@@ -206,7 +206,7 @@ defmodule Explorer.Chain.Token.Instance do
   end
 
   @doc """
-    Function to be used in BlockScoutWeb.Chain.next_page_params/4
+    Function to be used in ExplorerWeb.Chain.next_page_params/4
   """
   @spec nft_list_next_page_params(Explorer.Chain.Token.Instance.t()) :: %{binary() => any}
   def nft_list_next_page_params(%__MODULE__{
@@ -362,7 +362,7 @@ defmodule Explorer.Chain.Token.Instance do
   end
 
   @doc """
-    Function to be used in BlockScoutWeb.Chain.next_page_params/4
+    Function to be used in ExplorerWeb.Chain.next_page_params/4
   """
   @spec nft_collections_next_page_params(%{:token_contract_address_hash => any, optional(any) => any}) :: %{
           binary() => any

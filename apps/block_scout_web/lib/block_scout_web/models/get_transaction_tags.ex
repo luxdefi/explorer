@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Models.GetTransactionTags do
+defmodule ExplorerWeb.Models.GetTransactionTags do
   @moduledoc """
   Get various types of tags associated with the transaction
   """
 
-  import BlockScoutWeb.Models.GetAddressTags, only: [get_address_tags: 2, get_tags_on_address: 1]
+  import ExplorerWeb.Models.GetAddressTags, only: [get_address_tags: 2, get_tags_on_address: 1]
 
   alias Explorer.Account.TagTransaction
   alias Explorer.Chain.Transaction

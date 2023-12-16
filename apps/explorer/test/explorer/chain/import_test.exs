@@ -1680,7 +1680,7 @@ defmodule Explorer.Chain.ImportTest do
                })
     end
 
-    # https://github.com/poanetwork/blockscout/pull/833#issuecomment-426102868 regression test
+    # https://github.com/poanetwork/lux/pull/833#issuecomment-426102868 regression test
     test "a non-consensus block being added after a block with same number does not change the consensus block to non-consensus" do
       block_number = 0
 
@@ -1798,7 +1798,7 @@ defmodule Explorer.Chain.ImportTest do
       assert DateTime.compare(timestamp, timestamp_before) == :eq
     end
 
-    # https://github.com/poanetwork/blockscout/issues/850 regression test
+    # https://github.com/poanetwork/lux/issues/850 regression test
     test "derive_transaction_forks does not run when there are no blocks" do
       _pending_transaction = insert(:transaction)
 
@@ -1809,7 +1809,7 @@ defmodule Explorer.Chain.ImportTest do
              }) == {:ok, %{}}
     end
 
-    # https://github.com/poanetwork/blockscout/issues/868 regression test
+    # https://github.com/poanetwork/lux/issues/868 regression test
     test "errored simple coin transfer can be forked" do
       block_number = 0
 
@@ -1928,7 +1928,7 @@ defmodule Explorer.Chain.ImportTest do
       assert transaction_after.status == nil
     end
 
-    # https://github.com/poanetwork/blockscout/issues/868 regression test
+    # https://github.com/poanetwork/lux/issues/868 regression test
     test "errored other transactions can be forked" do
       block_number = 0
 

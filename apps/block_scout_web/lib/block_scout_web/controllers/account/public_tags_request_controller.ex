@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Account.PublicTagsRequestController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.PublicTagsRequestController do
+  use ExplorerWeb, :controller
 
   alias Ecto.Changeset
   alias Explorer.Account.PublicTagsRequest
 
-  import BlockScoutWeb.Account.AuthController, only: [authenticate!: 1]
+  import ExplorerWeb.Account.AuthController, only: [authenticate!: 1]
 
   def index(conn, _params) do
     current_user = authenticate!(conn)

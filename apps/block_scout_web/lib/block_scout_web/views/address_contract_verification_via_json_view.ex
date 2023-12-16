@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.AddressContractVerificationViaJsonView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressContractVerificationViaJsonView do
+  use ExplorerWeb, :view
 end

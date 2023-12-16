@@ -1,14 +1,14 @@
-defmodule BlockScoutWeb.Account.Api.V1.TagsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.Api.V1.TagsController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  alias BlockScoutWeb.Models.{GetAddressTags, GetTransactionTags, UserFromAuth}
+  alias ExplorerWeb.Models.{GetAddressTags, GetTransactionTags, UserFromAuth}
   alias Explorer.Account.Identity
   alias Explorer.{Chain, Repo}
   alias Explorer.Chain.Hash.{Address, Full}
 
-  action_fallback(BlockScoutWeb.Account.Api.V1.FallbackController)
+  action_fallback(ExplorerWeb.Account.Api.V1.FallbackController)
 
   def tags_address(conn, %{"address_hash" => address_hash}) do
     personal_tags =

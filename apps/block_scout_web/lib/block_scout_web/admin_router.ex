@@ -1,19 +1,19 @@
-defmodule BlockScoutWeb.AdminRouter do
+defmodule ExplorerWeb.AdminRouter do
   @moduledoc """
   Router for admin pages.
   """
 
-  use BlockScoutWeb, :router
+  use ExplorerWeb, :router
 
-  alias BlockScoutWeb.Plug.FetchUserFromSession
-  alias BlockScoutWeb.Plug.Admin.{CheckOwnerRegistered, RequireAdminRole}
+  alias ExplorerWeb.Plug.FetchUserFromSession
+  alias ExplorerWeb.Plug.Admin.{CheckOwnerRegistered, RequireAdminRole}
 
   pipeline :browser do
     plug(:accepts, ["html"])
     plug(:fetch_session)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
-    plug(BlockScoutWeb.CSPHeader)
+    plug(ExplorerWeb.CSPHeader)
   end
 
   pipeline :check_configured do
@@ -25,21 +25,21 @@ defmodule BlockScoutWeb.AdminRouter do
     plug(RequireAdminRole)
   end
 
-  scope "/setup", BlockScoutWeb.Admin do
+  scope "/setup", ExplorerWeb.Admin do
     pipe_through([:browser])
 
     get("/", SetupController, :configure)
     post("/", SetupController, :configure_admin)
   end
 
-  scope "/login", BlockScoutWeb.Admin do
+  scope "/login", ExplorerWeb.Admin do
     pipe_through([:browser, :check_configured])
 
     get("/", SessionController, :new)
     post("/", SessionController, :create)
   end
 
-  scope "/", BlockScoutWeb.Admin do
+  scope "/", ExplorerWeb.Admin do
     pipe_through([:browser, :check_configured, :ensure_admin])
 
     get("/", DashboardController, :index)

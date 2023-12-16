@@ -27,7 +27,7 @@
          document.documentElement.style.setProperty("--numChartData", numChartData);
         </script>
         <div class="dashboard-banner-chart-legend">
-          <% price_chart_legend_enabled? = Application.get_env(:block_scout_web, :chart)[:price_chart_legend_enabled?] %>
+          <% price_chart_legend_enabled? = Application.get_env(:explorer_web, :chart)[:price_chart_legend_enabled?] %>
           <%= if Map.has_key?(@chart_config, :market) || price_chart_legend_enabled? do %>
 
             <%# THE FOLLOWING LINE PREVENTS COPY/PASTE ERRORS %>
@@ -60,7 +60,7 @@
             </div>
             <% end %>
           <% end %>
-          <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
+          <%= render ExplorerWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
           <%= if Map.has_key?(@chart_config, :transactions) do %>
 
             <% transaction_chart_config = @chart_config.transactions%>
@@ -70,7 +70,7 @@
                     <%= gettext "Daily Transactions" %>
                 </span>
                 <span class="dashboard-banner-chart-legend-value" data-selector="tx_per_day">
-                    <% num_of_transactions = BlockScoutWeb.Cldr.Number.to_string!(Enum.at(@transaction_stats, 0).number_of_transactions, format: "#,###") %>
+                    <% num_of_transactions = ExplorerWeb.Cldr.Number.to_string!(Enum.at(@transaction_stats, 0).number_of_transactions, format: "#,###") %>
                     <%= num_of_transactions %>
                     <% gas_used = Enum.at(@transaction_stats, 0).gas_used %>
                     <%= if gas_used && gas_used > 0 do %>
@@ -79,7 +79,7 @@
                         data-placement="top"
                         data-html="true"
                         data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-usage' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
-                        title="<div class='custom-tooltip-header'>Gas used</div><div class='custom-tooltip-description'><b><%= BlockScoutWeb.Cldr.Number.to_string!(gas_used, format: "#,###") %><b></div>">
+                        title="<div class='custom-tooltip-header'>Gas used</div><div class='custom-tooltip-description'><b><%= ExplorerWeb.Cldr.Number.to_string!(gas_used, format: "#,###") %><b></div>">
                         <i style="color: #ffffff;" class="fa fa-info-circle ml-1"></i>
                       </span>
                     <% end %>
@@ -111,7 +111,7 @@
             </span>
             <div class="d-flex">
               <span class="dashboard-banner-network-stats-value" data-selector="transaction-count">
-                <%= BlockScoutWeb.Cldr.Number.to_string!(@transaction_estimated_count, format: "#,###") %>
+                <%= ExplorerWeb.Cldr.Number.to_string!(@transaction_estimated_count, format: "#,###") %>
               </span>
               <%= if @total_gas_usage > 0 do %>
                 <span
@@ -119,7 +119,7 @@
                   data-placement="top"
                   data-html="true"
                   data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-usage' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
-                  title="<div class='custom-tooltip-header'>Total gas used</div><div class='custom-tooltip-description'><b><%= BlockScoutWeb.Cldr.Number.to_string!(@total_gas_usage, format: "#,###") %><b></div>"
+                  title="<div class='custom-tooltip-header'>Total gas used</div><div class='custom-tooltip-description'><b><%= ExplorerWeb.Cldr.Number.to_string!(@total_gas_usage, format: "#,###") %><b></div>"
                   class="custom-tooltip-total-transactions">
                   <i style="color: #ffffff;" class="fa fa-info-circle ml-2"></i>
                 </span>
@@ -131,7 +131,7 @@
               <%= gettext "Total blocks" %>
             </span>
             <span class="dashboard-banner-network-stats-value" data-selector="block-count">
-              <%= BlockScoutWeb.Cldr.Number.to_string!(@block_count, format: "#,###") %>
+              <%= ExplorerWeb.Cldr.Number.to_string!(@block_count, format: "#,###") %>
             </span>
           </div>
           <div class="dashboard-banner-network-stats-item dashboard-banner-network-stats-item-4">
@@ -139,7 +139,7 @@
               <%= gettext "Wallet addresses" %>
             </span>
             <span class="dashboard-banner-network-stats-value" data-selector="address-count">
-              <%= BlockScoutWeb.Cldr.Number.to_string!(@address_count, format: "#,###") %>
+              <%= ExplorerWeb.Cldr.Number.to_string!(@address_count, format: "#,###") %>
             </span>
           </div>
         </div>
@@ -150,7 +150,7 @@
 <section class="container">
   <div class="card card-chain-blocks js-ad-dependant-mb-3">
     <div class="card-body">
-      <%= link(gettext("View All Blocks"), to: blocks_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right") %>
+      <%= link(gettext("View All Blocks"), to: blocks_path(ExplorerWeb.Endpoint, :index), class: "btn-line float-right") %>
       <h2 class="card-title"><%= gettext "Blocks" %></h2>
       <div class="row" data-selector="chain-block-list" data-url="<%= chain_blocks_path(@conn, :chain_blocks) %>">
         <button data-selector="error-message" class="alert alert-danger col-12 text-left" style="display: none;">
@@ -206,11 +206,11 @@
     </div>
   </div>
 
-  <%= render BlockScoutWeb.Advertisement.BannersAdView, "_banner_728.html", conn: @conn %>
+  <%= render ExplorerWeb.Advertisement.BannersAdView, "_banner_728.html", conn: @conn %>
 
   <div class="card card-chain-transactions">
     <div class="card-body">
-      <%= link(gettext("View All Transactions"), to: transaction_path(BlockScoutWeb.Endpoint, :index), class: "btn-line float-right") %>
+      <%= link(gettext("View All Transactions"), to: transaction_path(ExplorerWeb.Endpoint, :index), class: "btn-line float-right") %>
       <h2 class="card-title lg-card-title"><%= gettext "Transactions" %></h2>
       <div data-selector="channel-batching-message" style="display: none;">
         <div data-selector="reload-transactions-button" class="alert alert-info">
@@ -224,7 +224,7 @@
           </span>
         </button>
         <div hidden data-selector="loading-message">
-          <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
+          <%= render ExplorerWeb.CommonComponentsView, "_tile-loader.html" %>
         </div>
       </span>
     </div>

@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.ImportController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.ImportController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.API.V2.ApiView
+  alias ExplorerWeb.API.V2.ApiView
   alias Explorer.{Chain, Repo}
   alias Explorer.Chain.{Data, SmartContract, Token}
   alias Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand
@@ -12,7 +12,7 @@ defmodule BlockScoutWeb.API.V2.ImportController do
   require Logger
   @api_true [api?: true]
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   def import_token_info(
         conn,
@@ -24,7 +24,7 @@ defmodule BlockScoutWeb.API.V2.ImportController do
         } = params
       ) do
     with {:sensitive_endpoints_api_key, api_key} when not is_nil(api_key) <-
-           {:sensitive_endpoints_api_key, Application.get_env(:block_scout_web, :sensitive_endpoints_api_key)},
+           {:sensitive_endpoints_api_key, Application.get_env(:explorer_web, :sensitive_endpoints_api_key)},
          {:api_key, ^api_key} <- {:api_key, params["api_key"]},
          {:format_address, {:ok, address_hash}} <-
            {:format_address, Chain.string_to_address_hash(token_address_hash_string)},
@@ -68,7 +68,7 @@ defmodule BlockScoutWeb.API.V2.ImportController do
           | Plug.Conn.t()
   def try_to_search_contract(conn, %{"address_hash_param" => address_hash_string}) do
     with {:sensitive_endpoints_api_key, api_key} when not is_nil(api_key) <-
-           {:sensitive_endpoints_api_key, Application.get_env(:block_scout_web, :sensitive_endpoints_api_key)},
+           {:sensitive_endpoints_api_key, Application.get_env(:explorer_web, :sensitive_endpoints_api_key)},
          {:api_key, ^api_key} <- {:api_key, get_api_key_header(conn)},
          {:format, {:ok, address_hash}} <- {:format, Chain.string_to_address_hash(address_hash_string)},
          {:not_found, {:ok, address}} <- {:not_found, Chain.hash_to_address(address_hash, @api_true, false)},

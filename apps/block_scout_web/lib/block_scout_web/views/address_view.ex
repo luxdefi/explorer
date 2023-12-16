@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.AddressView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressView do
+  use ExplorerWeb, :view
 
   require Logger
 
-  alias BlockScoutWeb.{AccessHelper, LayoutView}
+  alias ExplorerWeb.{AccessHelper, LayoutView}
   alias Explorer.Account.CustomABI
   alias Explorer.{Chain, CustomContractsHelper, Repo}
   alias Explorer.Chain.Address.Counters
@@ -13,7 +13,7 @@ defmodule BlockScoutWeb.AddressView do
   alias Explorer.ExchangeRates.Token, as: TokenExchangeRate
   alias Explorer.SmartContract.{Helper, Writer}
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
   @dialyzer :no_match
 
@@ -120,7 +120,7 @@ defmodule BlockScoutWeb.AddressView do
   end
 
   def balance_percentage_enabled?(total_supply) do
-    Application.get_env(:block_scout_web, :show_percentage) && total_supply > 0
+    Application.get_env(:explorer_web, :show_percentage) && total_supply > 0
   end
 
   def balance_percentage(_, nil), do: ""
@@ -495,7 +495,7 @@ defmodule BlockScoutWeb.AddressView do
   def check_custom_abi_for_having_write_functions(custom_abi),
     do: !is_nil(custom_abi) && Enum.any?(custom_abi.abi, &Writer.write_function?(&1))
 
-  def contract_interaction_disabled?, do: Application.get_env(:block_scout_web, :contract)[:disable_interaction]
+  def contract_interaction_disabled?, do: Application.get_env(:explorer_web, :contract)[:disable_interaction]
 
   @doc """
     Decodes given log

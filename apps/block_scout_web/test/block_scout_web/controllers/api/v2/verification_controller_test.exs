@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.V2.VerificationControllerTest do
-  use BlockScoutWeb.ConnCase
-  use BlockScoutWeb.ChannelCase, async: false
+defmodule ExplorerWeb.API.V2.VerificationControllerTest do
+  use ExplorerWeb.ConnCase
+  use ExplorerWeb.ChannelCase, async: false
 
-  alias BlockScoutWeb.UserSocketV2
+  alias ExplorerWeb.UserSocketV2
   alias Tesla.Multipart
 
   @moduletag timeout: :infinity
@@ -61,7 +61,7 @@ defmodule BlockScoutWeb.API.V2.VerificationControllerTest do
       topic = "addresses:#{contract_address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -104,7 +104,7 @@ defmodule BlockScoutWeb.API.V2.VerificationControllerTest do
       topic = "addresses:#{contract_address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -167,7 +167,7 @@ defmodule BlockScoutWeb.API.V2.VerificationControllerTest do
       topic = "addresses:#{contract_address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 
@@ -317,7 +317,7 @@ defmodule BlockScoutWeb.API.V2.VerificationControllerTest do
       topic = "addresses:#{contract_address.hash}"
 
       {:ok, _reply, _socket} =
-        BlockScoutWeb.UserSocketV2
+        ExplorerWeb.UserSocketV2
         |> socket("no_id", %{})
         |> subscribe_and_join(topic)
 

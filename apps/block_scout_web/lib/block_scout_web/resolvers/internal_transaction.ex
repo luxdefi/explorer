@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Resolvers.InternalTransaction do
+defmodule ExplorerWeb.Resolvers.InternalTransaction do
   @moduledoc false
 
   alias Absinthe.Relay.Connection

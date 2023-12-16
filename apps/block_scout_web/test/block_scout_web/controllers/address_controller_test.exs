@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressControllerTest do
-  use BlockScoutWeb.ConnCase,
+defmodule ExplorerWeb.AddressControllerTest do
+  use ExplorerWeb.ConnCase,
     # ETS tables are shared in `Explorer.Counters.*`
     async: false
 
@@ -13,13 +13,13 @@ defmodule BlockScoutWeb.AddressControllerTest do
 
     setup do
       # Use TestSource mock for this test set
-      configuration = Application.get_env(:block_scout_web, :show_percentage)
-      Application.put_env(:block_scout_web, :show_percentage, false)
+      configuration = Application.get_env(:explorer_web, :show_percentage)
+      Application.put_env(:explorer_web, :show_percentage, false)
 
       :ok
 
       on_exit(fn ->
-        Application.put_env(:block_scout_web, :show_percentage, configuration)
+        Application.put_env(:explorer_web, :show_percentage, configuration)
       end)
     end
 

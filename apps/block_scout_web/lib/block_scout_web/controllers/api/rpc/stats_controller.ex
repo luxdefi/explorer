@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.StatsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.RPC.StatsController do
+  use ExplorerWeb, :controller
 
   use Explorer.Schema
 

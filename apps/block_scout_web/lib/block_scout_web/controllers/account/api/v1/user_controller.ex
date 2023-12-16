@@ -1,27 +1,27 @@
-defmodule BlockScoutWeb.Account.Api.V1.UserController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.Api.V1.UserController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Account.AuthController, only: [current_user: 1]
+  import ExplorerWeb.Account.AuthController, only: [current_user: 1]
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       next_page_params: 3,
       paging_options: 1,
       split_list_by_page: 1
     ]
 
-  import BlockScoutWeb.PagingHelper, only: [delete_parameters_from_next_page_params: 1]
+  import ExplorerWeb.PagingHelper, only: [delete_parameters_from_next_page_params: 1]
 
   import Ecto.Query, only: [from: 2]
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Account.Api.Key, as: ApiKey
   alias Explorer.Account.CustomABI
   alias Explorer.Account.{Identity, PublicTagsRequest, TagAddress, TagTransaction, WatchlistAddress}
   alias Explorer.{Chain, Market, PagingOptions, Repo}
   alias Plug.CSRFProtection
 
-  action_fallback(BlockScoutWeb.Account.Api.V1.FallbackController)
+  action_fallback(ExplorerWeb.Account.Api.V1.FallbackController)
 
   @ok_message "OK"
   @token_balances_amount 150

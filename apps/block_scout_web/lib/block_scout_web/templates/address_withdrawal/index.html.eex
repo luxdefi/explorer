@@ -1,18 +1,18 @@
 <section class="container">
 
-  <% is_proxy = BlockScoutWeb.AddressView.smart_contract_is_proxy?(@address) %>
+  <% is_proxy = ExplorerWeb.AddressView.smart_contract_is_proxy?(@address) %>
 
-  <%= render BlockScoutWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
+  <%= render ExplorerWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
 
   <section data-page="address-withdrawals" id="withdrawals">
     <div class="card">
-      <%= render BlockScoutWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
+      <%= render ExplorerWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
       <div class="card-body" data-async-load data-async-listing="<%= @current_path %>">
         <div class="clearfix">
         
           <h2 class="card-title float-left"><%= gettext "Withdrawals" %></h2>
           <div class="top-pagination-outer-container float-right">
-            <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+            <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "top", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
           </div>
         </div>
         
@@ -43,7 +43,7 @@
                 </tr>
               </thead>
               <tbody data-items data-selector="address-withdrawals">
-                <%= render BlockScoutWeb.CommonComponentsView, "_table-loader.html", columns_num: 5 %>
+                <%= render ExplorerWeb.CommonComponentsView, "_table-loader.html", columns_num: 5 %>
               </tbody>
             </table>
           </div>
@@ -56,7 +56,7 @@
         </div>
         
         <div class="top-pagination-outer-container float-right">
-            <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+            <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
         </div>
 
       </div>

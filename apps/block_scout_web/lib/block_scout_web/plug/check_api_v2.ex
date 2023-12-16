@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Plug.CheckApiV2 do
+defmodule ExplorerWeb.Plug.CheckApiV2 do
   @moduledoc """
     Checks if the API V2 enabled.
   """
   import Plug.Conn
 
-  alias BlockScoutWeb.API.V2, as: API_V2
+  alias ExplorerWeb.API.V2, as: API_V2
 
   def init(opts), do: opts
 

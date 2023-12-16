@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Account.CustomABIController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.CustomABIController do
+  use ExplorerWeb, :controller
 
   alias Ecto.Changeset
   alias Explorer.Account.CustomABI
 
-  import BlockScoutWeb.Account.AuthController, only: [authenticate!: 1]
+  import ExplorerWeb.Account.AuthController, only: [authenticate!: 1]
 
   def new(conn, _params) do
     authenticate!(conn)

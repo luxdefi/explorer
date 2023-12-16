@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.RealtimeEventHandler do
+defmodule ExplorerWeb.RealtimeEventHandler do
   @moduledoc """
   Subscribing process for broadcast events from realtime.
   """
 
   use GenServer
 
-  alias BlockScoutWeb.Notifier
+  alias ExplorerWeb.Notifier
   alias Explorer.Chain.Events.Subscriber
 
   def start_link(_) do

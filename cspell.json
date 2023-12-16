@@ -6,7 +6,7 @@
     "language": "en",
     // words - list of words to be always considered correct
     "ignorePaths": [
-        "apps/block_scout_web/assets/js/lib/ace/src-min/*.js"
+        "apps/explorer_web/assets/js/lib/ace/src-min/*.js"
     ],
     "words": [
         "aave",
@@ -50,8 +50,8 @@
         "blockheight",
         "blockless",
         "blockno",
-        "blockscout",
-        "blockscoutuser",
+        "lux",
+        "luxuser",
         "bools",
         "browserconfig",
         "bsdr",

@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.TabHelperTest do
+defmodule ExplorerWeb.TabHelperTest do
   use ExUnit.Case
 
-  alias BlockScoutWeb.TabHelper
+  alias ExplorerWeb.TabHelper
 
-  doctest BlockScoutWeb.TabHelper, import: true
+  doctest ExplorerWeb.TabHelper, import: true
 
   describe "tab_status/2" do
     test "returns \"active\" if the tab is active" do

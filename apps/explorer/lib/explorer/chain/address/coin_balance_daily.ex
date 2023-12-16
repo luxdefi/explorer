@@ -47,7 +47,7 @@ defmodule Explorer.Chain.Address.CoinBalanceDaily do
   """
   def balances_by_day(address_hash) do
     days_to_consider =
-      Application.get_env(:block_scout_web, BlockScoutWeb.Chain.Address.CoinBalance)[:coin_balance_history_days]
+      Application.get_env(:explorer_web, ExplorerWeb.Chain.Address.CoinBalance)[:coin_balance_history_days]
 
     CoinBalanceDaily
     |> where([cbd], cbd.address_hash == ^address_hash)

@@ -5,11 +5,11 @@ import Config
 |> Code.eval_file()
 
 ######################
-### BlockScout Web ###
+### Explorer Web ###
 ######################
 
-config :block_scout_web,
-  version: System.get_env("BLOCKSCOUT_VERSION"),
+config :explorer_web,
+  version: System.get_env("EXPLORER_VERSION"),
   release_link: System.get_env("RELEASE_LINK"),
   decompiled_smart_contract_token: System.get_env("DECOMPILED_SMART_CONTRACT_TOKEN"),
   show_percentage: ConfigHelper.parse_bool_env_var("SHOW_ADDRESS_MARKETCAP_PERCENTAGE", "true"),
@@ -34,7 +34,7 @@ config :block_scout_web,
   show_tenderly_link: ConfigHelper.parse_bool_env_var("SHOW_TENDERLY_LINK"),
   sensitive_endpoints_api_key: System.get_env("API_SENSITIVE_ENDPOINTS_KEY")
 
-config :block_scout_web, :recaptcha,
+config :explorer_web, :recaptcha,
   v2_client_key: System.get_env("RE_CAPTCHA_CLIENT_KEY"),
   v2_secret_key: System.get_env("RE_CAPTCHA_SECRET_KEY"),
   v3_client_key: System.get_env("RE_CAPTCHA_V3_CLIENT_KEY"),
@@ -51,17 +51,17 @@ network_path =
         end)).()
 
 # Configures the endpoint
-config :block_scout_web, BlockScoutWeb.Endpoint,
+config :explorer_web, ExplorerWeb.Endpoint,
   server: true,
   url: [
     path: network_path,
-    scheme: System.get_env("BLOCKSCOUT_PROTOCOL") || "http",
-    host: System.get_env("BLOCKSCOUT_HOST") || "localhost"
+    scheme: System.get_env("EXPLORER_PROTOCOL") || "http",
+    host: System.get_env("EXPLORER_HOST") || "localhost"
   ],
-  render_errors: [view: BlockScoutWeb.ErrorView, accepts: ~w(html json)],
-  pubsub_server: BlockScoutWeb.PubSub
+  render_errors: [view: ExplorerWeb.ErrorView, accepts: ~w(html json)],
+  pubsub_server: ExplorerWeb.PubSub
 
-config :block_scout_web, BlockScoutWeb.Chain,
+config :explorer_web, ExplorerWeb.Chain,
   network: System.get_env("NETWORK"),
   subnetwork: System.get_env("SUBNETWORK"),
   network_icon: System.get_env("NETWORK_ICON"),
@@ -72,25 +72,25 @@ config :block_scout_web, BlockScoutWeb.Chain,
   enable_testnet_label: ConfigHelper.parse_bool_env_var("SHOW_TESTNET_LABEL"),
   testnet_label_text: System.get_env("TESTNET_LABEL_TEXT", "Testnet")
 
-config :block_scout_web, :footer,
+config :explorer_web, :footer,
   logo: System.get_env("FOOTER_LOGO"),
-  chat_link: System.get_env("FOOTER_CHAT_LINK", "https://discord.gg/blockscout"),
-  github_link: System.get_env("FOOTER_GITHUB_LINK", "https://github.com/blockscout/blockscout"),
+  chat_link: System.get_env("FOOTER_CHAT_LINK", "https://discord.gg/lux"),
+  github_link: System.get_env("FOOTER_GITHUB_LINK", "https://github.com/lux/lux"),
   forum_link_enabled: ConfigHelper.parse_bool_env_var("FOOTER_FORUM_LINK_ENABLED"),
-  forum_link: System.get_env("FOOTER_FORUM_LINK", "https://forum.poa.network/c/blockscout"),
+  forum_link: System.get_env("FOOTER_FORUM_LINK", "https://forum.poa.network/c/lux"),
   telegram_link_enabled: ConfigHelper.parse_bool_env_var("FOOTER_TELEGRAM_LINK_ENABLED"),
   telegram_link: System.get_env("FOOTER_TELEGRAM_LINK"),
   link_to_other_explorers: ConfigHelper.parse_bool_env_var("FOOTER_LINK_TO_OTHER_EXPLORERS"),
   other_explorers: System.get_env("FOOTER_OTHER_EXPLORERS", "")
 
-config :block_scout_web, :contract,
+config :explorer_web, :contract,
   verification_max_libraries: ConfigHelper.parse_integer_env_var("CONTRACT_VERIFICATION_MAX_LIBRARIES", 10),
   max_length_to_show_string_without_trimming: System.get_env("CONTRACT_MAX_STRING_LENGTH_WITHOUT_TRIMMING", "2040"),
   disable_interaction: ConfigHelper.parse_bool_env_var("CONTRACT_DISABLE_INTERACTION")
 
 default_api_rate_limit = 50
 
-config :block_scout_web, :api_rate_limit,
+config :explorer_web, :api_rate_limit,
   disabled: ConfigHelper.parse_bool_env_var("API_RATE_LIMIT_DISABLED"),
   global_limit: ConfigHelper.parse_integer_env_var("API_RATE_LIMIT", default_api_rate_limit),
   limit_by_key: ConfigHelper.parse_integer_env_var("API_RATE_LIMIT_BY_KEY", default_api_rate_limit),
@@ -101,7 +101,7 @@ config :block_scout_web, :api_rate_limit,
   time_interval_limit_by_ip: ConfigHelper.parse_time_env_var("API_RATE_LIMIT_BY_IP_TIME_INTERVAL", "5m"),
   static_api_key: System.get_env("API_RATE_LIMIT_STATIC_API_KEY"),
   whitelisted_ips: System.get_env("API_RATE_LIMIT_WHITELISTED_IPS"),
-  is_blockscout_behind_proxy: ConfigHelper.parse_bool_env_var("API_RATE_LIMIT_IS_BLOCKSCOUT_BEHIND_PROXY"),
+  is_lux_behind_proxy: ConfigHelper.parse_bool_env_var("API_RATE_LIMIT_IS_EXPLORER_BEHIND_PROXY"),
   api_v2_ui_limit: ConfigHelper.parse_integer_env_var("API_RATE_LIMIT_UI_V2_WITH_TOKEN", 5),
   api_v2_token_ttl_seconds: ConfigHelper.parse_integer_env_var("API_RATE_LIMIT_UI_V2_TOKEN_TTL_IN_SECONDS", 18000)
 
@@ -123,14 +123,14 @@ tx_chart_config =
     %{}
   end
 
-config :block_scout_web, :chart,
+config :explorer_web, :chart,
   chart_config: Map.merge(price_chart_config, tx_chart_config),
   price_chart_legend_enabled?: price_chart_legend_enabled?
 
-config :block_scout_web, BlockScoutWeb.Chain.Address.CoinBalance,
+config :explorer_web, ExplorerWeb.Chain.Address.CoinBalance,
   coin_balance_history_days: ConfigHelper.parse_integer_env_var("COIN_BALANCE_HISTORY_DAYS", 10)
 
-config :block_scout_web, BlockScoutWeb.API.V2, enabled: ConfigHelper.parse_bool_env_var("API_V2_ENABLED", "true")
+config :explorer_web, ExplorerWeb.API.V2, enabled: ConfigHelper.parse_bool_env_var("API_V2_ENABLED", "true")
 
 # Configures Ueberauth's Auth0 auth provider
 config :ueberauth, Ueberauth.Strategy.Auth0.OAuth,
@@ -377,7 +377,7 @@ enabled? = ConfigHelper.parse_bool_env_var("MICROSERVICE_SC_VERIFIER_ENABLED")
 type = System.get_env("MICROSERVICE_SC_VERIFIER_TYPE", "sc_verifier")
 
 config :explorer, Explorer.SmartContract.RustVerifierInterfaceBehaviour,
-  service_url: System.get_env("MICROSERVICE_SC_VERIFIER_URL") || "https://eth-bytecode-db.services.blockscout.com/",
+  service_url: System.get_env("MICROSERVICE_SC_VERIFIER_URL") || "https://eth-bytecode-db.services.lux.com/",
   enabled: enabled?,
   type: type,
   eth_bytecode_db?: enabled? && type == "eth_bytecode_db",

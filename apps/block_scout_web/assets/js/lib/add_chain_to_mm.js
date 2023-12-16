@@ -17,7 +17,7 @@ export async function addChainToMM ({ btn }) {
     // @ts-ignore
     const jsonRPC = jsonRPCObj && jsonRPCObj.value
 
-    const blockscoutURL = location.protocol + '//' + location.host + commonPath
+    const luxURL = location.protocol + '//' + location.host + commonPath
     if (chainIDFromWallet !== chainIDFromInstance) {
       // @ts-ignore
       await window.ethereum.request({
@@ -31,7 +31,7 @@ export async function addChainToMM ({ btn }) {
             decimals: 18
           },
           rpcUrls: [jsonRPC],
-          blockExplorerUrls: [blockscoutURL]
+          blockExplorerUrls: [luxURL]
         }]
       })
     } else {

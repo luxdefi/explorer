@@ -1,11 +1,11 @@
 <section class="container">
-  <%= render BlockScoutWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
+  <%= render ExplorerWeb.Advertisement.TextAdView, "index.html", conn: @conn %>
   <div class="card">
     <div class="card-body" data-async-load data-async-listing="<%= @current_path %>">
       <h1 class="card-title list-title-description"><%= Explorer.coin_name() %> <%= gettext "Addresses" %></h1>
 
 	<div class="list-top-pagination-container-wrapper">
-    	<%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+    	<%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
 	</div>
 
     <div class="addresses-table-container">
@@ -44,13 +44,13 @@
 	  </thead>
 	  <tbody data-items data-selector="top-addresses-list">
 	  	<% columns_num = if balance_percentage_enabled?(@total_supply), do: 5, else: 4 %>
-	    <%= render BlockScoutWeb.CommonComponentsView, "_table-loader.html", columns_num: columns_num %>
+	    <%= render ExplorerWeb.CommonComponentsView, "_table-loader.html", columns_num: columns_num %>
 	  </tbody>
 	</table>
       </div>
     </div>
 
-    <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+    <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
     </div>
   </div>
 	<script defer data-cfasync="false" src="<%= static_path(@conn, "/js/async-listing-load.js") %>"></script>

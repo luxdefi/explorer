@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Tokens.Instance.TransferControllerTest do
-  use BlockScoutWeb.ConnCase, async: false
+defmodule ExplorerWeb.Tokens.Instance.TransferControllerTest do
+  use ExplorerWeb.ConnCase, async: false
 
   describe "GET token-transfers/2" do
     test "fetches the instance", %{conn: conn} do

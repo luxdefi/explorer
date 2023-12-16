@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.RPC.ContractControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.RPC.ContractControllerTest do
+  use ExplorerWeb.ConnCase
   alias Explorer.Chain.SmartContract
 
   import Mox
@@ -776,7 +776,7 @@ defmodule BlockScoutWeb.API.RPC.ContractControllerTest do
     #   expected_result = %{
     #     "Address" => to_string(contract_address.hash),
     #     "SourceCode" =>
-    #       "/**\n* Submitted for verification at blockscout.com on #{verified_contract.inserted_at}\n*/\n" <>
+    #       "/**\n* Submitted for verification at lux.com on #{verified_contract.inserted_at}\n*/\n" <>
     #         contract_code_info.source_code,
     #     "ABI" => Jason.encode!(contract_code_info.abi),
     #     "ContractName" => contract_code_info.name,
@@ -849,7 +849,7 @@ defmodule BlockScoutWeb.API.RPC.ContractControllerTest do
     #   assert result["Address"] == to_string(contract_address.hash)
 
     #   assert result["SourceCode"] ==
-    #            "/**\n* Submitted for verification at blockscout.com on #{verified_contract.inserted_at}\n*/\n" <>
+    #            "/**\n* Submitted for verification at lux.com on #{verified_contract.inserted_at}\n*/\n" <>
     #              contract_source_code
 
     #   assert result["ContractName"] == name

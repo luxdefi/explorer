@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.RenderHelper do
+defmodule ExplorerWeb.RenderHelper do
   @moduledoc """
   Helper functions to render partials from view modules
   """
-  use BlockScoutWeb, :view
+  use ExplorerWeb, :view
 
   @doc """
   Renders html using:

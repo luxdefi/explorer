@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.Tokens.TransferViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.TransferViewTest do
+  use ExplorerWeb.ConnCase, async: true
 end

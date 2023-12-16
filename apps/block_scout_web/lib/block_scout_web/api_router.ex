@@ -3,24 +3,24 @@ defmodule RPCTranslatorForwarder do
   Phoenix router limits forwarding,
   so this module is to forward old paths for backward compatibility
   """
-  alias BlockScoutWeb.API.RPC.RPCTranslator
+  alias ExplorerWeb.API.RPC.RPCTranslator
   defdelegate init(opts), to: RPCTranslator
   defdelegate call(conn, opts), to: RPCTranslator
 end
 
-defmodule BlockScoutWeb.ApiRouter do
+defmodule ExplorerWeb.ApiRouter do
   @moduledoc """
   Router for API
   """
-  use BlockScoutWeb, :router
-  alias BlockScoutWeb.{AddressTransactionController, APIKeyV2Router, SmartContractsApiV2Router}
-  alias BlockScoutWeb.Plug.{CheckAccountAPI, CheckApiV2, RateLimit}
+  use ExplorerWeb, :router
+  alias ExplorerWeb.{AddressTransactionController, APIKeyV2Router, SmartContractsApiV2Router}
+  alias ExplorerWeb.Plug.{CheckAccountAPI, CheckApiV2, RateLimit}
 
   forward("/v2/smart-contracts", SmartContractsApiV2Router)
   forward("/v2/key", APIKeyV2Router)
 
   pipeline :api do
-    plug(BlockScoutWeb.Plug.Logger, application: :api)
+    plug(ExplorerWeb.Plug.Logger, application: :api)
     plug(:accepts, ["json"])
   end
 
@@ -31,7 +31,7 @@ defmodule BlockScoutWeb.ApiRouter do
   end
 
   pipeline :api_v2 do
-    plug(BlockScoutWeb.Plug.Logger, application: :api_v2)
+    plug(ExplorerWeb.Plug.Logger, application: :api_v2)
     plug(:accepts, ["json"])
     plug(CheckApiV2)
     plug(:fetch_session)
@@ -40,14 +40,14 @@ defmodule BlockScoutWeb.ApiRouter do
   end
 
   pipeline :api_v2_no_session do
-    plug(BlockScoutWeb.Plug.Logger, application: :api_v2)
+    plug(ExplorerWeb.Plug.Logger, application: :api_v2)
     plug(:accepts, ["json"])
     plug(CheckApiV2)
     plug(RateLimit)
   end
 
-  alias BlockScoutWeb.Account.Api.V1.{AuthenticateController, EmailController, TagsController, UserController}
-  alias BlockScoutWeb.API.V2
+  alias ExplorerWeb.Account.Api.V1.{AuthenticateController, EmailController, TagsController, UserController}
+  alias ExplorerWeb.API.V2
 
   # TODO: Remove /account/v1 paths
   scope "/account/v1", as: :account_v1 do
@@ -303,9 +303,9 @@ defmodule BlockScoutWeb.ApiRouter do
 
   scope "/v1", as: :api_v1 do
     pipe_through(:api)
-    alias BlockScoutWeb.API.{EthRPC, RPC, V1}
-    alias BlockScoutWeb.API.V1.{GasPriceOracleController, HealthController}
-    alias BlockScoutWeb.API.V2.SearchController
+    alias ExplorerWeb.API.{EthRPC, RPC, V1}
+    alias ExplorerWeb.API.V1.{GasPriceOracleController, HealthController}
+    alias ExplorerWeb.API.V2.SearchController
 
     # leave the same endpoint in v1 in order to keep backward compatibility
     get("/search", SearchController, :search)
@@ -313,7 +313,7 @@ defmodule BlockScoutWeb.ApiRouter do
     @max_complexity 200
 
     forward("/graphql", Absinthe.Plug,
-      schema: BlockScoutWeb.Schema,
+      schema: ExplorerWeb.Schema,
       analyze_complexity: true,
       max_complexity: @max_complexity
     )
@@ -334,17 +334,17 @@ defmodule BlockScoutWeb.ApiRouter do
 
     get("/gas-price-oracle", GasPriceOracleController, :gas_price_oracle)
 
-    if Application.compile_env(:block_scout_web, __MODULE__)[:reading_enabled] do
+    if Application.compile_env(:explorer_web, __MODULE__)[:reading_enabled] do
       get("/supply", V1.SupplyController, :supply)
       post("/eth-rpc", EthRPC.EthController, :eth_request)
     end
 
-    if Application.compile_env(:block_scout_web, __MODULE__)[:writing_enabled] do
+    if Application.compile_env(:explorer_web, __MODULE__)[:writing_enabled] do
       post("/decompiled_smart_contract", V1.DecompiledSmartContractController, :create)
       post("/verified_smart_contracts", V1.VerifiedSmartContractController, :create)
     end
 
-    if Application.compile_env(:block_scout_web, __MODULE__)[:reading_enabled] do
+    if Application.compile_env(:explorer_web, __MODULE__)[:reading_enabled] do
       forward("/", RPC.RPCTranslator, %{
         "block" => {RPC.BlockController, []},
         "account" => {RPC.AddressController, []},
@@ -360,9 +360,9 @@ defmodule BlockScoutWeb.ApiRouter do
   # For backward compatibility. Should be removed
   scope "/" do
     pipe_through(:api)
-    alias BlockScoutWeb.API.{EthRPC, RPC}
+    alias ExplorerWeb.API.{EthRPC, RPC}
 
-    if Application.compile_env(:block_scout_web, __MODULE__)[:reading_enabled] do
+    if Application.compile_env(:explorer_web, __MODULE__)[:reading_enabled] do
       post("/eth-rpc", EthRPC.EthController, :eth_request)
 
       forward("/", RPCTranslatorForwarder, %{

@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.AddressDecompiledContractViewTest do
+defmodule ExplorerWeb.AddressDecompiledContractViewTest do
   use Explorer.DataCase
 
-  alias BlockScoutWeb.AddressDecompiledContractView
+  alias ExplorerWeb.AddressDecompiledContractView
 
   describe "highlight_decompiled_code/1" do
     test "generate correct html code" do

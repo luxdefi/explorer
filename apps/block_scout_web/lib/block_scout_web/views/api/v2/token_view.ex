@@ -1,8 +1,8 @@
-defmodule BlockScoutWeb.API.V2.TokenView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.TokenView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.V2.Helper
-  alias BlockScoutWeb.NFTHelper
+  alias ExplorerWeb.API.V2.Helper
+  alias ExplorerWeb.NFTHelper
   alias Ecto.Association.NotLoaded
   alias Explorer.Chain
   alias Explorer.Chain.Address

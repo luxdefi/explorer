@@ -3,10 +3,10 @@ import Config
 alias EthereumJSONRPC.Variant
 
 ######################
-### BlockScout Web ###
+### Explorer Web ###
 ######################
 
-config :block_scout_web, BlockScoutWeb.API.V2, enabled: true
+config :explorer_web, ExplorerWeb.API.V2, enabled: true
 
 ########################
 ### Ethereum JSONRPC ###

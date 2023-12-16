@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.TransferView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Tokens.TransferView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.Tokens.OverviewView
+  alias ExplorerWeb.Tokens.OverviewView
   alias Explorer.Chain
   alias Explorer.Chain.Address
 end

@@ -3,6 +3,6 @@
     href="<%= @link %>"
     target="_blank"
 >
-    <%= render BlockScoutWeb.IconsView, "_external_link.html" %>
+    <%= render ExplorerWeb.IconsView, "_external_link.html" %>
     <span class="btn-full-primary-text"><%= @text %></span>
 </a>

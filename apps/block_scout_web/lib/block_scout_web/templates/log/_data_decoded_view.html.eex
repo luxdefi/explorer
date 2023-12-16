@@ -12,7 +12,7 @@
             <td><%= type %></td>
             <td><%= indexed? %></td>
             <td align=left>
-            <%= case BlockScoutWeb.ABIEncodedValueView.copy_text(type, value) do %>
+            <%= case ExplorerWeb.ABIEncodedValueView.copy_text(type, value) do %>
                 <% :error -> %>
                     <%= nil %>
                 <% copy_text -> %>
@@ -29,7 +29,7 @@
                         </svg>
                     </span>
             <% end %>
-            <pre class="transaction-input-text pre-wrap"><code><%= BlockScoutWeb.ABIEncodedValueView.value_html(type, value) %></code></pre>
+            <pre class="transaction-input-text pre-wrap"><code><%= ExplorerWeb.ABIEncodedValueView.value_html(type, value) %></code></pre>
             </td>
         </tr>
     <% end %>

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.RecentTransactionsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.RecentTransactionsController do
+  use ExplorerWeb, :controller
 
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
@@ -31,7 +31,7 @@ defmodule BlockScoutWeb.RecentTransactionsController do
           %{
             transaction_hash: Hash.to_string(transaction.hash),
             transaction_html:
-              View.render_to_string(BlockScoutWeb.TransactionView, "_tile.html",
+              View.render_to_string(ExplorerWeb.TransactionView, "_tile.html",
                 transaction: transaction,
                 burn_address_hash: @burn_address_hash,
                 conn: conn

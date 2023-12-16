@@ -4,10 +4,10 @@ File.mkdir_p!(junit_folder)
 :ok = Application.put_env(:junit_formatter, :report_dir, junit_folder)
 
 # Counter `test --no-start`.  `--no-start` is needed for `:indexer` compatibility
-{:ok, _} = Application.ensure_all_started(:block_scout_web)
+{:ok, _} = Application.ensure_all_started(:explorer_web)
 
 {:ok, _} = Application.ensure_all_started(:wallaby)
-Application.put_env(:wallaby, :base_url, BlockScoutWeb.Endpoint.url())
+Application.put_env(:wallaby, :base_url, ExplorerWeb.Endpoint.url())
 
 {:ok, _} = Application.ensure_all_started(:ex_machina)
 
@@ -31,8 +31,8 @@ Ecto.Adapters.SQL.Sandbox.mode(Explorer.Repo.PolygonZkevm, :manual)
 Ecto.Adapters.SQL.Sandbox.mode(Explorer.Repo.RSK, :manual)
 Ecto.Adapters.SQL.Sandbox.mode(Explorer.Repo.Suave, :manual)
 
-Absinthe.Test.prime(BlockScoutWeb.Schema)
+Absinthe.Test.prime(ExplorerWeb.Schema)
 
 Mox.defmock(EthereumJSONRPC.Mox, for: EthereumJSONRPC.Transport)
 
-Mox.defmock(BlockScoutWeb.TestCaptchaHelper, for: BlockScoutWeb.CaptchaHelper)
+Mox.defmock(ExplorerWeb.TestCaptchaHelper, for: ExplorerWeb.CaptchaHelper)

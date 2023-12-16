@@ -1,42 +1,42 @@
 # API Documentation
 
-  * [BlockScoutWeb.Account.Api.V1.UserController](#blockscoutweb-account-api-v1-usercontroller)
-    * [info](#blockscoutweb-account-api-v1-usercontroller-info)
-    * [create_tag_address](#blockscoutweb-account-api-v1-usercontroller-create_tag_address)
-  * [BlockScoutWeb.Account.Api.V1.TagsController](#blockscoutweb-account-api-v1-tagscontroller)
-    * [tags_address](#blockscoutweb-account-api-v1-tagscontroller-tags_address)
-  * [BlockScoutWeb.Account.Api.V1.UserController](#blockscoutweb-account-api-v1-usercontroller)
-    * [update_tag_address](#blockscoutweb-account-api-v1-usercontroller-update_tag_address)
-    * [tags_address](#blockscoutweb-account-api-v1-usercontroller-tags_address)
-    * [delete_tag_address](#blockscoutweb-account-api-v1-usercontroller-delete_tag_address)
-    * [create_tag_transaction](#blockscoutweb-account-api-v1-usercontroller-create_tag_transaction)
-  * [BlockScoutWeb.Account.Api.V1.TagsController](#blockscoutweb-account-api-v1-tagscontroller)
-    * [tags_transaction](#blockscoutweb-account-api-v1-tagscontroller-tags_transaction)
-  * [BlockScoutWeb.Account.Api.V1.UserController](#blockscoutweb-account-api-v1-usercontroller)
-    * [update_tag_transaction](#blockscoutweb-account-api-v1-usercontroller-update_tag_transaction)
-    * [tags_transaction](#blockscoutweb-account-api-v1-usercontroller-tags_transaction)
-    * [delete_tag_transaction](#blockscoutweb-account-api-v1-usercontroller-delete_tag_transaction)
-    * [create_watchlist](#blockscoutweb-account-api-v1-usercontroller-create_watchlist)
-    * [watchlist](#blockscoutweb-account-api-v1-usercontroller-watchlist)
-    * [delete_watchlist](#blockscoutweb-account-api-v1-usercontroller-delete_watchlist)
-    * [update_watchlist](#blockscoutweb-account-api-v1-usercontroller-update_watchlist)
-    * [create_watchlist](#blockscoutweb-account-api-v1-usercontroller-create_watchlist)
-    * [update_watchlist](#blockscoutweb-account-api-v1-usercontroller-update_watchlist)
-    * [create_api_key](#blockscoutweb-account-api-v1-usercontroller-create_api_key)
-    * [api_keys](#blockscoutweb-account-api-v1-usercontroller-api_keys)
-    * [update_api_key](#blockscoutweb-account-api-v1-usercontroller-update_api_key)
-    * [delete_api_key](#blockscoutweb-account-api-v1-usercontroller-delete_api_key)
-    * [create_custom_abi](#blockscoutweb-account-api-v1-usercontroller-create_custom_abi)
-    * [custom_abis](#blockscoutweb-account-api-v1-usercontroller-custom_abis)
-    * [update_custom_abi](#blockscoutweb-account-api-v1-usercontroller-update_custom_abi)
-    * [delete_custom_abi](#blockscoutweb-account-api-v1-usercontroller-delete_custom_abi)
-    * [create_public_tags_request](#blockscoutweb-account-api-v1-usercontroller-create_public_tags_request)
-    * [public_tags_requests](#blockscoutweb-account-api-v1-usercontroller-public_tags_requests)
-    * [delete_public_tags_request](#blockscoutweb-account-api-v1-usercontroller-delete_public_tags_request)
-    * [update_public_tags_request](#blockscoutweb-account-api-v1-usercontroller-update_public_tags_request)
+  * [ExplorerWeb.Account.Api.V1.UserController](#luxweb-account-api-v1-usercontroller)
+    * [info](#luxweb-account-api-v1-usercontroller-info)
+    * [create_tag_address](#luxweb-account-api-v1-usercontroller-create_tag_address)
+  * [ExplorerWeb.Account.Api.V1.TagsController](#luxweb-account-api-v1-tagscontroller)
+    * [tags_address](#luxweb-account-api-v1-tagscontroller-tags_address)
+  * [ExplorerWeb.Account.Api.V1.UserController](#luxweb-account-api-v1-usercontroller)
+    * [update_tag_address](#luxweb-account-api-v1-usercontroller-update_tag_address)
+    * [tags_address](#luxweb-account-api-v1-usercontroller-tags_address)
+    * [delete_tag_address](#luxweb-account-api-v1-usercontroller-delete_tag_address)
+    * [create_tag_transaction](#luxweb-account-api-v1-usercontroller-create_tag_transaction)
+  * [ExplorerWeb.Account.Api.V1.TagsController](#luxweb-account-api-v1-tagscontroller)
+    * [tags_transaction](#luxweb-account-api-v1-tagscontroller-tags_transaction)
+  * [ExplorerWeb.Account.Api.V1.UserController](#luxweb-account-api-v1-usercontroller)
+    * [update_tag_transaction](#luxweb-account-api-v1-usercontroller-update_tag_transaction)
+    * [tags_transaction](#luxweb-account-api-v1-usercontroller-tags_transaction)
+    * [delete_tag_transaction](#luxweb-account-api-v1-usercontroller-delete_tag_transaction)
+    * [create_watchlist](#luxweb-account-api-v1-usercontroller-create_watchlist)
+    * [watchlist](#luxweb-account-api-v1-usercontroller-watchlist)
+    * [delete_watchlist](#luxweb-account-api-v1-usercontroller-delete_watchlist)
+    * [update_watchlist](#luxweb-account-api-v1-usercontroller-update_watchlist)
+    * [create_watchlist](#luxweb-account-api-v1-usercontroller-create_watchlist)
+    * [update_watchlist](#luxweb-account-api-v1-usercontroller-update_watchlist)
+    * [create_api_key](#luxweb-account-api-v1-usercontroller-create_api_key)
+    * [api_keys](#luxweb-account-api-v1-usercontroller-api_keys)
+    * [update_api_key](#luxweb-account-api-v1-usercontroller-update_api_key)
+    * [delete_api_key](#luxweb-account-api-v1-usercontroller-delete_api_key)
+    * [create_custom_abi](#luxweb-account-api-v1-usercontroller-create_custom_abi)
+    * [custom_abis](#luxweb-account-api-v1-usercontroller-custom_abis)
+    * [update_custom_abi](#luxweb-account-api-v1-usercontroller-update_custom_abi)
+    * [delete_custom_abi](#luxweb-account-api-v1-usercontroller-delete_custom_abi)
+    * [create_public_tags_request](#luxweb-account-api-v1-usercontroller-create_public_tags_request)
+    * [public_tags_requests](#luxweb-account-api-v1-usercontroller-public_tags_requests)
+    * [delete_public_tags_request](#luxweb-account-api-v1-usercontroller-delete_public_tags_request)
+    * [update_public_tags_request](#luxweb-account-api-v1-usercontroller-update_public_tags_request)
 
-## BlockScoutWeb.Account.Api.V1.UserController
-### <a id=blockscoutweb-account-api-v1-usercontroller-info></a>info
+## ExplorerWeb.Account.Api.V1.UserController
+### <a id=luxweb-account-api-v1-usercontroller-info></a>info
 #### Get info about user
 
 ##### Request
@@ -60,12 +60,12 @@ access-control-expose-headers:
 {
   "nickname": "test_user4",
   "name": "User Test4",
-  "email": "test_user-4@blockscout.com",
+  "email": "test_user-4@lux.com",
   "avatar": "https://example.com/avatar/test_user4"
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_tag_address></a>create_tag_address
+### <a id=luxweb-account-api-v1-usercontroller-create_tag_address></a>create_tag_address
 #### Add private address tag
 
 ##### Request
@@ -104,8 +104,8 @@ access-control-expose-headers:
 }
 ```
 
-## BlockScoutWeb.Account.Api.V1.TagsController
-### <a id=blockscoutweb-account-api-v1-tagscontroller-tags_address></a>tags_address
+## ExplorerWeb.Account.Api.V1.TagsController
+### <a id=luxweb-account-api-v1-tagscontroller-tags_address></a>tags_address
 #### Get tags for address
 
 ##### Request
@@ -139,8 +139,8 @@ access-control-expose-headers:
 }
 ```
 
-## BlockScoutWeb.Account.Api.V1.UserController
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_tag_address></a>update_tag_address
+## ExplorerWeb.Account.Api.V1.UserController
+### <a id=luxweb-account-api-v1-usercontroller-update_tag_address></a>update_tag_address
 #### Edit private address tag
 
 ##### Request
@@ -179,7 +179,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-tags_address></a>tags_address
+### <a id=luxweb-account-api-v1-usercontroller-tags_address></a>tags_address
 #### Get private addresses tags
 
 ##### Request
@@ -219,7 +219,7 @@ access-control-expose-headers:
 ]
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-delete_tag_address></a>delete_tag_address
+### <a id=luxweb-account-api-v1-usercontroller-delete_tag_address></a>delete_tag_address
 #### Delete private address tag
 
 ##### Request
@@ -245,7 +245,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_tag_transaction></a>create_tag_transaction
+### <a id=luxweb-account-api-v1-usercontroller-create_tag_transaction></a>create_tag_transaction
 #### Error on try to create private transaction tag for tx does not exist
 
 ##### Request
@@ -324,8 +324,8 @@ access-control-expose-headers:
 }
 ```
 
-## BlockScoutWeb.Account.Api.V1.TagsController
-### <a id=blockscoutweb-account-api-v1-tagscontroller-tags_transaction></a>tags_transaction
+## ExplorerWeb.Account.Api.V1.TagsController
+### <a id=luxweb-account-api-v1-tagscontroller-tags_transaction></a>tags_transaction
 #### Get tags for transaction
 
 ##### Request
@@ -356,8 +356,8 @@ access-control-expose-headers:
 }
 ```
 
-## BlockScoutWeb.Account.Api.V1.UserController
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_tag_transaction></a>update_tag_transaction
+## ExplorerWeb.Account.Api.V1.UserController
+### <a id=luxweb-account-api-v1-usercontroller-update_tag_transaction></a>update_tag_transaction
 #### Edit private transaction tag
 
 ##### Request
@@ -396,7 +396,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-tags_transaction></a>tags_transaction
+### <a id=luxweb-account-api-v1-usercontroller-tags_transaction></a>tags_transaction
 #### Get private transactions tags
 
 ##### Request
@@ -436,7 +436,7 @@ access-control-expose-headers:
 ]
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-delete_tag_transaction></a>delete_tag_transaction
+### <a id=luxweb-account-api-v1-usercontroller-delete_tag_transaction></a>delete_tag_transaction
 #### Delete private transaction tag
 
 ##### Request
@@ -462,7 +462,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_watchlist></a>create_watchlist
+### <a id=luxweb-account-api-v1-usercontroller-create_watchlist></a>create_watchlist
 #### Add address to watch list
 
 ##### Request
@@ -537,7 +537,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-watchlist></a>watchlist
+### <a id=luxweb-account-api-v1-usercontroller-watchlist></a>watchlist
 #### Get addresses from watchlists
 
 ##### Request
@@ -610,7 +610,7 @@ access-control-expose-headers:
 ]
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-delete_watchlist></a>delete_watchlist
+### <a id=luxweb-account-api-v1-usercontroller-delete_watchlist></a>delete_watchlist
 #### Delete address from watchlist by id
 
 ##### Request
@@ -636,7 +636,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_watchlist></a>update_watchlist
+### <a id=luxweb-account-api-v1-usercontroller-update_watchlist></a>update_watchlist
 #### Edit watchlist address
 
 ##### Request
@@ -711,7 +711,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_watchlist></a>create_watchlist
+### <a id=luxweb-account-api-v1-usercontroller-create_watchlist></a>create_watchlist
 #### Example of error on creating watchlist address
 
 ##### Request
@@ -769,7 +769,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_watchlist></a>update_watchlist
+### <a id=luxweb-account-api-v1-usercontroller-update_watchlist></a>update_watchlist
 #### Example of error on editing watchlist address
 
 ##### Request
@@ -827,7 +827,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_api_key></a>create_api_key
+### <a id=luxweb-account-api-v1-usercontroller-create_api_key></a>create_api_key
 #### Add api key
 
 ##### Request
@@ -903,7 +903,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-api_keys></a>api_keys
+### <a id=luxweb-account-api-v1-usercontroller-api_keys></a>api_keys
 #### Get api keys list
 
 ##### Request
@@ -940,7 +940,7 @@ access-control-expose-headers:
 ]
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_api_key></a>update_api_key
+### <a id=luxweb-account-api-v1-usercontroller-update_api_key></a>update_api_key
 #### Edit api key
 
 ##### Request
@@ -977,7 +977,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-delete_api_key></a>delete_api_key
+### <a id=luxweb-account-api-v1-usercontroller-delete_api_key></a>delete_api_key
 #### Delete api key
 
 ##### Request
@@ -1003,7 +1003,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_custom_abi></a>create_custom_abi
+### <a id=luxweb-account-api-v1-usercontroller-create_custom_abi></a>create_custom_abi
 #### Add custom abi
 
 ##### Request
@@ -1172,7 +1172,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-custom_abis></a>custom_abis
+### <a id=luxweb-account-api-v1-usercontroller-custom_abis></a>custom_abis
 #### Get custom abis list
 
 ##### Request
@@ -1722,7 +1722,7 @@ access-control-expose-headers:
 ]
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_custom_abi></a>update_custom_abi
+### <a id=luxweb-account-api-v1-usercontroller-update_custom_abi></a>update_custom_abi
 #### Edit custom abi
 
 ##### Request
@@ -1821,7 +1821,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-delete_custom_abi></a>delete_custom_abi
+### <a id=luxweb-account-api-v1-usercontroller-delete_custom_abi></a>delete_custom_abi
 #### Delete custom abi
 
 ##### Request
@@ -1847,7 +1847,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-create_public_tags_request></a>create_public_tags_request
+### <a id=luxweb-account-api-v1-usercontroller-create_public_tags_request></a>create_public_tags_request
 #### Submit request to add a public tag
 
 ##### Request
@@ -1864,7 +1864,7 @@ content-type: multipart/mixed; boundary=plug_conn_test
   "tags": "Tag0",
   "is_owner": true,
   "full_name": "full name0",
-  "email": "test_user-6@blockscout.com",
+  "email": "test_user-6@lux.com",
   "company": "company0",
   "addresses": [
     "0x0000000000000000000000000000000000000009",
@@ -1898,7 +1898,7 @@ access-control-expose-headers:
   "is_owner": true,
   "id": 131,
   "full_name": "full name0",
-  "email": "test_user-6@blockscout.com",
+  "email": "test_user-6@lux.com",
   "company": "company0",
   "addresses": [
     "0x0000000000000000000000000000000000000009",
@@ -1911,7 +1911,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-public_tags_requests></a>public_tags_requests
+### <a id=luxweb-account-api-v1-usercontroller-public_tags_requests></a>public_tags_requests
 #### Get list of requests to add a public tag
 
 ##### Request
@@ -1940,7 +1940,7 @@ access-control-expose-headers:
     "is_owner": false,
     "id": 143,
     "full_name": "full name13",
-    "email": "test_user-37@blockscout.com",
+    "email": "test_user-37@lux.com",
     "company": "company13",
     "addresses": [
       "0x000000000000000000000000000000000000007e",
@@ -1960,7 +1960,7 @@ access-control-expose-headers:
     "is_owner": false,
     "id": 142,
     "full_name": "full name12",
-    "email": "test_user-36@blockscout.com",
+    "email": "test_user-36@lux.com",
     "company": "company12",
     "addresses": [
       "0x0000000000000000000000000000000000000075",
@@ -1982,7 +1982,7 @@ access-control-expose-headers:
     "is_owner": false,
     "id": 141,
     "full_name": "full name11",
-    "email": "test_user-35@blockscout.com",
+    "email": "test_user-35@lux.com",
     "company": "company11",
     "addresses": [
       "0x000000000000000000000000000000000000006d",
@@ -2003,7 +2003,7 @@ access-control-expose-headers:
     "is_owner": false,
     "id": 140,
     "full_name": "full name10",
-    "email": "test_user-34@blockscout.com",
+    "email": "test_user-34@lux.com",
     "company": "company10",
     "addresses": [
       "0x0000000000000000000000000000000000000067",
@@ -2022,7 +2022,7 @@ access-control-expose-headers:
     "is_owner": true,
     "id": 139,
     "full_name": "full name9",
-    "email": "test_user-33@blockscout.com",
+    "email": "test_user-33@lux.com",
     "company": "company9",
     "addresses": [
       "0x0000000000000000000000000000000000000061",
@@ -2041,7 +2041,7 @@ access-control-expose-headers:
     "is_owner": false,
     "id": 138,
     "full_name": "full name8",
-    "email": "test_user-32@blockscout.com",
+    "email": "test_user-32@lux.com",
     "company": "company8",
     "addresses": [
       "0x0000000000000000000000000000000000000060"
@@ -2055,7 +2055,7 @@ access-control-expose-headers:
     "is_owner": true,
     "id": 137,
     "full_name": "full name7",
-    "email": "test_user-31@blockscout.com",
+    "email": "test_user-31@lux.com",
     "company": "company7",
     "addresses": [
       "0x000000000000000000000000000000000000005f"
@@ -2069,7 +2069,7 @@ access-control-expose-headers:
     "is_owner": true,
     "id": 136,
     "full_name": "full name6",
-    "email": "test_user-30@blockscout.com",
+    "email": "test_user-30@lux.com",
     "company": "company6",
     "addresses": [
       "0x000000000000000000000000000000000000005a",
@@ -2087,7 +2087,7 @@ access-control-expose-headers:
     "is_owner": false,
     "id": 135,
     "full_name": "full name5",
-    "email": "test_user-29@blockscout.com",
+    "email": "test_user-29@lux.com",
     "company": "company5",
     "addresses": [
       "0x0000000000000000000000000000000000000051",
@@ -2109,7 +2109,7 @@ access-control-expose-headers:
     "is_owner": true,
     "id": 134,
     "full_name": "full name4",
-    "email": "test_user-28@blockscout.com",
+    "email": "test_user-28@lux.com",
     "company": "company4",
     "addresses": [
       "0x000000000000000000000000000000000000004c",
@@ -2123,7 +2123,7 @@ access-control-expose-headers:
 ]
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-delete_public_tags_request></a>delete_public_tags_request
+### <a id=luxweb-account-api-v1-usercontroller-delete_public_tags_request></a>delete_public_tags_request
 #### Delete public tags request
 
 ##### Request
@@ -2159,7 +2159,7 @@ access-control-expose-headers:
 }
 ```
 
-### <a id=blockscoutweb-account-api-v1-usercontroller-update_public_tags_request></a>update_public_tags_request
+### <a id=luxweb-account-api-v1-usercontroller-update_public_tags_request></a>update_public_tags_request
 #### Edit request to add a public tag
 
 ##### Request
@@ -2176,7 +2176,7 @@ content-type: multipart/mixed; boundary=plug_conn_test
   "tags": "Tag2;Tag3",
   "is_owner": true,
   "full_name": "full name2",
-  "email": "test_user-9@blockscout.com",
+  "email": "test_user-9@lux.com",
   "company": "company2",
   "addresses": [
     "0x000000000000000000000000000000000000000f",
@@ -2211,7 +2211,7 @@ access-control-expose-headers:
   "is_owner": true,
   "id": 132,
   "full_name": "full name2",
-  "email": "test_user-9@blockscout.com",
+  "email": "test_user-9@lux.com",
   "company": "company2",
   "addresses": [
     "0x000000000000000000000000000000000000000f",

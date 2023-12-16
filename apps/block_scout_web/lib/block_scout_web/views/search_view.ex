@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.SearchView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.SearchView do
+  use ExplorerWeb, :view
 
   alias Explorer.Chain
   alias Floki

@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Account.ApiKeyView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Account.ApiKeyView do
+  use ExplorerWeb, :view
 
   alias Explorer.Account.Api.Key
 end

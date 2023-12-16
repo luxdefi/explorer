@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.SocialMedia do
+defmodule ExplorerWeb.SocialMedia do
   @moduledoc """
   This module provides social media links
   """
@@ -11,7 +11,7 @@ defmodule BlockScoutWeb.SocialMedia do
   }
 
   def links do
-    :block_scout_web
+    :explorer_web
     |> Application.get_env(__MODULE__, [])
     |> Enum.reverse()
     |> filter_and_build_links()

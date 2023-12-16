@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.API.V2.ZkevmView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.V2.ZkevmView do
+  use ExplorerWeb, :view
 
   @doc """
     Function to render GET requests to `/api/v2/zkevm/batches/:batch_number` endpoint.

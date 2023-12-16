@@ -25,7 +25,7 @@ defmodule Explorer.Mixfile do
       ],
       start_permanent: Mix.env() == :prod,
       version: "5.3.3",
-      xref: [exclude: [BlockScoutWeb.WebRouter.Helpers]]
+      xref: [exclude: [ExplorerWeb.WebRouter.Helpers]]
     ]
   end
 
@@ -144,9 +144,9 @@ defmodule Explorer.Mixfile do
 
   defp package do
     [
-      maintainers: ["Blockscout"],
+      maintainers: ["Explorer"],
       licenses: ["GPL 3.0"],
-      links: %{"GitHub" => "https://github.com/blockscout/blockscout"}
+      links: %{"GitHub" => "https://github.com/lux/lux"}
     ]
   end
 end

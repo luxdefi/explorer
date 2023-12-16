@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressReadProxyControllerTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.AddressReadProxyControllerTest do
+  use ExplorerWeb.ConnCase, async: true
   use ExUnit.Case, async: false
 
   alias Explorer.ExchangeRates.Token
@@ -24,7 +24,7 @@ defmodule BlockScoutWeb.AddressReadProxyControllerTest do
     end
 
     test "with invalid address hash", %{conn: conn} do
-      conn = get(conn, address_read_proxy_path(BlockScoutWeb.Endpoint, :index, "invalid_address"))
+      conn = get(conn, address_read_proxy_path(ExplorerWeb.Endpoint, :index, "invalid_address"))
 
       assert html_response(conn, 404)
     end
@@ -32,7 +32,7 @@ defmodule BlockScoutWeb.AddressReadProxyControllerTest do
     test "with valid address that is not a contract", %{conn: conn} do
       address = insert(:address)
 
-      conn = get(conn, address_read_proxy_path(BlockScoutWeb.Endpoint, :index, Address.checksum(address.hash)))
+      conn = get(conn, address_read_proxy_path(ExplorerWeb.Endpoint, :index, Address.checksum(address.hash)))
 
       assert html_response(conn, 404)
     end
@@ -55,7 +55,7 @@ defmodule BlockScoutWeb.AddressReadProxyControllerTest do
 
       request_zero_implementations()
 
-      conn = get(conn, address_read_proxy_path(BlockScoutWeb.Endpoint, :index, Address.checksum(contract_address.hash)))
+      conn = get(conn, address_read_proxy_path(ExplorerWeb.Endpoint, :index, Address.checksum(contract_address.hash)))
 
       assert html_response(conn, 200)
       assert contract_address.hash == conn.assigns.address.hash
@@ -76,7 +76,7 @@ defmodule BlockScoutWeb.AddressReadProxyControllerTest do
         block_index: 0
       )
 
-      conn = get(conn, address_read_proxy_path(BlockScoutWeb.Endpoint, :index, Address.checksum(contract_address.hash)))
+      conn = get(conn, address_read_proxy_path(ExplorerWeb.Endpoint, :index, Address.checksum(contract_address.hash)))
 
       assert html_response(conn, 404)
     end

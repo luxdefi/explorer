@@ -5,7 +5,7 @@ defmodule Explorer.Account.Notifier.Email do
 
   require Logger
 
-  alias BlockScoutWeb.WebRouter.Helpers
+  alias ExplorerWeb.WebRouter.Helpers
   alias Explorer.Account.{Identity, Watchlist, WatchlistAddress, WatchlistNotification}
   alias Explorer.Repo
 
@@ -130,7 +130,7 @@ defmodule Explorer.Account.Notifier.Email do
   end
 
   defp url_params do
-    Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url]
+    Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url]
   end
 
   defp uri do

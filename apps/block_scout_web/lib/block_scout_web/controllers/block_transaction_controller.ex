@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.BlockTransactionController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.BlockTransactionController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       paging_options: 1,
       put_key_value_to_paging_options: 3,
@@ -13,7 +13,7 @@ defmodule BlockScoutWeb.BlockTransactionController do
   import Explorer.Chain, only: [hash_to_block: 2, number_to_block: 2]
   import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
 
-  alias BlockScoutWeb.{Controller, TransactionView}
+  alias ExplorerWeb.{Controller, TransactionView}
   alias Explorer.Chain
   alias Phoenix.View
 

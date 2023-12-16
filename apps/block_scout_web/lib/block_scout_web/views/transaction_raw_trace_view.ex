@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.TransactionRawTraceView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.TransactionRawTraceView do
+  use ExplorerWeb, :view
   @dialyzer :no_match
 
   alias Explorer.Chain.InternalTransaction

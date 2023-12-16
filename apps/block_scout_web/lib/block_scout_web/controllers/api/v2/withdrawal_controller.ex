@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.API.V2.WithdrawalController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.WithdrawalController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [paging_options: 1, next_page_params: 3, split_list_by_page: 1]
 
-  import BlockScoutWeb.PagingHelper, only: [delete_parameters_from_next_page_params: 1]
+  import ExplorerWeb.PagingHelper, only: [delete_parameters_from_next_page_params: 1]
 
   alias Explorer.Chain
 

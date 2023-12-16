@@ -129,7 +129,7 @@ config :explorer, Explorer.Repo, migration_timestamps: [type: :utc_datetime_usec
 config :explorer, Explorer.Tracer,
   service: :explorer,
   adapter: SpandexDatadog.Adapter,
-  trace_key: :blockscout
+  trace_key: :lux
 
 config :explorer,
   solc_bin_api_url: "https://solc-bin.ethereum.org"

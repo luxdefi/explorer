@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<% host = APIDocsView.blockscout_url(true) %>
+<% host = APIDocsView.lux_url(true) %>
 <% date = to_string(Date.utc_today()) %>
 <% non_parameterized_urls = ["/", "/txs", "/blocks", "/accounts", "/verified-contracts", "/tokens", "/apps", "/stats", "/api-docs", "/graphiql", "/search-results", "/withdrawals", "/l2-deposits", "/l2-output-roots", "/l2-txn-batches", "/l2-withdrawals"] %>
 <% params = [paging_options: %PagingOptions{page_size: limit()}] %>

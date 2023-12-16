@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.AddressTokenBalanceControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.AddressTokenBalanceControllerTest do
+  use ExplorerWeb.ConnCase
 
   alias Explorer.Chain.Address
   alias Explorer.Factory

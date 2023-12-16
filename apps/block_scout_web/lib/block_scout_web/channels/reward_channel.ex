@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.RewardChannel do
+defmodule ExplorerWeb.RewardChannel do
   @moduledoc """
   Establishes pub/sub channel for live updates of block reward events.
   """
-  use BlockScoutWeb, :channel
+  use ExplorerWeb, :channel
 
-  alias BlockScoutWeb.TransactionView
+  alias ExplorerWeb.TransactionView
   alias Explorer.Chain
   alias Phoenix.View
 
@@ -20,7 +20,7 @@ defmodule BlockScoutWeb.RewardChannel do
   def handle_out(
         "new_reward",
         %{emission_funds: _emission_funds, validator: _validator},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       ) do
     push(socket, "new_reward", %{reward: 1})
 
@@ -28,7 +28,7 @@ defmodule BlockScoutWeb.RewardChannel do
   end
 
   def handle_out("new_reward", %{emission_funds: emission_funds, validator: validator}, socket) do
-    Gettext.put_locale(BlockScoutWeb.Gettext, socket.assigns.locale)
+    Gettext.put_locale(ExplorerWeb.Gettext, socket.assigns.locale)
 
     rendered_reward =
       View.render_to_string(

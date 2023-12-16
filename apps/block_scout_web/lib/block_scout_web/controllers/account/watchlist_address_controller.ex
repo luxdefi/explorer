@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Account.WatchlistAddressController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.WatchlistAddressController do
+  use ExplorerWeb, :controller
 
   alias Explorer.Account.WatchlistAddress
 
-  import BlockScoutWeb.Account.AuthController, only: [authenticate!: 1]
+  import ExplorerWeb.Account.AuthController, only: [authenticate!: 1]
 
   def new(conn, _params) do
     authenticate!(conn)

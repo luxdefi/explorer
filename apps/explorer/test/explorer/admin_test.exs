@@ -17,8 +17,8 @@ defmodule Explorer.AdminTest do
 
   describe "register_owner/1" do
     @valid_registration_params %{
-      username: "blockscoutuser",
-      email: "blockscoutuser@blockscout",
+      username: "luxuser",
+      email: "luxuser@lux",
       password: "password",
       password_confirmation: "password"
     }

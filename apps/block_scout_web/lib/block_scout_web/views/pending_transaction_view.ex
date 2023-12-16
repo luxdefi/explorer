@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.PendingTransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.PendingTransactionView do
+  use ExplorerWeb, :view
 
   @dialyzer :no_match
 end

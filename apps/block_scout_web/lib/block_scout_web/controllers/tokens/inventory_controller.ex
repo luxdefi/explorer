@@ -1,12 +1,12 @@
-defmodule BlockScoutWeb.Tokens.InventoryController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Tokens.InventoryController do
+  use ExplorerWeb, :controller
 
-  alias BlockScoutWeb.AccessHelper
-  alias BlockScoutWeb.Tokens.{HolderController, InventoryView}
+  alias ExplorerWeb.AccessHelper
+  alias ExplorerWeb.Tokens.{HolderController, InventoryView}
   alias Explorer.Chain
   alias Phoenix.View
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       split_list_by_page: 1,
       unique_tokens_paging_options: 1,

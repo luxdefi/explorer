@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.Tokens.OverviewViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.OverviewViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.Tokens.OverviewView
+  alias ExplorerWeb.Tokens.OverviewView
 
   describe "decimals?/1" do
     test "returns true when Token has decimals" do

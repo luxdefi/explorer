@@ -1,9 +1,9 @@
-defmodule BlockScoutWeb.Account.ApiKeyController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.Account.ApiKeyController do
+  use ExplorerWeb, :controller
 
   alias Explorer.Account.Api.Key, as: ApiKey
 
-  import BlockScoutWeb.Account.AuthController, only: [authenticate!: 1]
+  import ExplorerWeb.Account.AuthController, only: [authenticate!: 1]
 
   def new(conn, _params) do
     authenticate!(conn)

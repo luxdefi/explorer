@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Account.CustomABIView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.Account.CustomABIView do
+  use ExplorerWeb, :view
 
   alias Ecto.Changeset
   alias Explorer.Account.CustomABI

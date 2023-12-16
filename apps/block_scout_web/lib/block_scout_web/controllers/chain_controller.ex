@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.ChainController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.ChainController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain, only: [paging_options: 1]
+  import ExplorerWeb.Chain, only: [paging_options: 1]
 
-  alias BlockScoutWeb.API.V2.Helper
-  alias BlockScoutWeb.{ChainView, Controller}
+  alias ExplorerWeb.API.V2.Helper
+  alias ExplorerWeb.{ChainView, Controller}
   alias Explorer.{Chain, PagingOptions, Repo}
   alias Explorer.Chain.Address.Counters
   alias Explorer.Chain.{Address, Block, Transaction}
@@ -41,7 +41,7 @@ defmodule BlockScoutWeb.ChainController do
       transaction: transaction_history_chart_path(conn, :show)
     }
 
-    chart_config = Application.get_env(:block_scout_web, :chart)[:chart_config]
+    chart_config = Application.get_env(:explorer_web, :chart)[:chart_config]
 
     render(
       conn,
@@ -58,7 +58,7 @@ defmodule BlockScoutWeb.ChainController do
       transactions_path: recent_transactions_path(conn, :index),
       transaction_stats: transaction_stats,
       block_count: block_count,
-      gas_price: Application.get_env(:block_scout_web, :gas_price)
+      gas_price: Application.get_env(:explorer_web, :gas_price)
     )
   end
 
@@ -69,7 +69,7 @@ defmodule BlockScoutWeb.ChainController do
   def search(conn, %{"q" => query}) do
     query
     |> String.trim()
-    |> BlockScoutWeb.Chain.from_param()
+    |> ExplorerWeb.Chain.from_param()
     |> case do
       {:ok, item} ->
         redirect_search_results(conn, item)

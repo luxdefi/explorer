@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.ContractVerifyPage do
+defmodule ExplorerWeb.ContractVerifyPage do
   @moduledoc false
 
   use Wallaby.DSL

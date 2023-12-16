@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.ViewingChainTest do
+defmodule ExplorerWeb.ViewingChainTest do
   @moduledoc false
 
-  use BlockScoutWeb.FeatureCase,
+  use ExplorerWeb.FeatureCase,
     # MUST Be false because ETS tables for Counters are shared
     async: false
 
-  alias BlockScoutWeb.{AddressPage, BlockPage, ChainPage, TransactionPage}
+  alias ExplorerWeb.{AddressPage, BlockPage, ChainPage, TransactionPage}
   alias Explorer.Chain.Block
   alias Explorer.Counters.AddressesCounter
 

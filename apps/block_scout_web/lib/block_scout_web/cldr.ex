@@ -1,4 +1,4 @@
-defmodule BlockScoutWeb.Cldr do
+defmodule ExplorerWeb.Cldr do
   @moduledoc """
   Cldr global configuration.
   """
@@ -6,7 +6,7 @@ defmodule BlockScoutWeb.Cldr do
   use Cldr,
     default_locale: "en",
     locales: ["en"],
-    gettext: BlockScoutWeb.Gettext,
+    gettext: ExplorerWeb.Gettext,
     generate_docs: false,
     precompile_number_formats: ["#,###", "#,##0.##################", "#.#%", "#,##0"],
     providers: [Cldr.Number, Cldr.Unit]

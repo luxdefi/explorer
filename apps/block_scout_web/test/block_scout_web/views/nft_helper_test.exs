@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.NFTHelperTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.NFTHelperTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.NFTHelper
+  alias ExplorerWeb.NFTHelper
 
   describe "compose_ipfs_url/1" do
     test "transforms ipfs link like ipfs://${id}" do

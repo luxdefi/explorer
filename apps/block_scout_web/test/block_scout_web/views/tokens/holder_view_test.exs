@@ -1,10 +1,10 @@
-defmodule BlockScoutWeb.Tokens.HolderViewTest do
-  use BlockScoutWeb.ConnCase, async: true
+defmodule ExplorerWeb.Tokens.HolderViewTest do
+  use ExplorerWeb.ConnCase, async: true
 
-  alias BlockScoutWeb.Tokens.HolderView
+  alias ExplorerWeb.Tokens.HolderView
   alias Explorer.Chain.{Address.TokenBalance, Token}
 
-  doctest BlockScoutWeb.Tokens.HolderView, import: true
+  doctest ExplorerWeb.Tokens.HolderView, import: true
 
   describe "show_total_supply_percentage?/1" do
     test "returns false when the total supply is nil" do

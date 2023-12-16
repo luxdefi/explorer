@@ -1,18 +1,18 @@
 <section class="container">
-  <% is_proxy = BlockScoutWeb.AddressView.smart_contract_is_proxy?(@address) %>
+  <% is_proxy = ExplorerWeb.AddressView.smart_contract_is_proxy?(@address) %>
 
-  <%= render BlockScoutWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
+  <%= render ExplorerWeb.AddressView, "overview.html", address: @address, is_proxy: is_proxy, conn: @conn, exchange_rate: @exchange_rate, coin_balance_status: @coin_balance_status, counters_path: @counters_path, tags: @tags %>
 
   <section data-page="address-internal-transactions">
     <div class="card">
-      <%= render BlockScoutWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
+      <%= render ExplorerWeb.AddressView, "_tabs.html", address: @address, is_proxy: is_proxy, conn: @conn %>
       <div class="card-body" data-async-load data-async-listing="<%= @current_path %>" data-no-self-calls>
         <div data-selector="channel-batching-message" class="d-none">
           <div data-selector="reload-button" class="alert alert-info">
             <a href="#" class="alert-link"><span data-selector="channel-batching-count"></span> <%= gettext "More internal transactions have come in" %></a>
           </div>
         </div>
-        <%= render BlockScoutWeb.CommonComponentsView, "_channel_disconnected_message.html", text: gettext("Connection Lost, click to load newer internal transactions") %>
+        <%= render ExplorerWeb.CommonComponentsView, "_channel_disconnected_message.html", text: gettext("Connection Lost, click to load newer internal transactions") %>
         <div class="clearfix">
           <h2 class="card-title float-left"><%= gettext "Internal Transactions" %></h2>
           <div class="top-pagination-outer-container float-right">
@@ -42,7 +42,7 @@
                 ) %>
               </div>
             </div>
-            <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+            <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "top", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
           </div>
         </div>
 
@@ -56,12 +56,12 @@
         </div>
 
         <div data-items>
-          <%= render BlockScoutWeb.CommonComponentsView, "_tile-loader.html" %>
+          <%= render ExplorerWeb.CommonComponentsView, "_tile-loader.html" %>
         </div>
 
         <div class="transaction-bottom-panel">
-          <%= render BlockScoutWeb.CommonComponentsView, "_csv_export_button.html", address: Address.checksum(@address.hash), type: "internal-transactions", filter_type: :address, filter_value: @filter, conn: @conn %>
-          <%= render BlockScoutWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
+          <%= render ExplorerWeb.CommonComponentsView, "_csv_export_button.html", address: Address.checksum(@address.hash), type: "internal-transactions", filter_type: :address, filter_value: @filter, conn: @conn %>
+          <%= render ExplorerWeb.CommonComponentsView, "_pagination_container.html", position: "bottom", cur_page_number: "1", show_pagination_limit: true, data_next_page_button: true, data_prev_page_button: true %>
         </div>
 
       </div>

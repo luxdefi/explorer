@@ -36,7 +36,7 @@ defmodule Indexer.Block.Catchup.BoundIntervalSupervisorTest do
       on_exit(fn -> Application.put_env(:indexer, :block_ranges, initial_env) end)
     end
 
-    # See https://github.com/poanetwork/blockscout/issues/597
+    # See https://github.com/poanetwork/lux/issues/597
     @tag :no_geth
     test "starts fetching blocks from latest and goes down", %{json_rpc_named_arguments: json_rpc_named_arguments} do
       Logger.configure(truncate: :infinity)

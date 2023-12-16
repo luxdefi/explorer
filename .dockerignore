@@ -1,6 +1,6 @@
 _build
 deps
-apps/block_scout_web/assets/node_modules
+apps/explorer_web/assets/node_modules
 apps/explorer/node_modules
 test
 .git

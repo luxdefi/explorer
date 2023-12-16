@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.ZkevmController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.API.V2.ZkevmController do
+  use ExplorerWeb, :controller
 
-  import BlockScoutWeb.Chain,
+  import ExplorerWeb.Chain,
     only: [
       next_page_params: 3,
       paging_options: 1,
@@ -10,7 +10,7 @@ defmodule BlockScoutWeb.API.V2.ZkevmController do
 
   alias Explorer.Chain.Zkevm.Reader
 
-  action_fallback(BlockScoutWeb.API.V2.FallbackController)
+  action_fallback(ExplorerWeb.API.V2.FallbackController)
 
   @batch_necessity_by_association %{
     :sequence_transaction => :optional,

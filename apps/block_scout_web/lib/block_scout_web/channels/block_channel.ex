@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.BlockChannel do
+defmodule ExplorerWeb.BlockChannel do
   @moduledoc """
   Establishes pub/sub channel for live updates of block events.
   """
-  use BlockScoutWeb, :channel
+  use ExplorerWeb, :channel
 
-  alias BlockScoutWeb.API.V2.BlockView, as: BlockViewAPI
-  alias BlockScoutWeb.{BlockView, ChainView}
+  alias ExplorerWeb.API.V2.BlockView, as: BlockViewAPI
+  alias ExplorerWeb.{BlockView, ChainView}
   alias Phoenix.View
   alias Timex.Duration
 
@@ -22,7 +22,7 @@ defmodule BlockScoutWeb.BlockChannel do
   def handle_out(
         "new_block",
         %{block: block, average_block_time: average_block_time},
-        %Phoenix.Socket{handler: BlockScoutWeb.UserSocketV2} = socket
+        %Phoenix.Socket{handler: ExplorerWeb.UserSocketV2} = socket
       ) do
     rendered_block = BlockViewAPI.render("block.json", %{block: block, socket: nil})
 
@@ -35,7 +35,7 @@ defmodule BlockScoutWeb.BlockChannel do
   end
 
   def handle_out("new_block", %{block: block, average_block_time: average_block_time}, socket) do
-    Gettext.put_locale(BlockScoutWeb.Gettext, socket.assigns.locale)
+    Gettext.put_locale(ExplorerWeb.Gettext, socket.assigns.locale)
 
     rendered_block =
       View.render_to_string(

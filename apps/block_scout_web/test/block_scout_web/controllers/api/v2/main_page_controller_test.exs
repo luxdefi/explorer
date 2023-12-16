@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.V2.MainPageControllerTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.API.V2.MainPageControllerTest do
+  use ExplorerWeb.ConnCase
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Account.WatchlistAddress
   alias Explorer.Chain.{Address, Block, Transaction}
   alias Explorer.Repo

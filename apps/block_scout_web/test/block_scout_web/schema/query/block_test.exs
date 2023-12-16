@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.Schema.Query.BlockTest do
-  use BlockScoutWeb.ConnCase
+defmodule ExplorerWeb.Schema.Query.BlockTest do
+  use ExplorerWeb.ConnCase
 
   describe "block field" do
     test "with valid argument 'number', returns all expected fields", %{conn: conn} do

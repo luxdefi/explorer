@@ -63,7 +63,7 @@ defmodule Indexer.Block.Catchup.SequenceTest do
       assert Sequence.pop_front(pid) == :halt
     end
 
-    # Regression test for https://github.com/poanetwork/blockscout/issues/387
+    # Regression test for https://github.com/poanetwork/lux/issues/387
     test "ensures Sequence shuts down when parent process dies" do
       parent = self()
 

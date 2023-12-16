@@ -1,3 +1,3 @@
-defmodule BlockScoutWeb.AddressContractVerificationCommonFieldsView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.AddressContractVerificationCommonFieldsView do
+  use ExplorerWeb, :view
 end

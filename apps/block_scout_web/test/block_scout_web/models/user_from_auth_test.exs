@@ -1,7 +1,7 @@
 defmodule UserFromAuthTest do
   use Explorer.DataCase
 
-  alias BlockScoutWeb.Models.UserFromAuth
+  alias ExplorerWeb.Models.UserFromAuth
   alias Explorer.Account.Identity
   alias Explorer.Account.Watchlist
   alias Explorer.Repo
@@ -15,7 +15,7 @@ defmodule UserFromAuthTest do
         info: %Info{
           birthday: nil,
           description: nil,
-          email: "john@blockscout.com",
+          email: "john@lux.com",
           first_name: nil,
           image: "https://avatars.githubusercontent.com/u/666666=4",
           last_name: nil,
@@ -34,7 +34,7 @@ defmodule UserFromAuthTest do
 
       %{
         id: identity_id,
-        email: "john@blockscout.com",
+        email: "john@lux.com",
         name: "John Snow",
         uid: "github|666666"
       } = Identity |> first |> Repo.account_repo().one()
@@ -48,7 +48,7 @@ defmodule UserFromAuthTest do
       assert {:ok,
               %{
                 avatar: "https://avatars.githubusercontent.com/u/666666=4",
-                email: "john@blockscout.com",
+                email: "john@lux.com",
                 id: ^identity_id,
                 name: "John Snow",
                 nickname: "johnnny",
@@ -62,7 +62,7 @@ defmodule UserFromAuthTest do
         info: %Info{
           birthday: nil,
           description: nil,
-          email: "john@blockscout.com",
+          email: "john@lux.com",
           first_name: "John",
           image: "https://lh3.googleusercontent.com/a/xxx666-yyy777=s99-c",
           last_name: "Snow",
@@ -81,7 +81,7 @@ defmodule UserFromAuthTest do
 
       %{
         id: identity_id,
-        email: "john@blockscout.com",
+        email: "john@lux.com",
         name: "John Snow",
         uid: "google-oauth2|666666"
       } = Identity |> first |> Repo.account_repo().one()
@@ -95,7 +95,7 @@ defmodule UserFromAuthTest do
       assert {:ok,
               %{
                 avatar: "https://lh3.googleusercontent.com/a/xxx666-yyy777=s99-c",
-                email: "john@blockscout.com",
+                email: "john@lux.com",
                 id: ^identity_id,
                 name: "John Snow",
                 nickname: "johnnny",

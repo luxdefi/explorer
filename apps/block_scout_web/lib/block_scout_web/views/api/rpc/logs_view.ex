@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.RPC.LogsView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.RPC.LogsView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.RPC.RPCView
+  alias ExplorerWeb.API.RPC.RPCView
 
   def render("getlogs.json", %{logs: logs}) do
     data = Enum.map(logs, &prepare_log/1)

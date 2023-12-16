@@ -1,7 +1,7 @@
-defmodule BlockScoutWeb.API.RPC.TransactionView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.API.RPC.TransactionView do
+  use ExplorerWeb, :view
 
-  alias BlockScoutWeb.API.RPC.RPCView
+  alias ExplorerWeb.API.RPC.RPCView
 
   def render("gettxinfo.json", %{
         transaction: transaction,

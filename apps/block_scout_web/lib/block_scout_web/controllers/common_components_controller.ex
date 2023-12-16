@@ -1,5 +1,5 @@
-defmodule BlockScoutWeb.CommonComponentsController do
-  use BlockScoutWeb, :controller
+defmodule ExplorerWeb.CommonComponentsController do
+  use ExplorerWeb, :controller
 
   def index(conn, params) do
     []

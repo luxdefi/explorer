@@ -1,10 +1,10 @@
 defmodule Explorer.SmartContract.EthBytecodeDBInterface do
   @moduledoc """
-    Adapter for interaction with https://github.com/blockscout/blockscout-rs/tree/main/eth-bytecode-db
+    Adapter for interaction with https://github.com/lux/lux-rs/tree/main/eth-bytecode-db
   """
 
   def search_contract(%{"bytecode" => _, "bytecodeType" => _} = body, address_hash) do
-    if chain_id = Application.get_env(:block_scout_web, :chain_id) do
+    if chain_id = Application.get_env(:explorer_web, :chain_id) do
       http_post_request(
         bytecode_search_all_sources_url(),
         Map.merge(body, %{

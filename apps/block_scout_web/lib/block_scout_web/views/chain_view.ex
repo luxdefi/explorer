@@ -1,11 +1,11 @@
-defmodule BlockScoutWeb.ChainView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.ChainView do
+  use ExplorerWeb, :view
 
   require Decimal
   import Number.Currency, only: [number_to_currency: 2]
-  import BlockScoutWeb.API.V2.Helper, only: [market_cap: 2]
+  import ExplorerWeb.API.V2.Helper, only: [market_cap: 2]
 
-  alias BlockScoutWeb.LayoutView
+  alias ExplorerWeb.LayoutView
   alias Explorer.Chain.Cache.GasPriceOracle
 
   def format_usd_value(nil), do: ""

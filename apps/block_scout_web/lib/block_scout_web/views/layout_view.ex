@@ -1,39 +1,39 @@
-defmodule BlockScoutWeb.LayoutView do
-  use BlockScoutWeb, :view
+defmodule ExplorerWeb.LayoutView do
+  use ExplorerWeb, :view
 
   alias EthereumJSONRPC.Variant
   alias Explorer.Chain
   alias Poison.Parser
 
-  import BlockScoutWeb.APIDocsView, only: [blockscout_url: 1]
+  import ExplorerWeb.APIDocsView, only: [lux_url: 1]
 
   @default_other_networks [
     %{
       title: "POA",
-      url: "https://blockscout.com/poa/core"
+      url: "https://lux.com/poa/core"
     },
     %{
       title: "Sokol",
-      url: "https://blockscout.com/poa/sokol",
+      url: "https://lux.com/poa/sokol",
       test_net?: true
     },
     %{
       title: "Gnosis Chain",
-      url: "https://blockscout.com/xdai/mainnet"
+      url: "https://lux.com/xdai/mainnet"
     },
     %{
       title: "Ethereum Classic",
-      url: "https://blockscout.com/etc/mainnet",
+      url: "https://lux.com/etc/mainnet",
       other?: true
     },
     %{
       title: "RSK",
-      url: "https://blockscout.com/rsk/mainnet",
+      url: "https://lux.com/rsk/mainnet",
       other?: true
     }
   ]
 
-  alias BlockScoutWeb.SocialMedia
+  alias ExplorerWeb.SocialMedia
 
   def logo do
     Keyword.get(application_config(), :logo)
@@ -56,7 +56,7 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   defp application_config do
-    Application.get_env(:block_scout_web, BlockScoutWeb.Chain)
+    Application.get_env(:explorer_web, ExplorerWeb.Chain)
   end
 
   def configured_social_media_services do
@@ -77,23 +77,23 @@ defmodule BlockScoutWeb.LayoutView do
       "elixir-version": "Elixir #{System.version()} Erlang/OTP #{System.otp_release()}",
       "os-version": "#{os_family} #{os_name}",
       "archive-node-type": Variant.get(),
-      "additional-information": "The issue happened at #{subnetwork_title()} Blockscout instance"
+      "additional-information": "The issue happened at #{subnetwork_title()} Explorer instance"
     ]
 
-    issue_url = "#{Application.get_env(:block_scout_web, :footer)[:github_link]}/issues/new"
+    issue_url = "#{Application.get_env(:explorer_web, :footer)[:github_link]}/issues/new"
 
     [issue_url, "?", URI.encode_query(params)]
   end
 
   def version do
-    BlockScoutWeb.version()
+    ExplorerWeb.version()
   end
 
   def release_link(""), do: ""
   def release_link(nil), do: ""
 
   def release_link(version) do
-    release_link_env_var = Application.get_env(:block_scout_web, :release_link)
+    release_link_env_var = Application.get_env(:explorer_web, :release_link)
 
     release_link =
       if release_link_env_var == "" || release_link_env_var == nil do
@@ -106,7 +106,7 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   def release_link_from_version(version) do
-    repo = "https://github.com/blockscout/blockscout"
+    repo = "https://github.com/lux/lux"
 
     if String.contains?(version, "+commit.") do
       commit_hash =
@@ -125,9 +125,9 @@ defmodule BlockScoutWeb.LayoutView do
 
   def other_networks do
     get_other_networks =
-      if Application.get_env(:block_scout_web, :other_networks) do
+      if Application.get_env(:explorer_web, :other_networks) do
         try do
-          :block_scout_web
+          :explorer_web
           |> Application.get_env(:other_networks)
           |> Parser.parse!(%{keys: :atoms!})
         rescue
@@ -184,8 +184,8 @@ defmodule BlockScoutWeb.LayoutView do
 
   @spec other_explorers() :: map()
   def other_explorers do
-    if Application.get_env(:block_scout_web, :footer)[:link_to_other_explorers] do
-      decode_other_explorers_json(Application.get_env(:block_scout_web, :footer)[:other_explorers])
+    if Application.get_env(:explorer_web, :footer)[:link_to_other_explorers] do
+      decode_other_explorers_json(Application.get_env(:explorer_web, :footer)[:other_explorers])
     else
       %{}
     end
@@ -201,7 +201,7 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   def webapp_url(conn) do
-    :block_scout_web
+    :explorer_web
     |> Application.get_env(:webapp_url)
     |> validate_url()
     |> case do
@@ -211,7 +211,7 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   def api_url do
-    :block_scout_web
+    :explorer_web
     |> Application.get_env(:api_url)
     |> validate_url()
     |> case do
@@ -221,7 +221,7 @@ defmodule BlockScoutWeb.LayoutView do
   end
 
   def apps_list do
-    apps = Application.get_env(:block_scout_web, :apps)
+    apps = Application.get_env(:explorer_web, :apps)
 
     if apps do
       try do
@@ -249,13 +249,13 @@ defmodule BlockScoutWeb.LayoutView do
     if Mix.env() == :test do
       "/auth/auth0"
     else
-      Application.get_env(:block_scout_web, BlockScoutWeb.Endpoint)[:url][:path] <> "/auth/auth0"
+      Application.get_env(:explorer_web, ExplorerWeb.Endpoint)[:url][:path] <> "/auth/auth0"
     end
   end
 
   def sign_out_link do
     client_id = Application.get_env(:ueberauth, Ueberauth.Strategy.Auth0.OAuth)[:client_id]
-    return_to = blockscout_url(true) <> "/auth/logout"
+    return_to = lux_url(true) <> "/auth/logout"
     logout_url = Application.get_env(:ueberauth, Ueberauth)[:logout_url]
 
     if client_id && return_to && logout_url do
